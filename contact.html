@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Get in touch with Silicom Electronics — Components: +91 9810 029 582 · Instruments: +91 9810 045 234 · info@silicomindia.com · C-26 DSIDC Complex, Kirti Nagar, New Delhi 110015." />
+<meta name="author" content="Silicom Electronics Pvt. Ltd." />
+<meta name="theme-color" content="#06b6d4" />
+<link rel="canonical" href="https://www.silicomindia.com/contact.html" />
+<link rel="icon" type="image/png" href="assets/silicom-logo-mark.png" />
+<link rel="apple-touch-icon" href="assets/silicom-logo-mark.png" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Silicom Electronics" />
+<meta property="og:title" content="Contact — Silicom Electronics" />
+<meta property="og:description" content="Get in touch with Silicom Electronics — Components: +91 9810 029 582 · Instruments: +91 9810 045 234 · info@silicomindia.com · C-26 DSIDC Complex, Kirti Nagar, New Delhi 110015." />
+<meta property="og:url" content="https://www.silicomindia.com/contact.html" />
+<meta property="og:image" content="https://www.silicomindia.com/assets/silicom-logo-full.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>Contact — Silicom Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  :root { --font-display: "Inter Tight", "Inter", system-ui, sans-serif; }
+
+  .form-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--gap-grid);
+  }
+  .contact-form {
+    padding: var(--pad-card-lg);
+    border-radius: var(--r-xl);
+    display: grid;
+    gap: 16px;
+  }
+  .field { display: grid; gap: 6px; }
+  .field label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    font: inherit;
+    color: var(--ink-1);
+    padding: 14px 16px;
+    border-radius: var(--r-md);
+    background: var(--glass-bg-soft);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    font-size: 15px;
+  }
+  .field textarea { min-height: 130px; resize: vertical; font-family: inherit; }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
+    background: var(--glass-bg-strong);
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field-error { color: #c33; font-size: 12.5px; min-height: 1em; }
+  .division-toggle {
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding: 4px;
+    border-radius: var(--r-pill);
+    background: var(--glass-bg-soft);
+    border: 1px solid var(--glass-border);
+    gap: 4px;
+  }
+  .division-toggle label {
+    padding: 10px 14px;
+    border-radius: var(--r-pill);
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: inherit;
+  }
+  .division-toggle input { display: none; }
+  .division-toggle input:checked + label {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: white;
+  }
+
+  .info-card {
+    padding: var(--pad-card-lg);
+    border-radius: var(--r-xl);
+    display: grid;
+    gap: 22px;
+    align-content: start;
+  }
+  .info-row {
+    display: grid; grid-template-columns: 40px 1fr;
+    gap: 14px; align-items: start;
+  }
+  .info-icon {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 22%, white), color-mix(in oklab, var(--accent-2) 16%, white));
+    border: 1px solid var(--glass-border);
+    display: grid; place-items: center;
+    color: var(--accent-ink);
+  }
+  [data-theme="dark"] .info-icon {
+    color: white;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 32%, transparent), color-mix(in oklab, var(--accent-2) 22%, transparent));
+  }
+  .info-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .info-value { font-size: 15px; font-weight: 500; }
+  .info-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+
+  .success-banner {
+    padding: 18px;
+    border-radius: var(--r-md);
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 22%, white), color-mix(in oklab, var(--accent-2) 14%, white));
+    border: 1px solid var(--glass-border);
+    display: flex; gap: 12px; align-items: center;
+    color: var(--accent-ink);
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+  }
+  .success-banner.show { display: flex; }
+  [data-theme="dark"] .success-banner {
+    color: white;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, transparent), color-mix(in oklab, var(--accent-2) 22%, transparent));
+  }
+
+  @media (max-width: 980px) {
+    .form-wrap { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Google Analytics (replace G-XXXXXXXXXX with your real GA4 measurement ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body data-screen-label="Contact">
+
+<div class="bg-mesh"></div>
+
+<div class="nav-shell">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-brand" href="index.html">
+      <span class="nav-brand-mark"></span>
+      <span>Silicom <span style="color:var(--ink-3);font-weight:500">Electronics</span></span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a class="nav-link" data-route="index.html" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="instruments.html" href="instruments.html">Instruments</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="components.html" href="components.html">Components</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="brands.html" href="brands.html">Brands</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="about.html" href="about.html">About</a></li>
+    </ul>
+    <button class="nav-theme-toggle" aria-label="Toggle theme"></button>
+    <a class="nav-cta active" href="contact.html">
+      Get in touch
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </nav>
+</div>
+
+<section class="hero">
+  <div class="container hero-stack">
+    <div class="reveal">
+      <span class="hero-tag">
+        <span class="hero-tag-badge">CONTACT</span>
+        Components &amp; Instruments — Two divisions, one team
+      </span>
+    </div>
+    <h1 class="h1 reveal" style="max-width:18ch">
+      <span class="hero-grad">Get in touch</span> with Silicom Electronics.
+    </h1>
+    <p class="lede reveal">
+      Tell us what you're building. Our technical sales engineers will get back to you within one working day with a quote, demo schedule or product application guidance.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="form-wrap">
+      <!-- FORM -->
+      <form class="contact-form glass reveal" id="contact-form" action="mailto:info@silicomindia.com" method="POST" enctype="text/plain" novalidate>
+        <div class="success-banner" id="success-banner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          <span>Thanks — we've logged your enquiry. We'll be in touch within one working day.</span>
+        </div>
+
+        <div class="field">
+          <label>Which division?</label>
+          <div class="division-toggle">
+            <input type="radio" name="division" id="div-instruments" value="instruments" checked />
+            <label for="div-instruments">Instruments (T&amp;M)</label>
+            <input type="radio" name="division" id="div-components" value="components" />
+            <label for="div-components">Components</label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your name *</label>
+            <input id="name" name="name" type="text" required placeholder="Full name" />
+            <div class="field-error" data-error-for="name"></div>
+          </div>
+          <div class="field">
+            <label for="company">Company *</label>
+            <input id="company" name="company" type="text" required placeholder="Organization" />
+            <div class="field-error" data-error-for="company"></div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required placeholder="you@company.com" />
+            <div class="field-error" data-error-for="email"></div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91 ..." />
+            <div class="field-error" data-error-for="phone"></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="topic">What can we help with?</label>
+          <select id="topic" name="topic">
+            <option>Request a product demo</option>
+            <option>Submit a BOM / RFQ</option>
+            <option>Tender / GeM enquiry</option>
+            <option>Become a brand partner</option>
+            <option>Technical / application support</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required placeholder="Part numbers, quantities, application, deadlines…"></textarea>
+          <div class="field-error" data-error-for="message"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-arrow" style="justify-self:start">
+          Send enquiry
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="contact-fallback">
+          This static site opens your email app with the enquiry filled in. You can also email
+          <a href="mailto:info@silicomindia.com" style="font-weight:700;color:var(--accent-ink)">info@silicomindia.com</a>
+          directly.
+        </div>
+        <p class="muted" style="font-size:12.5px">By sending you agree to be contacted by Silicom Electronics. We don't share your details.</p>
+      </form>
+
+      <!-- INFO -->
+      <div class="info-card glass reveal">
+        <div>
+          <div class="eyebrow"><span class="dot"></span>Direct lines</div>
+          <h3 class="h3" style="margin-top:10px">Talk to a division</h3>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M5 12h2l1.5-3 3 6 1.5-3h2l1 2h3"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Instruments Division</div>
+            <a class="info-value" href="tel:+919810045234">+91 9810 045 234</a>
+            <div class="info-sub">Mr. Chandeep Singh — Director (TMI)</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v4M12 2v4M15 2v4M9 18v4M12 18v4M15 18v4M2 9h4M2 12h4M2 15h4M18 9h4M18 12h4M18 15h4"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Components Division</div>
+            <a class="info-value" href="tel:+919810029582">+91 9810 029 582</a>
+            <div class="info-sub" style="margin-bottom:4px">Mr. Suneet Dargan — Director (Components)</div>
+            <a class="info-sub" href="tel:+919911419582">+91 9911 419 582</a>
+          </div>
+        </div>
+
+        <div class="hairline"></div>
+
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Email</div>
+            <a class="info-value" href="mailto:info@silicomindia.com">info@silicomindia.com</a>
+            <a class="info-sub" href="mailto:suneet@silicomindia.com">suneet@silicomindia.com</a>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Office</div>
+            <div class="info-value">C-26 DSIDC Complex</div>
+            <div class="info-sub">Kirti Nagar, New Delhi 110015 · India</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Hours</div>
+            <div class="info-value">Mon – Sat · 9:30 AM – 6:30 PM IST</div>
+            <div class="info-sub">Closed on Sundays &amp; national holidays</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="chip">ISO 9001:2015</span>
+          <span class="chip">GeM Assessed</span>
+          <span class="chip">www.silicomindia.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE STRIP -->
+<section class="section-tight">
+  <div class="container">
+    <div class="glass reveal" style="padding:var(--pad-card);display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;border-radius:var(--r-lg)">
+      <div class="info-icon" style="width:44px;height:44px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:600">Pan-India sales coverage</div>
+        <div class="muted" style="font-size:13.5px;margin-top:2px">NCR, Punjab, Haryana, Uttarakhand, Himachal, Jammu, Bangalore, Hyderabad &amp; Gujarat — backed by 20+ employees and 30 years on the ground.</div>
+      </div>
+      <a class="btn btn-glass btn-arrow" href="about.html">
+        See coverage
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-brand" style="margin-bottom:14px">
+          <span class="nav-brand-mark"></span>
+          <span>Silicom <span style="color:var(--ink-3);font-weight:500">Electronics</span></span>
+        </div>
+        <p class="muted" style="font-size:13.5px;max-width:34ch">Trusted partner in components and test &amp; measurement equipment supply, since 1994.</p>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <span class="chip">ISO 9001:2015</span>
+          <span class="chip">GeM Assessed</span>
+        </div>
+      </div>
+      <div><h4>Instruments</h4><ul>
+        <li><a href="instruments.html#oscilloscopes">Oscilloscopes</a></li>
+        <li><a href="instruments.html#power">Power &amp; Loads</a></li>
+        <li><a href="instruments.html#rf">RF &amp; Spectrum</a></li>
+        <li><a href="instruments.html#production">Production Test</a></li>
+      </ul></div>
+      <div><h4>Components</h4><ul>
+        <li><a href="components.html#mosfets">MOSFETs &amp; SiC</a></li>
+        <li><a href="components.html#diodes">Diodes</a></li>
+        <li><a href="components.html#protection">Protection</a></li>
+        <li><a href="components.html#passives">Passives</a></li>
+      </ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="brands.html">Brand partners</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:info@silicomindia.com">info@silicomindia.com</a></li>
+        </ul>
+        <h4 style="margin-top:18px">Downloads</h4>
+        <ul>
+          <li><a href="assets/Silicom-LineCard-2026.pdf" download>Line Card 2026 (PDF)</a></li>
+          <li><a href="assets/Silicom-Company-Profile-2026.pdf" download>Company Profile (PDF)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 1994–2026 Silicom Electronics Pvt. Ltd. All rights reserved.</span>
+      <span>C-26 DSIDC Complex, Kirti Nagar, New Delhi 110015</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+  (function() {
+    const form = document.getElementById("contact-form");
+    const banner = document.getElementById("success-banner");
+    const showError = (name, msg) => {
+      const el = form.querySelector(`[data-error-for="${name}"]`);
+      if (el) el.textContent = msg || "";
+    };
+    const validate = () => {
+      let ok = true;
+      const f = form;
+      ["name","company","email","message"].forEach(n => showError(n, ""));
+      if (!f.name.value.trim()) { showError("name", "Required"); ok = false; }
+      if (!f.company.value.trim()) { showError("company", "Required"); ok = false; }
+      const email = f.email.value.trim();
+      if (!email) { showError("email", "Required"); ok = false; }
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError("email", "Enter a valid email"); ok = false; }
+      if (!f.message.value.trim()) { showError("message", "Tell us a bit more"); ok = false; }
+      return ok;
+    };
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn.innerHTML;
+      const data = new FormData(form);
+      const division = data.get("division") || "general";
+      const subject = encodeURIComponent(`Silicom enquiry - ${division}`);
+      const body = encodeURIComponent(
+        `Name: ${data.get("name")}\n` +
+        `Company: ${data.get("company")}\n` +
+        `Email: ${data.get("email")}\n` +
+        `Phone: ${data.get("phone") || ""}\n` +
+        `Division: ${division}\n` +
+        `Topic: ${data.get("topic")}\n\n` +
+        `${data.get("message")}`
+      );
+      submitBtn.innerHTML = "Opening email...";
+      window.location.href = `mailto:info@silicomindia.com?subject=${subject}&body=${body}`;
+      banner.classList.add("show");
+      setTimeout(() => {
+        banner.classList.remove("show");
+        submitBtn.innerHTML = originalLabel;
+      }, 4000);
+    });
+    // Live-clear
+    form.querySelectorAll("input,textarea").forEach(el => {
+      el.addEventListener("input", () => showError(el.name, ""));
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "silicom-site",
+  "private": true,
+  "scripts": {
+    "remove-bgs": "node scripts/remove-backgrounds.mjs"
+  },
+  "dependencies": {
+    "@imgly/background-removal-node": "^1.4.5"
+  }
+}

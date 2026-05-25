@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Founded in 1994, Silicom Electronics is India's trusted electronics distributor. ISO 9001:2015 certified, GeM assessed, with 30+ years of presence across NCR, North India and South India electronics manufacturing clusters." />
+<meta name="author" content="Silicom Electronics Pvt. Ltd." />
+<meta name="theme-color" content="#06b6d4" />
+<link rel="canonical" href="https://www.silicomindia.com/about.html" />
+<link rel="icon" type="image/png" href="assets/silicom-logo-mark.png" />
+<link rel="apple-touch-icon" href="assets/silicom-logo-mark.png" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Silicom Electronics" />
+<meta property="og:title" content="About — Silicom Electronics" />
+<meta property="og:description" content="Founded in 1994, Silicom Electronics is India's trusted electronics distributor. ISO 9001:2015 certified, GeM assessed, with 30+ years of presence across NCR, North India and South India electronics manufacturing clusters." />
+<meta property="og:url" content="https://www.silicomindia.com/about.html" />
+<meta property="og:image" content="https://www.silicomindia.com/assets/silicom-logo-full.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>About — Silicom Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  :root { --font-display: "Inter Tight", "Inter", system-ui, sans-serif; }
+  .timeline {
+    display: grid; gap: 0;
+    position: relative;
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 28px;
+    padding: 22px 0;
+    border-top: 1px solid var(--hairline);
+    align-items: start;
+  }
+  .timeline-row:first-child { border-top: 0; }
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent-ink), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  [data-theme="dark"] .timeline-year {
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 70%, white), color-mix(in oklab, var(--accent-2) 70%, white));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .timeline-title { font-size: 17px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .timeline-desc { font-size: 14.5px; color: var(--ink-3); line-height: 1.55; max-width: 60ch; }
+
+  .leader-card {
+    padding: var(--pad-card);
+    border-radius: var(--r-lg);
+    display: grid;
+    gap: 16px;
+  }
+  .leader-avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, white), color-mix(in oklab, var(--accent-2) 22%, white));
+    border: 1px solid var(--glass-border);
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--accent-ink);
+    letter-spacing: -0.03em;
+  }
+  [data-theme="dark"] .leader-avatar {
+    color: white;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 35%, transparent), color-mix(in oklab, var(--accent-2) 28%, transparent));
+  }
+
+  @media (max-width: 640px) {
+    .timeline-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+<!-- Google Analytics (replace G-XXXXXXXXXX with your real GA4 measurement ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body data-screen-label="About">
+
+<div class="bg-mesh"></div>
+
+<div class="nav-shell">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-brand" href="index.html">
+      <span class="nav-brand-mark"></span>
+      <span>Silicom <span style="color:var(--ink-3);font-weight:500">Electronics</span></span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a class="nav-link" data-route="index.html" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="instruments.html" href="instruments.html">Instruments</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="components.html" href="components.html">Components</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="brands.html" href="brands.html">Brands</a></li>
+      <li class="nav-item"><a class="nav-link active" data-route="about.html" href="about.html">About</a></li>
+    </ul>
+    <button class="nav-theme-toggle" aria-label="Toggle theme"></button>
+    <a class="nav-cta" href="contact.html">
+      Get in touch
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </nav>
+</div>
+
+<section class="hero">
+  <div class="container hero-stack">
+    <div class="reveal">
+      <span class="hero-tag">
+        <span class="hero-tag-badge">SINCE 1994</span>
+        Family-run · ISO 9001:2015 · GeM Assessed
+      </span>
+    </div>
+    <h1 class="h1 reveal" style="max-width:18ch">
+      Three decades building <span class="hero-grad">trust</span> with India's electronics industry.
+    </h1>
+    <p class="lede reveal">
+      Incepted in the mid-90s, Silicom Electronics Pvt. Ltd. has grown into a pioneering name
+      in the distribution of high-quality test &amp; measurement instruments and electronic
+      components — supporting R&amp;D, QA and production teams across the country.
+    </p>
+
+    <div class="hero-stats reveal" style="grid-template-columns:repeat(4,1fr)">
+      <div class="hero-stat"><div class="hero-stat-num">1994</div><div class="hero-stat-label">Founded in New Delhi</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">Employees</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Specialised divisions</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">16</div><div class="hero-stat-label">Authorized brand partners</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Why customers choose Silicom</div>
+        <h2 class="h2" style="margin-top:12px">A distribution partner that knows the engineering side of the desk.</h2>
+      </div>
+    </div>
+    <div class="segments-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="glass reveal" style="padding:var(--pad-card);display:grid;gap:12px;min-height:220px">
+        <div class="segment-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3 class="h3">30+ years in market</h3>
+        <p class="muted" style="font-size:14px">Established relationships with manufacturing &amp; engineering organizations across India — built one delivery, one demo, one lab visit at a time.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card);display:grid;gap:12px;min-height:220px">
+        <div class="segment-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3 class="h3">Direct EMS access</h3>
+        <p class="muted" style="font-size:14px">Direct engagement with EMS companies, automotive electronics suppliers, telecom equipment manufacturers and industrial electronics firms.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card);display:grid;gap:12px;min-height:220px">
+        <div class="segment-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 class="h3">Manufacturing cluster presence</h3>
+        <p class="muted" style="font-size:14px">Active sales coverage across NCR, Baddi, Haridwar, Roorkee and the surrounding industrial belt — where the work actually gets built.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card);display:grid;gap:12px;min-height:220px">
+        <div class="segment-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M6 10h2v6H6zM10 10h6M10 14h4M14 18h4"/></svg></div>
+        <h3 class="h3">Production-line experience</h3>
+        <p class="muted" style="font-size:14px">Portfolio includes custom test systems for transformer manufacturing, cable harness testing and electronics assembly — not just bench instruments.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card);display:grid;gap:12px;min-height:220px">
+        <div class="segment-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3 7-7M22 12v7a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h3 class="h3">Technical sales support</h3>
+        <p class="muted" style="font-size:14px">Dedicated technical sales engineers who can run a demo on-site, talk through application notes, and answer the awkward measurement question.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card);display:grid;gap:12px;min-height:220px">
+        <div class="segment-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V8l9-5 9 5v13M9 21V12h6v9"/></svg></div>
+        <h3 class="h3">Tender &amp; institutional access</h3>
+        <p class="muted" style="font-size:14px">Strong experience with government institutions, PSUs and research labs through tender procurement — active on GeM since inception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Our journey</div>
+        <h2 class="h2" style="margin-top:12px">From a single-brand distributor to a multi-division supply partner.</h2>
+      </div>
+    </div>
+    <div class="glass reveal" style="padding:var(--pad-card-lg)">
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="timeline-year">1994</div>
+          <div>
+            <div class="timeline-title">Silicom Electronics is incepted in New Delhi</div>
+            <div class="timeline-desc">A small distribution office in Kirti Nagar, set up to bring quality test instruments and components to local manufacturers.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-year">2000s</div>
+          <div>
+            <div class="timeline-title">Authorized distribution for global T&amp;M brands</div>
+            <div class="timeline-desc">Tektronix, then Microtest and others — Silicom becomes the go-to partner for oscilloscopes, hipot &amp; transformer testers in North India.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-year">2010s</div>
+          <div>
+            <div class="timeline-title">Components division spins up</div>
+            <div class="timeline-desc">Adding semiconductors, MOSFETs, diodes, TVS, MLCCs and protection devices — a second division supporting EMS and automotive electronics customers.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-year">2017</div>
+          <div>
+            <div class="timeline-title">ISO 9001:2015 certified · GeM assessed</div>
+            <div class="timeline-desc">Process compliance for institutional and PSU customers. Active on the Government e-Marketplace platform since its inception.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-year">2020s</div>
+          <div>
+            <div class="timeline-title">EV, GaN &amp; SiC focus</div>
+            <div class="timeline-desc">Expanding the components portfolio with wide-bandgap power, EV-specific fuses and chargers — supporting India's electrification push.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-year">Today</div>
+          <div>
+            <div class="timeline-title">Authorized brand partners · pan-India coverage</div>
+            <div class="timeline-desc">Two specialised divisions, 20+ employees, and a technical sales force covering the North India electronics belt and key clusters in the South.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Leadership</div>
+        <h2 class="h2" style="margin-top:12px">The directors behind each division.</h2>
+      </div>
+    </div>
+    <div class="spotlight">
+      <div class="leader-card glass reveal">
+        <div style="display:flex;gap:18px;align-items:center">
+          <div class="leader-avatar">SD</div>
+          <div>
+            <div style="font-size:20px;font-weight:600;letter-spacing:-0.02em">Mr. Suneet Dargan</div>
+            <div class="muted" style="font-size:13.5px">Director — Components Division</div>
+          </div>
+        </div>
+        <p class="muted" style="font-size:14px">Heads the components division — sourcing semiconductors, passives and protection devices from leading global manufacturers and supporting EMS &amp; automotive customers across North India.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> +91 9911 419 582</span>
+          <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> suneet@silicomindia.com</span>
+        </div>
+      </div>
+
+      <div class="leader-card glass reveal">
+        <div style="display:flex;gap:18px;align-items:center">
+          <div class="leader-avatar" style="background:linear-gradient(135deg,color-mix(in oklab,var(--accent-2) 30%,white),color-mix(in oklab,var(--accent) 22%,white))">CS</div>
+          <div>
+            <div style="font-size:20px;font-weight:600;letter-spacing:-0.02em">Mr. Chandeep Singh</div>
+            <div class="muted" style="font-size:13.5px">Director — Test &amp; Measurement Instruments</div>
+          </div>
+        </div>
+        <p class="muted" style="font-size:14px">Heads the instruments division — running technical sales for Tektronix, Microtest, UNI-T and Scientific, with a focus on R&amp;D labs, PSU tenders and production-line test systems.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> +91 9810 045 234</span>
+          <span class="pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> info@silicomindia.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE OFFER -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>What we offer global manufacturers</div>
+        <h2 class="h2" style="margin-top:12px">Helping international brands establish &amp; expand in India.</h2>
+      </div>
+    </div>
+    <div class="segments-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="glass reveal" style="padding:var(--pad-card-lg);display:grid;gap:12px">
+        <div class="eyebrow"><span class="dot"></span>Global brand representation</div>
+        <h3 class="h3">Strong relationships across electronics manufacturing</h3>
+        <p class="muted" style="font-size:14.5px">Silicom represents leading global brands. With strong relationships across electronics manufacturing companies, engineering teams and research institutions, we help international manufacturers establish and expand their presence in the Indian electronics market.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card-lg);display:grid;gap:12px">
+        <div class="eyebrow"><span class="dot"></span>Dedicated technical support</div>
+        <h3 class="h3">India-based sales engineers, on call</h3>
+        <p class="muted" style="font-size:14.5px">Our India-based technical sales team supports partners through product demonstrations, application guidance and engagement with engineering and production teams — enabling effective adoption of new technologies across R&amp;D labs and manufacturing environments.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card-lg);display:grid;gap:12px">
+        <div class="eyebrow"><span class="dot"></span>Market development</div>
+        <h3 class="h3">Built-in industry access</h3>
+        <p class="muted" style="font-size:14.5px">We work with electronics manufacturing services companies, automotive electronics suppliers, telecom equipment manufacturers, power electronics companies and research institutions — supporting both engineering development and production testing applications.</p>
+      </div>
+      <div class="glass reveal" style="padding:var(--pad-card-lg);display:grid;gap:12px">
+        <div class="eyebrow"><span class="dot"></span>Tender &amp; institutional</div>
+        <h3 class="h3">GeM-listed since inception</h3>
+        <p class="muted" style="font-size:14.5px">Strong experience working with government institutions, PSUs and research laboratories through tender-based procurement. We are GeM assessed and have been active on the Government e-Marketplace platform since its inception.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="glass reveal" style="padding:clamp(36px,5vw,72px);border-radius:var(--r-xl);text-align:center;display:grid;gap:18px;justify-items:center;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:-30% -10% auto auto;width:50%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklab,var(--accent) 50%,transparent),transparent 70%);filter:blur(60px);pointer-events:none"></div>
+      <div style="position:absolute;inset:auto auto -30% -10%;width:50%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklab,var(--accent-2) 50%,transparent),transparent 70%);filter:blur(60px);pointer-events:none"></div>
+      <h2 class="h2" style="position:relative;max-width:24ch">Let's collaborate.</h2>
+      <p class="lede" style="position:relative">Whether you're a manufacturer evaluating instruments or a global brand exploring the Indian market — we'd love to hear from you.</p>
+      <div class="hero-actions" style="position:relative">
+        <a class="btn btn-primary btn-arrow" href="contact.html">
+          Contact us
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-brand" style="margin-bottom:14px">
+          <span class="nav-brand-mark"></span>
+          <span>Silicom <span style="color:var(--ink-3);font-weight:500">Electronics</span></span>
+        </div>
+        <p class="muted" style="font-size:13.5px;max-width:34ch">Trusted partner in components and test &amp; measurement equipment supply, since 1994.</p>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <span class="chip">ISO 9001:2015</span>
+          <span class="chip">GeM Assessed</span>
+        </div>
+      </div>
+      <div><h4>Instruments</h4><ul>
+        <li><a href="instruments.html#oscilloscopes">Oscilloscopes</a></li>
+        <li><a href="instruments.html#power">Power &amp; Loads</a></li>
+        <li><a href="instruments.html#rf">RF &amp; Spectrum</a></li>
+        <li><a href="instruments.html#production">Production Test</a></li>
+      </ul></div>
+      <div><h4>Components</h4><ul>
+        <li><a href="components.html#mosfets">MOSFETs &amp; SiC</a></li>
+        <li><a href="components.html#diodes">Diodes</a></li>
+        <li><a href="components.html#protection">Protection</a></li>
+        <li><a href="components.html#passives">Passives</a></li>
+      </ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="brands.html">Brand partners</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:info@silicomindia.com">info@silicomindia.com</a></li>
+        </ul>
+        <h4 style="margin-top:18px">Downloads</h4>
+        <ul>
+          <li><a href="assets/Silicom-LineCard-2026.pdf" download>Line Card 2026 (PDF)</a></li>
+          <li><a href="assets/Silicom-Company-Profile-2026.pdf" download>Company Profile (PDF)</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 1994–2026 Silicom Electronics Pvt. Ltd. All rights reserved.</span>
+      <span>C-26 DSIDC Complex, Kirti Nagar, New Delhi 110015</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
