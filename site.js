@@ -5,11 +5,12 @@
     "theme": "light",
     "glass": "balanced",
     "density": "cozy",
-    "accent": "red-grey"
+    "accent": "blue-metal"
   }/*EDITMODE-END*/;
 
   const ACCENTS = {
-    "red-grey":    { a: "#cc1a20", b: "#6b7280", ink: "#991b1b" },
+    "blue-metal":  { a: "#0b6fd3", b: "#7d8794", ink: "#07529d" },
+    "red-grey":    { a: "#0b6fd3", b: "#7d8794", ink: "#07529d" },
     "teal-violet": { a: "#06b6d4", b: "#8b5cf6", ink: "#0e7490" },
     "blue":        { a: "#3b82f6", b: "#1e40af", ink: "#1e3a8a" },
     "emerald":     { a: "#10b981", b: "#0e7490", ink: "#065f46" },
@@ -21,7 +22,7 @@
     root.dataset.theme   = t.theme   || "light";
     root.dataset.glass   = t.glass   || "balanced";
     root.dataset.density = t.density || "cozy";
-    const a = ACCENTS[t.accent] || ACCENTS["teal-violet"];
+    const a = ACCENTS[t.accent] || ACCENTS["blue-metal"];
     root.style.setProperty("--accent", a.a);
     root.style.setProperty("--accent-2", a.b);
     root.style.setProperty("--accent-ink", a.ink);
@@ -105,7 +106,7 @@
   <div class="tk-section">
     <label class="tk-label">Accent</label>
     <div class="tk-swatch-row" data-key="accent">
-      <button data-val="red-grey" style="--s1:#cc1a20;--s2:#6b7280"${t.accent==='red-grey'?' aria-pressed="true"':''}><span></span><span></span></button>
+      <button data-val="blue-metal" style="--s1:#0b6fd3;--s2:#7d8794"${(t.accent==='blue-metal'||t.accent==='red-grey')?' aria-pressed="true"':''}><span></span><span></span></button>
       <button data-val="teal-violet" style="--s1:#06b6d4;--s2:#8b5cf6"${t.accent==='teal-violet'?' aria-pressed="true"':''}><span></span><span></span></button>
       <button data-val="blue" style="--s1:#3b82f6;--s2:#1e40af"${t.accent==='blue'?' aria-pressed="true"':''}><span></span><span></span></button>
       <button data-val="emerald" style="--s1:#10b981;--s2:#0e7490"${t.accent==='emerald'?' aria-pressed="true"':''}><span></span><span></span></button>

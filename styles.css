@@ -3,15 +3,15 @@
    =========================================================== */
 
 :root {
-  /* Warm neutrals — complement Silicom red/grey brand */
-  --bg-1: #f8f5f5;
-  --bg-2: #f5f2f2;
-  --bg-3: #fdf6f4;
+  /* Cool neutrals - blue and metallic grey brand */
+  --bg-1: #f6f8fb;
+  --bg-2: #edf2f7;
+  --bg-3: #f9fbfd;
 
-  /* Accent — Silicom brand red + tech grey */
-  --accent: #cc1a20;
-  --accent-2: #6b7280;
-  --accent-ink: #991b1b;
+  /* Accent - technical blue + metallic grey */
+  --accent: #0b6fd3;
+  --accent-2: #7d8794;
+  --accent-ink: #07529d;
 
   /* Ink */
   --ink-1: #0b1020;
@@ -83,9 +83,9 @@
 
 /* ---------- Dark mode ---------- */
 [data-theme="dark"] {
-  --bg-1: #130f0f;
-  --bg-2: #1a1212;
-  --bg-3: #0f0c0c;
+  --bg-1: #08111f;
+  --bg-2: #0d1726;
+  --bg-3: #060c16;
   --ink-1: #f3f5fb;
   --ink-2: #d6dae8;
   --ink-3: #9aa0bb;
@@ -211,7 +211,7 @@ p { margin: 0; text-wrap: pretty; }
   letter-spacing: -0.02em;
 }
 .lede {
-  font-size: clamp(17px, 1.4vw, 20px);
+  font-size: clamp(18px, 1.45vw, 21px);
   line-height: 1.55;
   color: var(--ink-2);
   max-width: 60ch;
@@ -271,10 +271,10 @@ p { margin: 0; text-wrap: pretty; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 22px;
+  padding: 15px 24px;
   border-radius: var(--r-pill);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: -0.01em;
   transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
   white-space: nowrap;
@@ -314,7 +314,7 @@ p { margin: 0; text-wrap: pretty; }
   display: inline-flex; align-items: center; gap: 8px;
   padding: 8px 14px;
   border-radius: var(--r-pill);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   background: var(--glass-bg-soft);
   border: 1px solid var(--glass-border);
@@ -326,7 +326,7 @@ p { margin: 0; text-wrap: pretty; }
   display: inline-flex; align-items: center;
   padding: 6px 12px;
   border-radius: var(--r-pill);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--ink-2);
   background: rgba(255,255,255,0.5);
@@ -356,7 +356,7 @@ p { margin: 0; text-wrap: pretty; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px 12px 22px;
+  padding: 15px 16px 15px 24px;
   border-radius: var(--r-pill);
   background: var(--glass-bg-strong);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
@@ -369,11 +369,11 @@ p { margin: 0; text-wrap: pretty; }
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.02em;
-  font-size: 16px;
+  font-size: 18px;
 }
 .nav-brand-mark {
-  width: 32px; height: 32px;
-  border-radius: 8px;
+  width: 42px; height: 42px;
+  border-radius: 10px;
   background-image: url("assets/silicom-logo-mark.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -387,9 +387,9 @@ p { margin: 0; text-wrap: pretty; }
 }
 .nav-link {
   position: relative;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: var(--r-pill);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--ink-2);
   display: inline-flex; align-items: center; gap: 6px;
@@ -413,9 +413,9 @@ p { margin: 0; text-wrap: pretty; }
 
 .nav-cta {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: var(--r-pill);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: white;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -706,7 +706,7 @@ p { margin: 0; text-wrap: pretty; }
    Customer carousel
    =========================================================== */
 .customer-carousel {
-  --row-h: 140px;
+  --row-h: 132px;
   margin: 0 -28px;
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
@@ -721,7 +721,7 @@ p { margin: 0; text-wrap: pretty; }
 .customer-carousel:hover .customer-track { animation-play-state: paused; }
 .customer-tile {
   flex-shrink: 0;
-  width: 240px;
+  width: 248px;
   height: var(--row-h);
   border-radius: var(--r-md);
   background: var(--glass-bg);
@@ -731,7 +731,7 @@ p { margin: 0; text-wrap: pretty; }
   box-shadow: var(--glass-shadow-sm);
   display: grid;
   place-items: center;
-  padding: 8px 14px;
+  padding: 18px 24px;
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
 .customer-tile:hover {
@@ -739,8 +739,8 @@ p { margin: 0; text-wrap: pretty; }
   border-color: color-mix(in oklab, var(--accent) 30%, var(--glass-border));
 }
 .customer-tile img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 172px;
+  height: 76px;
   object-fit: contain;
   filter: grayscale(0.25);
   opacity: 0.92;
@@ -790,8 +790,8 @@ p { margin: 0; text-wrap: pretty; }
   background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, transparent), color-mix(in oklab, var(--accent-2) 22%, transparent));
   color: white;
 }
-.category-title { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
-.category-meta { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+.category-title { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.category-meta { font-size: 13px; color: var(--ink-3); margin-top: 3px; line-height: 1.4; }
 .category-toggle {
   width: 32px; height: 32px;
   border-radius: 50%;
@@ -1161,12 +1161,12 @@ p { margin: 0; text-wrap: pretty; }
    categories revealed on expand.
    =========================================================== */
 .brand-card-logo {
-  width: 64px; height: 44px;
+  width: 82px; height: 58px;
   border-radius: var(--r-md);
   background: white;
   border: 1px solid var(--hairline);
   display: grid; place-items: center;
-  padding: 6px 8px;
+  padding: 8px 10px;
   overflow: hidden;
 }
 [data-theme="dark"] .brand-card-logo { background: rgba(255,255,255,0.92); }
@@ -1175,7 +1175,7 @@ p { margin: 0; text-wrap: pretty; }
   font-family: var(--font-display);
   font-weight: 800;
   color: var(--accent-ink);
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: -0.01em;
 }
 .brand-cat-list {
@@ -1279,8 +1279,8 @@ p { margin: 0; text-wrap: pretty; }
   color: white;
   background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, transparent), color-mix(in oklab, var(--accent-2) 22%, transparent));
 }
-.segment-title { font-size: 15px; font-weight: 600; line-height: 1.2; }
-.segment-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.45; }
+.segment-title { font-size: 16px; font-weight: 600; line-height: 1.2; }
+.segment-desc { font-size: 13.5px; color: var(--ink-3); line-height: 1.5; }
 
 /* ===========================================================
    Coverage map (simple)
@@ -1472,11 +1472,30 @@ p { margin: 0; text-wrap: pretty; }
   .hv-card.wide { grid-column: span 2; }
 }
 @media (max-width: 640px) {
+  .container { margin-left: 0; margin-right: 0; }
   .category-grid, .segments-grid, .footer-grid { grid-template-columns: 1fr; }
+  .category-grid[style*="repeat(2"] { grid-template-columns: 1fr !important; }
   .nav-shell { padding: 0 16px; }
   .nav { padding: 10px 14px; }
   .nav-cta { display: none; }
   .nav-brand { font-size: 15px; }
+  .nav-brand-mark { width: 34px; height: 34px; border-radius: 8px; }
+  .h1 {
+    font-size: clamp(34px, 10.5vw, 44px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    text-wrap: wrap;
+    overflow-wrap: anywhere;
+  }
+  .hero .h1 { max-width: 100% !important; }
+  .lede { font-size: 17px; }
+  .hero-stack {
+    max-width: min(100%, 390px);
+  }
+  .hero-actions,
+  .section-head {
+    max-width: min(100%, 334px);
+  }
   .hero-tag {
     width: 100%;
     max-width: 100%;
@@ -1491,8 +1510,8 @@ p { margin: 0; text-wrap: pretty; }
 
 /* ============ BRAND LOGO ACCENT (Brands page) ============ */
 .brand-logo-accent {
-  width: 56px;
-  height: 56px;
+  width: 82px;
+  height: 58px;
   border-radius: 12px;
   display: grid;
   place-items: center;
@@ -1594,30 +1613,41 @@ p { margin: 0; text-wrap: pretty; }
 .quick-route .h3 { font-size: 22px; }
 .partner-logo-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 .partner-logo-tile {
-  min-height: 92px;
+  min-height: 148px;
   border-radius: var(--r-md);
-  padding: 14px 18px;
+  padding: 20px 18px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow-sm);
   display: grid;
   place-items: center;
-  gap: 6px;
+  gap: 10px;
   text-align: center;
 }
 .partner-logo-tile img {
-  max-width: 145px;
-  max-height: 38px;
+  width: 158px;
+  height: 54px;
   object-fit: contain;
 }
 .partner-logo-tile span {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink-3);
   font-weight: 600;
+  line-height: 1.35;
+}
+.partner-logo-tile .partner-apps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.partner-logo-tile .partner-apps .chip {
+  font-size: 11.5px;
+  padding: 5px 9px;
 }
 .application-grid {
   display: grid;
@@ -1673,10 +1703,10 @@ p { margin: 0; text-wrap: pretty; }
   min-width: 0;
 }
 .brand-logo-inline img {
-  width: 72px;
-  height: 44px;
+  width: 86px;
+  height: 54px;
   object-fit: contain;
-  padding: 7px;
+  padding: 8px 10px;
   border-radius: 12px;
   background: rgba(255,255,255,0.86);
   border: 1px solid var(--glass-border);
@@ -1697,10 +1727,10 @@ p { margin: 0; text-wrap: pretty; }
 @media (max-width: 980px) {
   .hero-product-layout { grid-template-columns: 1fr; }
   .quick-route-grid, .application-grid, .download-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .partner-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .partner-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
   .hero.product-led { padding-top: 96px; }
   .solution-stack, .quick-route-grid, .application-grid, .download-grid { grid-template-columns: 1fr; }
-  .partner-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partner-logo-grid { grid-template-columns: 1fr; }
 }
