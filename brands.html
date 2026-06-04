@@ -122,27 +122,30 @@
 </div>
 
 <section class="hero">
-  <div class="container hero-stack">
-    <div class="reveal">
-      <span class="hero-tag">
-        <span class="hero-tag-badge">PARTNERS</span>
-        Authorized brands across instruments, components &amp; applications
-      </span>
-    </div>
-    <h1 class="h1 reveal" style="max-width:18ch">
-      <span class="hero-grad">Brand partners</span> Silicom represents in India.
-    </h1>
-    <p class="lede reveal">
-      We bring leading global manufacturers to the Indian electronics market — providing technical sales,
-      product demonstrations and post-sale support across both divisions.
-    </p>
-    <div class="reveal" style="margin-top:8px">
-      <div class="brand-tabs" role="tablist">
-        <button class="active" data-filter="all">All brands</button>
-        <button data-filter="instruments">Instruments</button>
-        <button data-filter="components">Components</button>
+  <div class="container hero-split">
+    <div class="hero-stack">
+      <div class="reveal">
+        <span class="hero-tag">
+          <span class="hero-tag-badge">PARTNERS</span>
+          Authorized brands across instruments, components &amp; applications
+        </span>
+      </div>
+      <h1 class="h1 reveal" style="max-width:18ch">
+        <span class="hero-grad">Brand partners</span> Silicom represents in India.
+      </h1>
+      <p class="lede reveal">
+        We bring leading global manufacturers to the Indian electronics market — providing technical sales,
+        product demonstrations and post-sale support across both divisions.
+      </p>
+      <div class="reveal" style="margin-top:8px">
+        <div class="brand-tabs" role="tablist">
+          <button class="active" data-filter="all">All brands</button>
+          <button data-filter="instruments">Instruments</button>
+          <button data-filter="components">Components</button>
+        </div>
       </div>
     </div>
+    <div class="image-slot reveal" data-ratio="4-3" data-hint="Brands hero — partner logos collage"></div>
   </div>
 </section>
 
@@ -176,7 +179,7 @@
   </div>
 </section>
 
-<!-- APPLICATION COVERAGE — separated from brand cards on purpose -->
+<!-- APPLICATION COVERAGE — splits per division; filters with the brand tabs above -->
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
@@ -190,38 +193,83 @@
       </a>
     </div>
 
-    <div class="application-coverage glass-soft reveal" style="padding:var(--pad-card-lg);border-radius:var(--r-xl);display:grid;gap:6px">
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">Automotive</div><div class="muted" style="font-size:12.5px;margin-top:2px">EV-grade, durability, protection</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Shikues</span><span class="chip">MOT Inmark</span><span class="chip">Jilin Sino</span><span class="chip">Adler EV</span><span class="chip">Surging</span></div>
+    <div class="cov-group reveal" data-cov="components" style="display:grid;gap:14px">
+      <div class="eyebrow" style="margin-top:6px"><span class="dot"></span>Components coverage</div>
+      <div class="application-coverage glass-soft" style="padding:var(--pad-card-lg);border-radius:var(--r-xl);display:grid;gap:6px">
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Automotive</div><div class="muted" style="font-size:12.5px;margin-top:2px">EV-grade, durability, protection</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Shikues</span><span class="chip">MOT Inmark</span><span class="chip">Jilin Sino</span><span class="chip">Adler EV</span><span class="chip">Surging</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Mobile chargers</div><div class="muted" style="font-size:12.5px;margin-top:2px">GaN PD, fast-charge, compact</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Shikues</span><span class="chip">ASEMI (ASM)</span><span class="chip">Reasunos</span><span class="chip">Jilin Sino</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">SMPS &amp; adapters</div><div class="muted" style="font-size:12.5px;margin-top:2px">5–65 W flyback / quasi-resonant</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Reasunos</span><span class="chip">MOT Inmark</span><span class="chip">Jilin Sino</span><span class="chip">ASEMI (ASM)</span><span class="chip">MLCC Base</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">LED lighting</div><div class="muted" style="font-size:12.5px;margin-top:2px">Mains drivers, street, outdoor</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">ASEMI (ASM)</span><span class="chip">Reasunos</span><span class="chip">Jilin Sino</span><span class="chip">MOT Inmark</span><span class="chip">Surging</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Solar inverters</div><div class="muted" style="font-size:12.5px;margin-top:2px">String inverters, MPPT, PV</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Shikues</span><span class="chip">Donghai / WXDH</span><span class="chip">Reasunos</span><span class="chip">MOT Inmark</span><span class="chip">Surging</span><span class="chip">MLCC Base</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">EV chargers</div><div class="muted" style="font-size:12.5px;margin-top:2px">AC 3.3–7.4 kW, 2W/3W on-board</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">MOT Inmark</span><span class="chip">Donghai / WXDH</span><span class="chip">Adler EV</span><span class="chip">Surging</span><span class="chip">Jilin Sino</span><span class="chip">CDIL</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Smart meters</div><div class="muted" style="font-size:12.5px;margin-top:2px">RDSS rollout, surge-heavy</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Jilin Sino</span><span class="chip">CDIL</span><span class="chip">Surging</span><span class="chip">Reasunos</span><span class="chip">MLCC Base</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;align-items:center">
+          <div><div class="wordmark" style="font-size:18px">BLDC &amp; appliances</div><div class="muted" style="font-size:12.5px;margin-top:2px">Fans, motor controllers, white-goods</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">CDIL</span><span class="chip">MOT Inmark</span><span class="chip">Reasunos</span><span class="chip">Jilin Sino</span><span class="chip">MLCC Base</span></div>
+        </div>
       </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">Mobile chargers</div><div class="muted" style="font-size:12.5px;margin-top:2px">GaN PD, fast-charge, compact</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Shikues</span><span class="chip">ASEMI (ASM)</span><span class="chip">Reasunos</span><span class="chip">Jilin Sino</span></div>
-      </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">SMPS &amp; adapters</div><div class="muted" style="font-size:12.5px;margin-top:2px">5–65 W flyback / quasi-resonant</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Reasunos</span><span class="chip">MOT Inmark</span><span class="chip">Jilin Sino</span><span class="chip">ASEMI (ASM)</span><span class="chip">MLCC Base</span></div>
-      </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">LED lighting</div><div class="muted" style="font-size:12.5px;margin-top:2px">Mains drivers, street, outdoor</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">ASEMI (ASM)</span><span class="chip">Reasunos</span><span class="chip">Jilin Sino</span><span class="chip">MOT Inmark</span><span class="chip">Surging</span></div>
-      </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">Solar inverters</div><div class="muted" style="font-size:12.5px;margin-top:2px">String inverters, MPPT, PV</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Shikues</span><span class="chip">Donghai / WXDH</span><span class="chip">Reasunos</span><span class="chip">MOT Inmark</span><span class="chip">Surging</span><span class="chip">MLCC Base</span></div>
-      </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">EV chargers</div><div class="muted" style="font-size:12.5px;margin-top:2px">AC 3.3–7.4 kW, 2W/3W on-board</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">MOT Inmark</span><span class="chip">Donghai / WXDH</span><span class="chip">Adler EV</span><span class="chip">Surging</span><span class="chip">Jilin Sino</span><span class="chip">CDIL</span></div>
-      </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
-        <div><div class="wordmark" style="font-size:18px">Smart meters</div><div class="muted" style="font-size:12.5px;margin-top:2px">RDSS rollout, surge-heavy</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Jilin Sino</span><span class="chip">CDIL</span><span class="chip">Surging</span><span class="chip">Reasunos</span><span class="chip">MLCC Base</span></div>
-      </div>
-      <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;align-items:center">
-        <div><div class="wordmark" style="font-size:18px">BLDC &amp; appliances</div><div class="muted" style="font-size:12.5px;margin-top:2px">Fans, motor controllers, white-goods</div></div>
-        <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">CDIL</span><span class="chip">MOT Inmark</span><span class="chip">Reasunos</span><span class="chip">Jilin Sino</span><span class="chip">MLCC Base</span></div>
+    </div>
+
+    <div class="cov-group reveal" data-cov="instruments" style="display:grid;gap:14px;margin-top:32px">
+      <div class="eyebrow" style="margin-top:6px"><span class="dot"></span>Instruments coverage</div>
+      <div class="application-coverage glass-soft" style="padding:var(--pad-card-lg);border-radius:var(--r-xl);display:grid;gap:6px">
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Signal debug &amp; R&amp;D</div><div class="muted" style="font-size:12.5px;margin-top:2px">Bench scopes, protocol decode</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Tektronix</span><span class="chip">UNI-T</span><span class="chip">Scientific</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">High-bandwidth validation</div><div class="muted" style="font-size:12.5px;margin-top:2px">≥1 GHz · SI · advanced scope</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Tektronix</span><span class="chip">Anritsu</span><span class="chip">Scientific</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Education &amp; lab benches</div><div class="muted" style="font-size:12.5px;margin-top:2px">IIT / NIT / PSU lab fit-outs</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Tektronix</span><span class="chip">UNI-T</span><span class="chip">Scientific</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">EV / battery / power test</div><div class="muted" style="font-size:12.5px;margin-top:2px">Prog. DC · regen load · battery</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Tektronix</span><span class="chip">Elektro-Automatik</span><span class="chip">Microtest</span><span class="chip">Scientific</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Transformer &amp; coil test</div><div class="muted" style="font-size:12.5px;margin-top:2px">LCR · turns ratio · leakage</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Microtest</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Cable harness &amp; USB-C</div><div class="muted" style="font-size:12.5px;margin-top:2px">Multi-pin · Hipot · E-marker</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Microtest</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">RF · telecom · antenna</div><div class="muted" style="font-size:12.5px;margin-top:2px">Spectrum · VNA · field RF</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Anritsu</span><span class="chip">UNI-T</span><span class="chip">Scientific</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--hairline);align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Precision SMU &amp; semiconductor</div><div class="muted" style="font-size:12.5px;margin-top:2px">Source-measure · low-current</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Keithley</span><span class="chip">Tektronix</span></div>
+        </div>
+        <div class="app-cov-row" style="display:grid;grid-template-columns:minmax(160px,200px) 1fr;gap:18px;padding:14px 0;align-items:center">
+          <div><div class="wordmark" style="font-size:18px">Field electrical maintenance</div><div class="muted" style="font-size:12.5px;margin-top:2px">Portable test · panel · loggers</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Metrix</span><span class="chip">Rishabh</span><span class="chip">UNI-T</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -293,7 +341,7 @@
 
 <script src="site.js"></script>
 <script>
-  // Brand tab filter
+  // Brand tab filter — swaps both the brand grid AND the matching coverage group.
   document.querySelectorAll(".brand-tabs button").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".brand-tabs button").forEach(b => b.classList.remove("active"));
@@ -301,6 +349,9 @@
       const f = btn.dataset.filter;
       document.querySelectorAll(".brand-tile").forEach(tile => {
         tile.style.display = (f === "all" || tile.dataset.cat === f) ? "" : "none";
+      });
+      document.querySelectorAll(".cov-group").forEach(g => {
+        g.style.display = (f === "all" || g.dataset.cov === f) ? "" : "none";
       });
     });
   });
