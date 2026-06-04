@@ -589,6 +589,54 @@
       if (a.dataset.route === path) a.classList.add("active");
     });
 
+    // Ensure mobile nav exists on every page. The burger + drawer markup was
+    // only hand-authored in index.html, so other pages had no mobile menu.
+    // Build them from the existing desktop nav so all pages share one source.
+    (function ensureMobileNav() {
+      const navShell = document.querySelector(".nav-shell");
+      const nav = navShell && navShell.querySelector(".nav");
+      const navLinks = nav && nav.querySelector(".nav-links");
+      if (!nav || !navLinks) return;
+
+      // Burger — insert right after .nav-links to match index.html flex order.
+      if (!nav.querySelector(".nav-burger")) {
+        const b = document.createElement("button");
+        b.className = "nav-burger";
+        b.setAttribute("aria-label", "Open menu");
+        b.setAttribute("aria-expanded", "false");
+        b.innerHTML = "<span></span><span></span><span></span>";
+        navLinks.insertAdjacentElement("afterend", b);
+      }
+
+      // Drawer — built from top-level nav links (not dropdown items) + the CTA.
+      if (!navShell.querySelector(".nav-mobile-drawer")) {
+        const drawerEl = document.createElement("div");
+        drawerEl.className = "nav-mobile-drawer";
+        drawerEl.setAttribute("aria-hidden", "true");
+        const panel = document.createElement("nav");
+        panel.className = "nav-mobile-panel";
+
+        navLinks.querySelectorAll(":scope > li > a").forEach(link => {
+          const a = document.createElement("a");
+          a.href = link.getAttribute("href");
+          a.textContent = link.textContent.replace(/\s+/g, " ").trim();
+          panel.appendChild(a);
+        });
+
+        const cta = nav.querySelector(".nav-cta");
+        if (cta) {
+          const a = document.createElement("a");
+          a.className = "btn btn-primary";
+          a.href = cta.getAttribute("href");
+          a.textContent = cta.textContent.replace(/\s+/g, " ").trim();
+          panel.appendChild(a);
+        }
+
+        drawerEl.appendChild(panel);
+        navShell.appendChild(drawerEl);
+      }
+    })();
+
     // Mobile nav burger
     const burger = document.querySelector(".nav-burger");
     const drawer = document.querySelector(".nav-mobile-drawer");

@@ -85,7 +85,13 @@
     margin-top: auto;
   }
   @media (max-width: 980px) { .brand-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 640px) { .brand-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .brand-grid { grid-template-columns: 1fr; }
+    /* Let long brand names (Elektro-Automatik, Tektronix) wrap instead of
+       being clipped in the logo+name+badge row. */
+    .brand-tile-head { flex-wrap: wrap; }
+    .brand-tile .wordmark { font-size: 19px; overflow-wrap: anywhere; }
+  }
 </style>
 <!-- Google Analytics (replace G-XXXXXXXXXX with your real GA4 measurement ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
