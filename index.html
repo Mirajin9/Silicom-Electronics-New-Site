@@ -218,24 +218,64 @@
 </section>
 
 <!-- ============ APPLICATIONS ============ -->
-<section class="section">
+<section class="section application-carousel-section" id="applications">
   <div class="container">
     <div class="section-head reveal">
       <div>
         <div class="eyebrow"><span class="dot"></span>Application guide</div>
-        <h2 class="h2" style="margin-top:12px">Start from the system you are building.</h2>
+        <h2 class="h2" style="margin-top:12px;max-width:16ch">Start from the system you are building.</h2>
       </div>
-      <a class="btn btn-ghost btn-arrow" href="components.html">View component categories <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div class="application-grid">
-      <a class="application-card glass reveal" href="components.html#mosfets"><div class="app-icon">EV</div><div><h3 class="h3">Automotive</h3><p class="muted" style="font-size:14px;margin-top:8px">Automotive-grade semis, efficient power devices and protection parts.</p></div><div class="app-brands"><span class="chip">Shikues</span><span class="chip">MOT Inmark</span><span class="chip">Jilin Sino</span></div></a>
-      <a class="application-card glass reveal" href="components.html#mosfets"><div class="app-icon">IoT</div><div><h3 class="h3">IoT</h3><p class="muted" style="font-size:14px;margin-top:8px">Slim packages, low-loss switching and space-conscious circuit designs.</p></div><div class="app-brands"><span class="chip">ASEMI (ASM)</span><span class="chip">Shikues</span><span class="chip">MOT Inmark</span><span class="chip">WXDH</span></div></a>
-      <a class="application-card glass reveal" href="components.html#protection"><div class="app-icon">LED</div><div><h3 class="h3">Lighting</h3><p class="muted" style="font-size:14px;margin-top:8px">Surge-ready protection and power parts for industrial lighting designs.</p></div><div class="app-brands"><span class="chip">ASEMI (ASM)</span><span class="chip">Shikues</span><span class="chip">Surging</span></div></a>
-      <a class="application-card glass reveal" href="components.html#mosfets"><div class="app-icon">GaN</div><div><h3 class="h3">Mobile Chargers</h3><p class="muted" style="font-size:14px;margin-top:8px">GaN charger design support for compact 20W, 30W, 45W and 65W builds.</p></div><div class="app-brands"><span class="chip">ASEMI (ASM)</span><span class="chip">Shikues</span></div></a>
-      <a class="application-card glass reveal" href="components.html#modules"><div class="app-icon">BL</div><div><h3 class="h3">BLDC</h3><p class="muted" style="font-size:14px;margin-top:8px">Motor drivers, hall sensors and power stages for OEM and EMS lines.</p></div><div class="app-brands"><span class="chip">ASEMI (ASM)</span><span class="chip">WXDH</span><span class="chip">Jilin Sino</span></div></a>
-      <a class="application-card glass reveal" href="components.html#diodes"><div class="app-icon">PV</div><div><h3 class="h3">Solar</h3><p class="muted" style="font-size:14px;margin-top:8px">PV, inverter and power conversion components for sustainable energy.</p></div><div class="app-brands"><span class="chip">WXDH</span><span class="chip">CDIL</span><span class="chip">Shikues</span><span class="chip">Jilin Sino</span></div></a>
-      <a class="application-card glass reveal" href="components.html#mosfets"><div class="app-icon">DC</div><div><h3 class="h3">SMPS</h3><p class="muted" style="font-size:14px;margin-top:8px">MOSFETs, rectifiers, protection and high-efficiency power parts.</p></div><div class="app-brands"><span class="chip">Jilin Sino</span><span class="chip">Shikues</span><span class="chip">MOT Inmark</span></div></a>
-      <a class="application-card glass reveal" href="components.html#protection"><div class="app-icon">EV</div><div><h3 class="h3">EV Chargers</h3><p class="muted" style="font-size:14px;margin-top:8px">Power converters, current sensing, gate drivers and EV protection.</p></div><div class="app-brands"><span class="chip">Shikues</span><span class="chip">WXDH</span><span class="chip">MOT Inmark</span><span class="chip">CDIL</span></div></a>
+    <div class="application-carousel glass reveal" data-application-carousel aria-label="Application guide carousel" tabindex="0">
+      <div class="application-carousel-layout">
+        <div class="application-name-window" aria-hidden="false">
+          <div class="application-name-list" data-app-name-list role="tablist" aria-label="Applications"></div>
+        </div>
+
+        <div class="application-carousel-stage" aria-hidden="true">
+          <div class="application-carousel-visuals" data-app-visuals></div>
+        </div>
+
+        <div class="application-carousel-control-panel">
+          <div>
+            <p class="muted" data-app-summary style="font-size:14.5px;line-height:1.55;margin-top:0"></p>
+          </div>
+          <div class="application-carousel-actions">
+            <button class="icon-btn application-carousel-nav" type="button" data-app-prev aria-label="Previous application">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="btn btn-primary btn-arrow" type="button" data-app-explore>Explore
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="icon-btn application-carousel-nav" type="button" data-app-next aria-label="Next application">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="application-carousel-detail" data-app-detail hidden>
+        <button class="application-detail-close" type="button" data-app-detail-close aria-label="Close application detail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="application-detail-head">
+          <div class="eyebrow"><span class="dot"></span>Application view</div>
+          <h3 class="h2" data-app-detail-title style="margin-top:10px"></h3>
+          <p class="muted" data-app-detail-intro style="font-size:15px;line-height:1.55;margin-top:8px"></p>
+        </div>
+        <div class="application-advice-grid">
+          <section class="application-advice-panel">
+            <div class="application-advice-label">Components</div>
+            <p data-app-components></p>
+            <a class="btn-arrow application-advice-link" data-app-components-link href="#">Explore components <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </section>
+          <section class="application-advice-panel">
+            <div class="application-advice-label">Instruments</div>
+            <p data-app-instruments></p>
+            <a class="btn-arrow application-advice-link" data-app-instruments-link href="#">Explore instruments <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </section>
