@@ -356,7 +356,7 @@ p { margin: 0; text-wrap: pretty; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 16px 15px 24px;
+  padding: 20px 20px 20px 28px;
   border-radius: var(--r-pill);
   background: var(--glass-bg-strong);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
@@ -365,15 +365,15 @@ p { margin: 0; text-wrap: pretty; }
   box-shadow: var(--glass-shadow-sm);
 }
 .nav-brand {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 14px;
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.02em;
-  font-size: 18px;
+  font-size: 21px;
 }
 .nav-brand-mark {
-  width: 42px; height: 42px;
-  border-radius: 10px;
+  width: 52px; height: 52px;
+  border-radius: 12px;
   background-image: url("assets/silicom-logo-mark.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -1103,6 +1103,436 @@ p { margin: 0; text-wrap: pretty; }
 @media (max-width: 640px) { .function-grid { grid-template-columns: 1fr; } }
 
 /* ===========================================================
+   .org-circle — rotating circular Applications organiser.
+
+   Architecture (fixes text-rotation bug):
+   .org-circle-ring  ← rotates CW (the only animated element)
+     .org-node-orbit ← zero-size; static transform places the node
+       button.org-node ← counter-rotates 0→-360° to stay upright
+
+   Ring animation + counter animation cancel each other so text
+   is always upright. Nodes use s-orbital density plot aesthetic.
+   =========================================================== */
+.org-circle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(285px, 330px);
+  gap: 34px;
+  align-items: center;
+  padding: 6px 0 4px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.org-circle-stage {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  --ring-radius: 176px;
+  overflow: visible;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.94) 0 9%, rgba(219,241,255,0.62) 11%, transparent 22%),
+    radial-gradient(circle at 50% 50%, rgba(18,155,220,0.10) 0 34%, transparent 62%);
+  border: 0;
+  box-shadow: none;
+}
+.org-circle-stage::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from -9deg,
+      rgba(7, 25, 43, 0.20) 0deg 1.15deg,
+      transparent 1.15deg 38.85deg,
+      rgba(7, 25, 43, 0.20) 38.85deg 40deg),
+    radial-gradient(circle at center, transparent 0 12%, rgba(30, 132, 193, 0.11) 13%, transparent 17% 100%);
+  mask-image: radial-gradient(circle at center, transparent 0 9%, black 10% 72%, transparent 73%);
+  opacity: 0.58;
+  pointer-events: none;
+  z-index: 2;
+}
+.org-circle-stage::after {
+  content: "";
+  position: absolute;
+  inset: 72px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.98) 0 12%, rgba(18,155,220,0.28) 16%, rgba(18,155,220,0.12) 34%, transparent 62%);
+  filter: blur(10px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 1;
+}
+.org-circle-ring {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  animation: org-rotate var(--rotate-seconds, 80s) linear infinite;
+}
+@keyframes org-rotate { to { transform: rotate(360deg); } }
+.org-circle.paused .org-circle-ring { animation-play-state: paused; }
+.org-circle.paused .org-node         { animation-play-state: paused; }
+
+.org-density-field {
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.96) 0 7%, rgba(9, 153, 217, 0.28) 10%, transparent 18%),
+    radial-gradient(circle at center, transparent 0 24%, rgba(255,255,255,0.68) 25% 27%, transparent 29%),
+    radial-gradient(circle at center, transparent 0 47%, rgba(27, 153, 216, 0.10) 48% 50%, transparent 54%);
+  filter: blur(2px) saturate(1.12);
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Zero-size wrapper that positions the button on the ring.
+   This transform is STATIC — no animation here. */
+.org-node-orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  --node-angle: calc(var(--i) * (360deg / var(--n)));
+  transform:
+    rotate(var(--node-angle))
+    translateY(calc(-1 * var(--ring-radius, 148px)));
+  pointer-events: none;
+}
+.org-node-orbit::before,
+.org-node-orbit::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.org-node-orbit::before {
+  width: 132px;
+  height: 190px;
+  transform: translate(-50%, 4px);
+  transform-origin: 50% 4%;
+  border-radius: 52% 52% 66% 66% / 38% 38% 72% 72%;
+  background:
+    radial-gradient(ellipse 38% 28% at 48% 76%, rgba(255,255,255,0.94) 0 13%, rgba(36, 173, 226, 0.48) 18%, transparent 27%),
+    radial-gradient(ellipse 52% 34% at 51% 66%, rgba(255,255,255,0.76) 0 18%, rgba(18, 162, 223, 0.42) 27%, rgba(18, 162, 223, 0.11) 48%, transparent 70%),
+    radial-gradient(ellipse 34% 22% at 36% 56%, rgba(0, 153, 216, 0.52) 0 24%, transparent 58%),
+    radial-gradient(ellipse 29% 20% at 65% 61%, rgba(0, 153, 216, 0.42) 0 24%, transparent 56%),
+    radial-gradient(ellipse 24% 18% at 48% 47%, rgba(18, 162, 223, 0.34) 0 28%, transparent 60%),
+    linear-gradient(180deg, transparent 0 31%, rgba(255,255,255,0.52) 32% 40%, transparent 58%);
+  filter: blur(1.2px) saturate(1.2);
+  opacity: 0.88;
+  z-index: 0;
+}
+.org-node-orbit::after {
+  width: 136px;
+  height: 192px;
+  transform: translate(-50%, 4px);
+  border: 1.8px solid rgba(8, 15, 27, 0.62);
+  border-top-color: rgba(8, 15, 27, 0.78);
+  border-radius: 52% 52% 68% 68% / 38% 38% 74% 74%;
+  clip-path: polygon(50% 0, 96% 23%, 100% 64%, 82% 96%, 50% 100%, 18% 96%, 0 64%, 4% 23%);
+  opacity: 0.72;
+  z-index: 1;
+}
+
+/* Button counter-rotates at the same rate as the ring → always upright.
+   Styled as an s-orbital hydrogen density cloud (bright core, fading halo). */
+.org-node {
+  position: absolute;
+  left: 0; top: 0;
+  z-index: 3;
+  width: 102px; height: 60px;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  pointer-events: all;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 8px 10px;
+  transform: translate(-50%, -50%) rotate(calc(-1 * var(--node-angle)));
+  animation: org-counter-rotate var(--rotate-seconds, 80s) linear infinite;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(245,251,255,0.80));
+  color: var(--ink-1);
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.82),
+    0 0 0 2px rgba(23, 126, 192, 0.08),
+    0 12px 24px -18px rgba(15, 68, 112, 0.5);
+  transition: scale .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.org-node::before,
+.org-node::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.org-node::before {
+  background:
+    radial-gradient(circle at 38% 34%, rgba(255,255,255,0.9), transparent 32%),
+    radial-gradient(circle at 68% 74%, rgba(28,156,219,0.12), transparent 36%);
+  opacity: 0.72;
+  z-index: -2;
+}
+.org-node::after {
+  background:
+    linear-gradient(180deg, transparent, rgba(15, 109, 171, 0.08));
+  z-index: -1;
+}
+.org-node-orbit:nth-child(3n+2) .org-node::before {
+  background:
+    radial-gradient(circle at 60% 32%, rgba(255,255,255,0.92), transparent 32%),
+    radial-gradient(circle at 30% 70%, rgba(28,156,219,0.12), transparent 36%);
+}
+.org-node-orbit:nth-child(3n+3) .org-node::before {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255,255,255,0.9), transparent 30%),
+    radial-gradient(circle at 50% 78%, rgba(28,156,219,0.13), transparent 40%);
+}
+.org-node:hover, .org-node:focus-visible {
+  scale: 1.16;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 0 0 1px rgba(42, 154, 218, 0.36),
+    0 10px 28px -18px rgba(13, 87, 145, 0.75),
+    0 0 34px rgba(39, 171, 229, 0.20);
+  outline: none;
+}
+@keyframes org-counter-rotate {
+  from { transform: translate(-50%, -50%) rotate(calc(-1 * var(--node-angle))); }
+  to   { transform: translate(-50%, -50%) rotate(calc(-360deg - var(--node-angle))); }
+}
+.org-node-icon {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+  color: var(--accent-ink);
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.82);
+}
+[data-theme="dark"] .org-node-icon { color: color-mix(in oklab, var(--accent) 70%, white); text-shadow: 0 1px 4px rgba(0,0,0,0.45); }
+.org-node-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 10.5px; font-weight: 700;
+  line-height: 1.08; letter-spacing: 0;
+  overflow-wrap: anywhere; color: var(--ink-1);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.86);
+  margin-top: 3px;
+}
+[data-theme="dark"] .org-node-label { color: white; text-shadow: 0 1px 4px rgba(0,0,0,0.45); }
+
+/* Orbital track rings — like electron shell paths, add visual depth */
+.org-ring-track,
+.org-ring-inner {
+  position: absolute; top: 50%; left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; z-index: 0;
+}
+.org-ring-track {
+  width: calc(2 * var(--ring-radius, 148px));
+  height: calc(2 * var(--ring-radius, 148px));
+  border: 1px solid rgba(18, 145, 211, 0.16);
+  box-shadow:
+    inset 0 0 48px rgba(26, 158, 222, 0.06),
+    0 0 24px rgba(26, 158, 222, 0.08);
+}
+.org-ring-inner {
+  width: calc(var(--ring-radius, 148px));
+  height: calc(var(--ring-radius, 148px));
+  border: 1px solid rgba(18, 145, 211, 0.10);
+  box-shadow: 0 0 26px rgba(26, 158, 222, 0.08);
+}
+
+.org-circle-hub {
+  position: absolute; left: 50%; top: 50%;
+  width: 164px; height: 164px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 50% 42%, #ffffff 0 58%, rgba(246,252,255,0.98) 64%, rgba(225,244,255,0.86) 100%);
+  color: var(--ink-1);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  z-index: 4;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.96),
+    0 0 0 8px rgba(255,255,255,0.62),
+    0 0 0 14px rgba(28, 155, 219, 0.08),
+    0 18px 38px -28px rgba(11, 76, 130, 0.68),
+    0 0 48px rgba(28, 155, 219, 0.24);
+  pointer-events: none;
+}
+.org-circle-hub::before,
+.org-circle-hub::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.org-circle-hub::before {
+  inset: 12px;
+  border: 1px solid rgba(28, 155, 219, 0.14);
+  box-shadow: inset 0 0 22px rgba(28, 155, 219, 0.07);
+}
+.org-circle-hub::after {
+  inset: -24px;
+  border: 1px solid rgba(28, 155, 219, 0.07);
+}
+.org-hub-mark {
+  width: 136px;
+  height: 52px;
+  background-image: url("assets/silicom-logo-full.png");
+  background-size: contain; background-repeat: no-repeat; background-position: center;
+  filter: none;
+  opacity: 0.98;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.org-hub-label {
+  display: none;
+}
+
+/* Preview panel */
+.org-preview {
+  display: grid; gap: 14px;
+  padding: 8px 0 8px 22px;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid color-mix(in oklab, var(--accent) 18%, transparent);
+  min-height: 248px; align-content: start;
+}
+.org-preview-empty {
+  font-size: 14px; color: var(--ink-3);
+  line-height: 1.5; padding: 20px 4px; text-align: left;
+}
+.org-preview-head .eyebrow { font-size: 11px; }
+.org-preview-block { display: grid; gap: 8px; }
+.org-preview-label {
+  font-family: var(--font-mono); font-size: 10.5px;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3);
+}
+.org-preview-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.org-preview-items {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 6px;
+  font-size: 13.5px; color: var(--ink-2);
+}
+.org-preview-items li { padding-left: 16px; position: relative; line-height: 1.45; }
+.org-preview-dot {
+  position: absolute; left: 0; top: 7px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+.org-preview-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 600; font-size: 14px; color: var(--accent-ink); padding-top: 6px;
+}
+[data-theme="dark"] .org-preview-link { color: color-mix(in oklab, var(--accent) 60%, white); }
+
+/* Responsive */
+@media (max-width: 1060px) {
+  .org-circle { grid-template-columns: minmax(0, 1fr) minmax(240px, 280px); }
+}
+@media (max-width: 920px) {
+  .org-circle { grid-template-columns: 1fr; gap: 22px; }
+  .org-circle-stage { max-width: 400px; --ring-radius: 148px; }
+  .org-node { width: 88px; height: 54px; }
+  .org-node-orbit::before { width: 106px; height: 154px; }
+  .org-node-orbit::after { width: 110px; height: 156px; }
+  .org-circle-hub { width: 136px; height: 136px; }
+  .org-preview { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 640px) {
+  .org-circle-stage { max-width: 300px; --ring-radius: 112px; }
+  .org-node { width: 72px; height: 50px; padding: 7px 6px; }
+  .org-node-orbit::before { width: 86px; height: 126px; }
+  .org-node-orbit::after { width: 90px; height: 128px; border-width: 1.4px; }
+  .org-node-label { font-size: 9px; }
+  .org-node-icon { font-size: 9.5px; }
+  .org-circle-hub { width: 110px; height: 110px; }
+  .org-hub-mark { width: 88px; height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .org-circle-ring { animation: none; }
+  .org-node { animation: none; transform: translate(-50%, -50%) rotate(calc(-1 * var(--node-angle))); }
+}
+
+/* ===========================================================
+   .hero-split — hero copy on the left, image slot on the right.
+   Stack at narrow widths.
+   =========================================================== */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 980px) {
+  .hero-split { grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* ===========================================================
+   .image-slot — subtle frosted placeholder shape. Drop in any spot
+   that will eventually hold a photo. Default aspect via data-ratio.
+   Hidden caption (data-hint) only visible when body.show-slot-hints
+   is set (URL ?slots=1 — see site.js).
+   =========================================================== */
+.image-slot {
+  position: relative;
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(135deg,
+      color-mix(in oklab, var(--accent) 6%, transparent),
+      color-mix(in oklab, var(--accent-2) 4%, transparent)),
+    var(--glass-bg-soft);
+  border: 1px solid var(--hairline);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+.image-slot[data-ratio="1"]    { aspect-ratio: 1; }
+.image-slot[data-ratio="4-3"]  { aspect-ratio: 4 / 3; }
+.image-slot[data-ratio="16-9"] { aspect-ratio: 16 / 9; }
+.image-slot[data-ratio="3-4"]  { aspect-ratio: 3 / 4; }
+.image-slot::after {
+  content: ""; position: absolute; inset: 28% 22%;
+  background: radial-gradient(closest-side,
+    color-mix(in oklab, var(--accent) 14%, transparent),
+    transparent 75%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+[data-theme="dark"] .image-slot {
+  background:
+    linear-gradient(135deg,
+      color-mix(in oklab, var(--accent) 14%, transparent),
+      color-mix(in oklab, var(--accent-2) 8%, transparent)),
+    color-mix(in oklab, white 4%, transparent);
+}
+body.show-slot-hints .image-slot[data-hint]::before {
+  content: attr(data-hint);
+  position: absolute; top: 10px; left: 10px;
+  font: 500 11px/1 var(--font-mono);
+  padding: 6px 10px; border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white;
+  z-index: 2;
+  letter-spacing: 0.02em;
+}
+
+/* ===========================================================
    Application item list — content of an expanded Application card.
    Sits inside .category-body-inner.
    =========================================================== */
@@ -1476,10 +1906,10 @@ p { margin: 0; text-wrap: pretty; }
   .category-grid, .segments-grid, .footer-grid { grid-template-columns: 1fr; }
   .category-grid[style*="repeat(2"] { grid-template-columns: 1fr !important; }
   .nav-shell { padding: 0 16px; }
-  .nav { padding: 10px 14px; }
+  .nav { padding: 14px 16px; }
   .nav-cta { display: none; }
-  .nav-brand { font-size: 15px; }
-  .nav-brand-mark { width: 34px; height: 34px; border-radius: 8px; }
+  .nav-brand { font-size: 17px; gap: 12px; }
+  .nav-brand-mark { width: 40px; height: 40px; border-radius: 10px; }
   .h1 {
     font-size: clamp(34px, 10.5vw, 44px);
     line-height: 1.04;
@@ -1613,31 +2043,43 @@ p { margin: 0; text-wrap: pretty; }
 .quick-route .h3 { font-size: 22px; }
 .partner-logo-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 .partner-logo-tile {
-  min-height: 148px;
+  min-height: 220px;
   border-radius: var(--r-md);
-  padding: 20px 18px;
+  padding: 28px 24px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow-sm);
   display: grid;
   place-items: center;
-  gap: 10px;
+  gap: 14px;
   text-align: center;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.partner-logo-tile:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in oklab, var(--accent) 30%, transparent);
+  background: var(--glass-bg-strong);
 }
 .partner-logo-tile img {
-  width: 158px;
-  height: 54px;
+  max-width: 200px;
+  height: 72px;
   object-fit: contain;
 }
 .partner-logo-tile span {
-  font-size: 13px;
-  color: var(--ink-3);
-  font-weight: 600;
-  line-height: 1.35;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  font-weight: 500;
+  line-height: 1.5;
+}
+@media (max-width: 720px) {
+  .partner-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .partner-logo-grid { grid-template-columns: 1fr; }
 }
 .partner-logo-tile .partner-apps {
   display: flex;
