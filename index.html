@@ -111,12 +111,25 @@
       <li class="nav-item"><a class="nav-link" data-route="brands.html" href="brands.html">Brands</a></li>
       <li class="nav-item"><a class="nav-link" data-route="about.html" href="about.html">About</a></li>
     </ul>
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <button class="nav-theme-toggle" aria-label="Toggle theme"></button>
     <a class="nav-cta" href="contact.html">
       Get in touch
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </nav>
+  <div class="nav-mobile-drawer" aria-hidden="true">
+    <nav class="nav-mobile-panel">
+      <a href="index.html">Home</a>
+      <a href="instruments.html">Instruments</a>
+      <a href="components.html">Components</a>
+      <a href="brands.html">Brands</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-primary" href="contact.html">Get in touch</a>
+    </nav>
+  </div>
 </div>
 
 <!-- ============ HERO ============ -->
@@ -189,7 +202,7 @@
 <!-- ============ FAST ROUTES ============ -->
 <section class="section-tight">
   <div class="container">
-    <div class="quick-route-grid reveal" style="grid-template-columns:1fr 1fr">
+    <div class="quick-route-grid reveal">
       <a class="quick-route glass" href="instruments.html">
         <div class="eyebrow"><span class="dot"></span>Instruments division</div>
         <div><h3 class="h3">Need Instruments</h3><p class="muted" style="margin-top:8px;font-size:14px">Oscilloscopes, SMUs, RF, power supplies, safety and production test.</p></div>
@@ -289,7 +302,7 @@
         <h2 class="h2" style="margin-top:12px">Keep the latest Silicom references handy.</h2>
       </div>
     </div>
-    <div class="download-grid" style="grid-template-columns:1fr 1fr">
+    <div class="download-grid">
       <a class="download-card glass reveal" href="assets/Silicom-LineCard-2026.pdf" download><div class="download-meta">PDF / Line card</div><div><h3 class="h3">Line Card 2026</h3><p class="muted" style="font-size:14px;margin-top:8px">Instrument and component partner coverage in one file.</p></div><span class="btn-arrow" style="font-weight:600;color:var(--accent-ink)">Download</span></a>
       <a class="download-card glass reveal" href="assets/Silicom-Company-Profile-2026.pdf" download><div class="download-meta">PDF / Profile</div><div><h3 class="h3">Company Profile</h3><p class="muted" style="font-size:14px;margin-top:8px">Coverage, segments, why Silicom and contact details.</p></div><span class="btn-arrow" style="font-weight:600;color:var(--accent-ink)">Download</span></a>
     </div>

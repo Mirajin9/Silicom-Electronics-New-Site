@@ -451,14 +451,14 @@
       if (detailClose) detailClose.addEventListener("click", closeDetail);
 
       const handleCarouselWheel = (e) => {
-        const rect = carousel.getBoundingClientRect();
+        const visualStage = visualList.parentElement;
+        const rect = visualStage.getBoundingClientRect();
         const insideCarousel =
           e.clientX >= rect.left &&
           e.clientX <= rect.right &&
           e.clientY >= rect.top &&
           e.clientY <= rect.bottom;
         if (!insideCarousel) return;
-        if (detailOpen && detail.contains(e.target)) return;
         if (Math.abs(e.deltaY) < 12) return;
         e.preventDefault();
         e.stopPropagation();
@@ -588,6 +588,24 @@
     document.querySelectorAll(".nav-link[data-route]").forEach(a => {
       if (a.dataset.route === path) a.classList.add("active");
     });
+
+    // Mobile nav burger
+    const burger = document.querySelector(".nav-burger");
+    const drawer = document.querySelector(".nav-mobile-drawer");
+    if (burger && drawer) {
+      burger.addEventListener("click", () => {
+        const open = drawer.classList.toggle("open");
+        burger.setAttribute("aria-expanded", String(open));
+        drawer.setAttribute("aria-hidden", String(!open));
+      });
+      drawer.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          drawer.classList.remove("open");
+          burger.setAttribute("aria-expanded", "false");
+          drawer.setAttribute("aria-hidden", "true");
+        });
+      });
+    }
 
     // Theme toggle
     const themeToggle = document.querySelector(".nav-theme-toggle");
