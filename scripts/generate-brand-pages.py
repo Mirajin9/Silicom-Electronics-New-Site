@@ -176,7 +176,7 @@ BRANDS = [
     {
         "slug": "krykard",
         "name": "Krykard",
-        "logo": "assets/brand-logos/krykard.svg",
+        "logo": "assets/brand-logos/krykard.avif",
         "cat": "instruments",
         "cat_label": "Power Quality & Electrical Test",
         "origin": "India",
@@ -433,7 +433,7 @@ TILE_LOGO_TO_SLUG = {
     "keithley.png": "keithley",
     "elektro-automatik.png": "elektro-automatik",
     "anritsu.svg": "anritsu",
-    "krykard.svg": "krykard",
+    "krykard.avif": "krykard",
     "rishabh.png": "rishabh",
     "asemi-asm.png": "asemi",
     "donghai-wxdh.png": "donghai-wxdh",
