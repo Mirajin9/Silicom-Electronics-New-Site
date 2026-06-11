@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Keithley 2230 multi-channel DC power supply">
+  <defs>
+    <linearGradient id="kbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4f57"/><stop offset="1" stop-color="#33373e"/>
+    </linearGradient>
+    <linearGradient id="kvfd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06131a"/><stop offset="1" stop-color="#040d12"/>
+    </linearGradient>
+  </defs>
+  <!-- chassis -->
+  <rect x="40" y="104" width="400" height="168" rx="14" fill="url(#kbody)" stroke="#13161b" stroke-width="2"/>
+  <!-- feet -->
+  <rect x="78" y="272" width="26" height="12" rx="3" fill="#1b1e23"/>
+  <rect x="376" y="272" width="26" height="12" rx="3" fill="#1b1e23"/>
+  <!-- Keithley red accent stripe (right edge) -->
+  <rect x="420" y="104" width="20" height="168" rx="0" fill="#e11d2a"/>
+  <path d="M420 104 h20 v168 h-20 Z" fill="none"/>
+  <rect x="426" y="104" width="14" height="168" fill="#e11d2a"/>
+  <!-- VFD display -->
+  <rect x="58" y="124" width="206" height="128" rx="8" fill="url(#kvfd)" stroke="#0a0d12" stroke-width="2"/>
+  <text x="70" y="118" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#cdd6e2">KEITHLEY 2230-30-1</text>
+  <g font-family="ui-monospace,monospace" font-weight="700" fill="#36e0c0">
+    <text x="74" y="158" font-size="22">30.00V</text><text x="196" y="158" font-size="22">1.50A</text>
+    <text x="74" y="192" font-size="22">30.00V</text><text x="196" y="192" font-size="22">1.50A</text>
+    <text x="74" y="226" font-size="22">6.00V</text><text x="196" y="226" font-size="22">5.00A</text>
+  </g>
+  <g fill="#10303a"><rect x="66" y="166" width="44" height="6" rx="2"/><rect x="66" y="200" width="44" height="6" rx="2"/><rect x="66" y="234" width="44" height="6" rx="2"/></g>
+  <!-- keypad -->
+  <g fill="#2c313a" stroke="#13161b" stroke-width="1.5">
+    <rect x="286" y="128" width="20" height="16" rx="3"/><rect x="312" y="128" width="20" height="16" rx="3"/><rect x="338" y="128" width="20" height="16" rx="3"/>
+    <rect x="286" y="150" width="20" height="16" rx="3"/><rect x="312" y="150" width="20" height="16" rx="3"/><rect x="338" y="150" width="20" height="16" rx="3"/>
+    <rect x="286" y="172" width="20" height="16" rx="3"/><rect x="312" y="172" width="20" height="16" rx="3"/><rect x="338" y="172" width="20" height="16" rx="3"/>
+  </g>
+  <!-- rotary knob -->
+  <circle cx="388" cy="158" r="22" fill="#2c313a" stroke="#13161b" stroke-width="2"/>
+  <circle cx="388" cy="158" r="9" fill="#3a4049" stroke="#0e1217" stroke-width="1.5"/>
+  <line x1="388" y1="158" x2="388" y2="142" stroke="#cdd6e2" stroke-width="2.5"/>
+  <!-- output terminals -->
+  <g>
+    <circle cx="292" cy="232" r="9" fill="#e11d2a" stroke="#7a0f16" stroke-width="2"/><circle cx="316" cy="232" r="9" fill="#111418" stroke="#3a4049" stroke-width="2"/>
+    <circle cx="344" cy="232" r="9" fill="#e11d2a" stroke="#7a0f16" stroke-width="2"/><circle cx="368" cy="232" r="9" fill="#111418" stroke="#3a4049" stroke-width="2"/>
+    <circle cx="396" cy="232" r="9" fill="#e11d2a" stroke="#7a0f16" stroke-width="2"/><circle cx="420" cy="232" r="9" fill="#111418" stroke="#3a4049" stroke-width="2"/>
+  </g>
+</svg>

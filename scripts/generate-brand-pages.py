@@ -174,24 +174,25 @@ BRANDS = [
         "apps": ["5G & telecom infrastructure", "Cable & antenna commissioning", "RF component & material test", "Defence & aerospace", "Field installation & maintenance"],
     },
     {
-        "slug": "metrix",
-        "name": "Metrix",
-        "logo": "assets/brand-logos/metrix.png",
+        "slug": "krykard",
+        "name": "Krykard",
+        "logo": "assets/brand-logos/krykard.svg",
         "cat": "instruments",
-        "cat_label": "Portable Electrical Test",
-        "origin": "France",
-        "tagline": "Portable electrical measurement tools for field, panel and maintenance teams.",
-        "products": ["Digital Multimeters", "Clamp Meters", "Portable Oscilloscopes", "Electrical Testers"],
+        "cat_label": "Power Quality & Electrical Test",
+        "origin": "India",
+        "tagline": "Power quality analyzers, power & energy analyzers, clamp meters and electrical measurement instruments.",
+        "products": ["Power Quality Analyzers", "Power & Energy Analyzers", "Clamp Meters", "Data Loggers", "Multimeters", "Transducers"],
         "about": [
-            "Metrix (part of the Chauvin Arnoux group) builds rugged portable electrical instruments — digital multimeters, clamp meters and portable scopes — designed for field engineers, panel builders and electrical maintenance teams.",
-            "Where measurements happen on-site rather than on a bench, Metrix instruments deliver dependable, safety-rated electrical measurement for installation, fault-finding and routine maintenance work.",
+            "Krykard is an established Indian manufacturer of electrical measurement and power-quality instruments — power quality analyzers, power & energy analyzers, clamp-on meters, data loggers, multimeters and transducers used across utilities, industry and energy-audit work.",
+            "As a domestic brand with strong local support, Krykard is a practical choice for energy auditors, electrical contractors, panel builders and Make-in-India / GeM procurement that needs dependable, safety-rated measurement on the floor and in the field.",
         ],
         "range": [
-            ("Multimeters & clamps", "Handheld digital multimeters and clamp meters for electrical maintenance and fault diagnosis."),
-            ("Portable scopes", "Field-ready portable oscilloscopes for signal checks outside the lab."),
-            ("Electrical testers", "Safety-rated instruments for installation and maintenance test."),
+            ("Power quality analyzers", "Portable and installed power-quality analyzers for harmonics, sag/swell, flicker and energy-audit logging."),
+            ("Power & energy analyzers", "Single- and three-phase power, energy and demand measurement for audits and panels."),
+            ("Clamp & handheld meters", "Clamp-on meters, multimeters and electrical testers for field and maintenance work."),
+            ("Loggers & transducers", "Data loggers and electrical transducers for monitoring and panel instrumentation."),
         ],
-        "apps": ["Field electrical maintenance", "Panel building & switchgear", "Installation testing", "Industrial fault-finding", "Service & repair"],
+        "apps": ["Energy audits", "Power-quality surveys", "Utilities & substations", "Panel & switchgear", "Industrial maintenance", "GeM / Make-in-India sourcing"],
     },
     {
         "slug": "rishabh",
@@ -432,7 +433,7 @@ TILE_LOGO_TO_SLUG = {
     "keithley.png": "keithley",
     "elektro-automatik.png": "elektro-automatik",
     "anritsu.svg": "anritsu",
-    "metrix.png": "metrix",
+    "krykard.svg": "krykard",
     "rishabh.png": "rishabh",
     "asemi-asm.png": "asemi",
     "donghai-wxdh.png": "donghai-wxdh",
@@ -457,7 +458,7 @@ BRAND_ART = {
     "microtest": "ins-transformer",
     "elektro-automatik": "ins-ev-power",
     "anritsu": "ins-rf",
-    "metrix": "ins-field",
+    "krykard": "ins-field",
     "rishabh": "ins-field",
     "asemi": "brand-diode",
     "jilin-sino": "brand-semiconductor",
@@ -706,6 +707,10 @@ def build_page(b):
 <link rel="stylesheet" href="styles.css" />
 <style>
   :root {{ --font-display: "Inter Tight", "Inter", system-ui, sans-serif; }}
+  /* Tighter rhythm on brand pages — the default section padding is large. */
+  .section {{ padding: clamp(26px, 3.5vw, 48px) 0; }}
+  .section-tight {{ padding: clamp(16px, 2vw, 26px) 0; }}
+  .section-head {{ margin-bottom: 4px; }}
   .brand-breadcrumb {{ font-size:12.5px; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:6px; }}
   .brand-breadcrumb a {{ color:var(--ink-3); }}
   .brand-breadcrumb a:hover {{ color:var(--accent-ink); }}
