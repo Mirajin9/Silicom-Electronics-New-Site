@@ -1604,6 +1604,11 @@ p { margin: 0; text-wrap: pretty; }
   filter: blur(40px);
   pointer-events: none;
 }
+
+.image-slot .slot-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block; z-index: 1;
+}
 [data-theme="dark"] .image-slot {
   background:
     linear-gradient(135deg,

@@ -447,6 +447,30 @@ TILE_LOGO_TO_SLUG = {
 
 BY_SLUG = {b["slug"]: b for b in BRANDS}
 
+# Per-brand hero illustration (keys map to assets/illustrations/<key>.svg,
+# produced by scripts/generate-illustrations.py).
+BRAND_ART = {
+    "tektronix": "ins-signal-debug",
+    "keithley": "ins-smu",
+    "uni-t": "hero-instruments",
+    "scientific": "ins-education",
+    "microtest": "ins-transformer",
+    "elektro-automatik": "ins-ev-power",
+    "anritsu": "ins-rf",
+    "metrix": "ins-field",
+    "rishabh": "ins-field",
+    "asemi": "brand-diode",
+    "jilin-sino": "brand-semiconductor",
+    "shikues": "brand-mosfet",
+    "donghai-wxdh": "brand-mosfet",
+    "mot-inmark": "app-smps",
+    "reasunos": "app-gan-charger",
+    "surging": "brand-protection",
+    "adler": "brand-fuse",
+    "mlcc-base": "brand-passives",
+    "cdil": "brand-semiconductor",
+}
+
 
 # --------------------------------------------------------------------------
 # Copy helpers
@@ -746,6 +770,7 @@ def build_page(b):
       <div class="reveal" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">{products_chips}</div>
     </div>
     <div class="reveal" style="display:grid;gap:16px;align-content:start">
+      <div class="image-slot" data-ratio="16-9" style="border-radius:var(--r-lg)"><img class="slot-img" src="assets/illustrations/{BRAND_ART.get(slug, 'brand-' + b['cat'])}.svg" alt="{e(name)} {e(noun)} — {e(b['cat_label'])}" loading="lazy" decoding="async" /></div>
       <div class="brand-hero-logo">{logo_block(b, big=True)}</div>
       <div class="glass-soft" style="padding:18px;border-radius:var(--r-lg);display:grid;gap:6px">
         <div class="eyebrow"><span class="dot"></span>At a glance</div>
