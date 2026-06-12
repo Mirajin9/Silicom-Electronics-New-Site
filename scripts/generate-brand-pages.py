@@ -516,6 +516,7 @@ NAV = """<div class="nav-shell">
       <li class="nav-item"><a class="nav-link" data-route="index.html" href="index.html">Home</a></li>
       <li class="nav-item"><a class="nav-link" data-route="instruments.html" href="instruments.html">Instruments</a></li>
       <li class="nav-item"><a class="nav-link" data-route="components.html" href="components.html">Components</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="applications.html" href="applications.html">Applications</a></li>
       <li class="nav-item"><a class="nav-link active" data-route="brands.html" href="brands.html">Brands</a></li>
       <li class="nav-item"><a class="nav-link" data-route="about.html" href="about.html">About</a></li>
     </ul>
@@ -556,6 +557,7 @@ FOOTER = """<footer class="footer">
       <div><h4>Company</h4><ul>
         <li><a href="about.html">About</a></li>
         <li><a href="brands.html">Brand partners</a></li>
+        <li><a href="applications.html">Applications</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="mailto:info@silicomindia.com">info@silicomindia.com</a></li>
         </ul>
@@ -741,7 +743,7 @@ def build_page(b):
 </style>
 {ld_blocks}
 </head>
-<body data-screen-label="{e(name)}">
+<body data-screen-label="{e(name)}" data-section="{e(b['cat'])}">
 
 <div class="bg-mesh"></div>
 
@@ -775,7 +777,7 @@ def build_page(b):
       <div class="reveal" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">{products_chips}</div>
     </div>
     <div class="reveal" style="display:grid;gap:16px;align-content:start">
-      <div class="image-slot" data-ratio="16-9" style="border-radius:var(--r-lg)"><img class="slot-img" src="assets/illustrations/{BRAND_ART.get(slug, 'brand-' + b['cat'])}.svg" alt="{e(name)} {e(noun)} — {e(b['cat_label'])}" loading="lazy" decoding="async" /></div>
+      <div class="image-slot" data-ratio="16-9" data-hint="brand product photo — {slug}" style="border-radius:var(--r-lg)"><img class="slot-img" src="assets/brands/products/{slug}.jpg" onerror="this.onerror=null;this.src='assets/illustrations/{BRAND_ART.get(slug, 'brand-' + b['cat'])}.svg'" alt="{e(name)} {e(noun)} — {e(b['cat_label'])}" loading="lazy" decoding="async" /></div>
       <div class="brand-hero-logo">{logo_block(b, big=True)}</div>
       <div class="glass-soft" style="padding:18px;border-radius:var(--r-lg);display:grid;gap:6px">
         <div class="eyebrow"><span class="dot"></span>At a glance</div>
@@ -959,7 +961,7 @@ def patch_brands_html():
 # --------------------------------------------------------------------------
 
 def write_sitemap():
-    core = ["index.html", "instruments.html", "components.html", "brands.html", "about.html", "contact.html"]
+    core = ["index.html", "instruments.html", "components.html", "applications.html", "brands.html", "about.html", "contact.html"]
     urls = list(core) + [f"brand-{b['slug']}.html" for b in BRANDS]
     items = "\n".join(
         f"  <url><loc>{SITE}/{u}</loc><changefreq>monthly</changefreq>"

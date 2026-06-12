@@ -19,3 +19,6 @@ Thumbs.db
 # Build output
 dist/
 build/
+
+# Local site backups (large zips kept out of git; git tag pre-redesign-2026-06 is the canonical restore point)
+backups/

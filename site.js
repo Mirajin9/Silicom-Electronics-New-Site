@@ -530,56 +530,6 @@
       document.body.classList.add("show-slot-hints");
     }
 
-    // Circular Applications organiser — rotates the ring, populates a side
-    // preview on hover, and click-jumps to the matching accordion card.
-    document.querySelectorAll(".org-circle").forEach(circle => {
-      const preview = circle.querySelector(".org-preview");
-      const empty   = preview ? preview.querySelector(".org-preview-empty") : null;
-      const emptyHTML = empty ? empty.outerHTML : "";
-      const renderPreview = (d) => {
-        const split = (s) => (s || "").split(/\s*(?:\u00b7|\u00c2\u00b7)\s*/).map(x => x.trim()).filter(Boolean);
-        const brands = split(d.appBrands).map(b => '<span class="chip">' + b + '</span>').join("");
-        const items  = split(d.appProducts).map(p =>
-          '<li><span class="org-preview-dot"></span>' + p + '</li>').join("");
-        return ''
-          + '<div class="org-preview-head"><div class="eyebrow"><span class="dot"></span>' + (d.appLabel || d.appTitle || 'Application') + '</div></div>'
-          + (brands ? '<div class="org-preview-block"><div class="org-preview-label">Brand partners</div><div class="org-preview-chips">' + brands + '</div></div>' : '')
-          + (items  ? '<div class="org-preview-block"><div class="org-preview-label">What we carry</div><ul class="org-preview-items">' + items + '</ul></div>' : '')
-          + '<a class="btn-arrow org-preview-link" href="#' + (d.appId || '') + '">Open detail <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>';
-      };
-      const nodes = circle.querySelectorAll(".org-node");
-      nodes.forEach(n => {
-        n.addEventListener("mouseenter", () => {
-          circle.classList.add("paused");
-          if (preview) preview.innerHTML = renderPreview(n.dataset);
-        });
-        n.addEventListener("focus", () => {
-          circle.classList.add("paused");
-          if (preview) preview.innerHTML = renderPreview(n.dataset);
-        });
-        n.addEventListener("mouseleave", () => {
-          circle.classList.remove("paused");
-        });
-        n.addEventListener("blur", () => {
-          circle.classList.remove("paused");
-        });
-        n.addEventListener("click", (e) => {
-          e.preventDefault();
-          const card = document.getElementById(n.dataset.appId || "");
-          if (!card) return;
-          card.classList.add("open");
-          card.scrollIntoView({ behavior: "smooth", block: "center" });
-        });
-      });
-      // Reset preview when leaving the ring entirely.
-      const stage = circle.querySelector(".org-circle-stage");
-      if (stage && preview) {
-        stage.addEventListener("mouseleave", () => {
-          preview.innerHTML = emptyHTML;
-        });
-      }
-    });
-
     // Reveal animations are CSS-only (see styles.css .reveal rules).
     // No JS opacity manipulation — content is always visible by default.
 

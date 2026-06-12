@@ -13,6 +13,13 @@
   --accent-2: #7d8794;
   --accent-ink: #07529d;
 
+  /* Section accents (colour-coded wayfinding; --accent is remapped per page below).
+     Blue stays the master brand colour; the others are siblings, not replacements. */
+  --c-instruments:  #0b6fd3;  /* technical blue (master) */
+  --c-components:   #0d9488;  /* teal / green */
+  --c-applications: #e08a1e;  /* warm amber */
+  --c-brands:       #6d5cff;  /* indigo / violet */
+
   /* Ink */
   --ink-1: #0b1020;
   --ink-2: #2a2f44;
@@ -107,6 +114,23 @@
     0 10px 28px -12px rgba(0, 0, 0, 0.6),
     0 2px 8px -3px rgba(0, 0, 0, 0.3);
 }
+
+/* ===========================================================
+   Section accent remapping
+   Set data-section on <body>; every component already reads
+   var(--accent)/--accent-2, so the whole page recolours.
+   Works in both light and dark mode (only --accent changes).
+   =========================================================== */
+body[data-section="instruments"]  { --accent: var(--c-instruments);  --accent-ink: #07529d; }
+body[data-section="components"]   { --accent: var(--c-components);   --accent-ink: #0a6b62; }
+body[data-section="applications"] { --accent: var(--c-applications); --accent-ink: #b56a10; }
+body[data-section="brands"]       { --accent: var(--c-brands);       --accent-ink: #4b3fd6; }
+/* home / about / contact keep the master blue (no data-section) */
+
+/* Slightly lift accent-ink in dark mode so coloured text stays legible */
+[data-theme="dark"] body[data-section="components"]   { --accent-ink: #2dd4bf; }
+[data-theme="dark"] body[data-section="applications"] { --accent-ink: #f6b860; }
+[data-theme="dark"] body[data-section="brands"]       { --accent-ink: #a797ff; }
 
 /* ===========================================================
    Reset & base
