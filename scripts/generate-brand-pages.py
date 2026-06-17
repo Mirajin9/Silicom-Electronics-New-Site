@@ -745,11 +745,12 @@ def build_page(b):
 </head>
 <body data-screen-label="{e(name)}" data-section="{e(b['cat'])}">
 
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="bg-mesh"></div>
 
 {NAV}
 
-<section class="hero">
+<section class="hero" id="main" tabindex="-1">
   <div class="container hero-split">
     <div class="hero-stack">
       <nav class="brand-breadcrumb reveal" aria-label="Breadcrumb">

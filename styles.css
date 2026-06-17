@@ -3,15 +3,21 @@
    =========================================================== */
 
 :root {
-  /* Cool neutrals - blue and metallic grey brand */
-  --bg-1: #f6f8fb;
-  --bg-2: #edf2f7;
-  --bg-3: #f9fbfd;
+  color-scheme: light dark;
 
-  /* Accent - technical blue + metallic grey */
+  /* Grounded white + blue base (solid white surfaces, clean blue air) */
+  --bg-1: #ffffff;
+  --bg-2: #e9f1fc;
+  --bg-3: #f4f8fe;
+
+  /* Accent - technical blue (master) + metallic grey neutral */
   --accent: #0b6fd3;
   --accent-2: #7d8794;
   --accent-ink: #07529d;
+
+  /* Vivid brand gradient for primary surfaces (blue→deep blue, never muddy) */
+  --brand-grad: linear-gradient(135deg, #1f8be8, #0a5ec0);
+  --brand-grad-soft: linear-gradient(135deg, #2b86e0, #0b6fd3);
 
   /* Section accents (colour-coded wayfinding; --accent is remapped per page below).
      Blue stays the master brand colour; the others are siblings, not replacements. */
@@ -20,30 +26,33 @@
   --c-applications: #e08a1e;  /* warm amber */
   --c-brands:       #6d5cff;  /* indigo / violet */
 
-  /* Ink */
+  /* Ink — tuned so muted text clears WCAG AA (4.5:1) on white */
   --ink-1: #0b1020;
   --ink-2: #2a2f44;
-  --ink-3: #5b6079;
-  --ink-4: #8a90a6;
-  --hairline: rgba(11, 16, 32, 0.08);
+  --ink-3: #51566e;  /* ~5.0:1 on #fff — safe for body/muted copy */
+  --ink-4: #6c7287;  /* ~4.5:1 — captions / large text only */
+  --hairline: rgba(11, 16, 32, 0.10);
 
-  /* Glass tokens */
-  --glass-blur: 22px;
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-bg-strong: rgba(255, 255, 255, 0.72);
-  --glass-bg-soft: rgba(255, 255, 255, 0.38);
-  --glass-border: rgba(255, 255, 255, 0.65);
+  /* Glass tokens — solid, grounded white surfaces with a crisp defining edge.
+     We keep the blur/sheen for the "glass" feel but the fills are near-opaque so
+     cards read as real panels on the page, not floating haze. */
+  --glass-blur: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.86);
+  --glass-bg-strong: rgba(255, 255, 255, 0.94);
+  --glass-bg-soft: rgba(255, 255, 255, 0.70);
+  /* Cool blue-ink hairline so panels have a visible edge on a white background */
+  --glass-border: rgba(13, 38, 75, 0.10);
   --glass-shadow:
-    0 1px 0 rgba(255,255,255,0.7) inset,
-    0 0 0 1px rgba(255,255,255,0.4) inset,
-    0 16px 40px -16px rgba(20, 30, 80, 0.25),
-    0 4px 12px -4px rgba(20, 30, 80, 0.12);
+    0 1px 0 rgba(255,255,255,0.9) inset,
+    0 0 0 1px rgba(13, 38, 75, 0.04) inset,
+    0 18px 40px -20px rgba(13, 38, 75, 0.28),
+    0 4px 12px -6px rgba(13, 38, 75, 0.12);
 
   --glass-shadow-sm:
-    0 1px 0 rgba(255,255,255,0.7) inset,
-    0 0 0 1px rgba(255,255,255,0.4) inset,
-    0 8px 20px -10px rgba(20, 30, 80, 0.18),
-    0 2px 6px -2px rgba(20, 30, 80, 0.08);
+    0 1px 0 rgba(255,255,255,0.9) inset,
+    0 0 0 1px rgba(13, 38, 75, 0.04) inset,
+    0 10px 24px -14px rgba(13, 38, 75, 0.22),
+    0 2px 6px -3px rgba(13, 38, 75, 0.10);
 
   /* Density */
   --density: 1;
@@ -67,20 +76,20 @@
 
 /* ---------- Glass intensity tweak hooks ---------- */
 [data-glass="subtle"] {
-  --glass-blur: 14px;
-  --glass-bg: rgba(255,255,255,0.7);
-  --glass-bg-strong: rgba(255,255,255,0.82);
-  --glass-bg-soft: rgba(255,255,255,0.55);
+  --glass-blur: 12px;
+  --glass-bg: rgba(255,255,255,0.95);
+  --glass-bg-strong: rgba(255,255,255,0.98);
+  --glass-bg-soft: rgba(255,255,255,0.85);
 }
 [data-glass="balanced"] {
-  --glass-blur: 22px;
+  --glass-blur: 20px;
 }
 [data-glass="max"] {
-  --glass-blur: 36px;
-  --glass-bg: rgba(255,255,255,0.42);
-  --glass-bg-strong: rgba(255,255,255,0.6);
-  --glass-bg-soft: rgba(255,255,255,0.28);
-  --glass-border: rgba(255,255,255,0.85);
+  --glass-blur: 30px;
+  --glass-bg: rgba(255,255,255,0.74);
+  --glass-bg-strong: rgba(255,255,255,0.86);
+  --glass-bg-soft: rgba(255,255,255,0.58);
+  --glass-border: rgba(13, 38, 75, 0.12);
 }
 
 /* ---------- Density ---------- */
@@ -151,6 +160,37 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
 
+/* Visible keyboard focus everywhere (WCAG 2.4.7). Mouse clicks stay clean. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+/* On vivid blue surfaces, a white-then-blue ring stays visible on either side */
+.btn-primary:focus-visible,
+.nav-cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -4px;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 55%, transparent);
+}
+
+/* Skip-to-content link — visible only when focused */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -56px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: var(--r-pill);
+  background: var(--accent-ink);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 8px 24px -8px rgba(13,38,75,0.5);
+  transition: top .2s ease;
+}
+.skip-link:focus { top: 16px; outline: 2px solid #fff; outline-offset: 2px; }
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -166,13 +206,27 @@ p { margin: 0; text-wrap: pretty; }
    =========================================================== */
 .bg-mesh {
   position: fixed; inset: 0; z-index: -1;
-  background:
-    radial-gradient(80vw 60vh at 8% 0%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
-    radial-gradient(70vw 55vh at 100% 12%, color-mix(in oklab, var(--accent-2) 22%, transparent), transparent 60%),
-    radial-gradient(60vw 50vh at 50% 100%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--bg-1), var(--bg-2));
   pointer-events: none;
+  /* Solid white→blue base with one confident blue glow up top.
+     A faint blueprint grid grounds the page and reads as "instrumentation". */
+  background:
+    radial-gradient(70vw 48vh at 88% -6%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 62%),
+    radial-gradient(60vw 44vh at 0% 4%, color-mix(in oklab, var(--accent) 9%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-3) 46%, var(--bg-2) 100%);
 }
+/* Blueprint grid overlay — subtle, on-brand grounding texture */
+.bg-mesh::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--accent) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--accent) 8%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120vw 90vh at 50% 0%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(120vw 90vh at 50% 0%, #000 0%, transparent 72%);
+  opacity: 0.5;
+}
+[data-theme="dark"] .bg-mesh::before { opacity: 0.35; }
 [data-theme="dark"] .bg-mesh {
   background:
     radial-gradient(80vw 60vh at 8% 0%, color-mix(in oklab, var(--accent) 32%, transparent), transparent 60%),
@@ -183,7 +237,7 @@ p { margin: 0; text-wrap: pretty; }
 
 .bg-grain {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.12;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
   mix-blend-mode: overlay;
 }
@@ -305,13 +359,13 @@ p { margin: 0; text-wrap: pretty; }
 }
 .btn-primary {
   color: white;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--brand-grad);
   box-shadow:
     0 1px 0 rgba(255,255,255,0.4) inset,
     0 0 0 1px rgba(255,255,255,0.2) inset,
-    0 12px 28px -10px color-mix(in oklab, var(--accent) 60%, var(--accent-2));
+    0 12px 28px -10px color-mix(in oklab, var(--accent) 70%, #000);
 }
-.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
 .btn-glass {
   color: var(--ink-1);
   background: var(--glass-bg-strong);
@@ -442,9 +496,9 @@ p { margin: 0; text-wrap: pretty; }
   font-size: 15px;
   font-weight: 500;
   color: white;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--brand-grad);
   box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset,
-              0 8px 20px -8px color-mix(in oklab, var(--accent) 60%, var(--accent-2));
+              0 8px 20px -8px color-mix(in oklab, var(--accent) 70%, #000);
 }
 
 .nav-theme-toggle {
@@ -644,7 +698,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 .hero-tag-badge {
   padding: 4px 10px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--brand-grad);
   color: white;
   border-radius: var(--r-pill);
   font-weight: 600;
@@ -1868,8 +1922,34 @@ body.show-slot-hints .image-slot[data-hint]::before {
    =========================================================== */
 .footer {
   margin-top: clamp(60px, 8vw, 120px);
-  padding: 48px 0 36px;
-  border-top: 1px solid var(--hairline);
+  padding: clamp(48px, 6vw, 72px) 0 36px;
+  position: relative;
+  isolation: isolate;
+  /* Solid deep-blue brand panel — grounds the bottom of every page */
+  background: linear-gradient(165deg, #0a2a52 0%, #07203f 60%, #061a33 100%);
+  color: #eaf1fb;
+  /* Remap ink tokens locally so all descendant text/links flip to light */
+  --ink-1: #ffffff;
+  --ink-2: #cdd9ee;
+  --ink-3: #9fb2d4;
+  --ink-4: #7e93b8;
+  --hairline: rgba(255,255,255,0.14);
+}
+/* Thin blue accent rule along the very top edge of the footer */
+.footer::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: var(--brand-grad);
+}
+.footer .nav-brand-mark {
+  background-color: rgba(255,255,255,0.96);
+  padding: 6px;
+  border-radius: 12px;
+}
+.footer .chip {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+  color: #dce6f7;
 }
 .footer-grid {
   display: grid;
