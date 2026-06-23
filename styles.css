@@ -2870,3 +2870,59 @@ body.show-slot-hints .image-slot[data-hint]::before {
     transition: none;
   }
 }
+
+/* ===========================================================
+   Instruments page — partners shown first, featured products
+   collapse behind a click-to-open "tab" (native <details>).
+   =========================================================== */
+.instruments-flow { display: flex; flex-direction: column; }
+.instruments-flow .flow-brands   { order: 1; }
+.instruments-flow .flow-featured { order: 2; }
+
+.products-disclosure { position: relative; }
+.products-disclosure-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: var(--r-lg);
+  transition: border-color .2s ease, background .2s ease;
+}
+.products-disclosure-summary::-webkit-details-marker { display: none; }
+.products-disclosure-summary:hover {
+  border-color: color-mix(in oklab, var(--accent) 38%, transparent);
+}
+.products-disclosure-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.products-disclosure-head .h2 { margin-bottom: 0; }
+.products-disclosure-cue {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent-ink);
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  background: color-mix(in oklab, var(--accent) 12%, var(--bg-1));
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+}
+.products-disclosure-label::after { content: "Show products"; }
+.products-disclosure[open] .products-disclosure-label::after { content: "Hide products"; }
+.products-disclosure-chevron { transition: transform .25s ease; }
+.products-disclosure[open] .products-disclosure-chevron { transform: rotate(180deg); }
+.products-disclosure[open] .products-disclosure-summary { margin-bottom: 24px; }
+.products-disclosure-body { margin-top: 0; }
+/* Cards inside the disclosure are revealed by the click, not scroll —
+   keep them fully visible so none get stuck at the reveal start frame. */
+.products-disclosure-body .reveal { animation: none; opacity: 1; transform: none; }
+
+@media (max-width: 640px) {
+  .products-disclosure-summary { flex-direction: column; align-items: flex-start; gap: 16px; }
+}

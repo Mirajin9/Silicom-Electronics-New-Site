@@ -86,20 +86,25 @@
   </div>
 </section>
 
-<!-- FEATURED PRODUCTS -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Featured products</div>
-        <h2 class="h2" style="margin-top:12px">On engineers' benches this quarter.</h2>
-      </div>
-      <a class="btn btn-ghost btn-arrow" href="#categories">View full catalogue
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
+<div class="instruments-flow">
 
-    <div class="product-feature-grid">
+<!-- FEATURED PRODUCTS (collapsible — opens on click) -->
+<section class="section flow-featured">
+  <div class="container">
+    <details class="products-disclosure reveal">
+      <summary class="products-disclosure-summary glass-soft">
+        <div class="products-disclosure-head">
+          <div class="eyebrow"><span class="dot"></span>Featured products</div>
+          <h2 class="h2" style="margin-top:12px">On engineers' benches this quarter.</h2>
+          <p class="muted" style="font-size:14px;margin-top:10px;max-width:54ch">A few instruments engineers ask us for most — click to expand and browse the highlights.</p>
+        </div>
+        <span class="products-disclosure-cue">
+          <span class="products-disclosure-label"></span>
+          <svg class="products-disclosure-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </summary>
+      <div class="products-disclosure-body">
+        <div class="product-feature-grid">
 
             <!-- Tektronix MSO 2 Series EDU -->
       <article class="product-feature-card glass reveal">
@@ -243,12 +248,14 @@
 
     
 
-    </div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- BRAND SHOWCASE — expandable brand cards with nested product categories -->
-<section class="section band" id="brands">
+<!-- AUTHORIZED PARTNERS — shown first; brand cards with nested product categories -->
+<section class="section band flow-brands" id="brands">
   <div class="container">
     <div class="section-head reveal">
       <div>
@@ -474,6 +481,8 @@
     </div>
   </div>
 </section>
+
+</div><!-- /.instruments-flow -->
 
 <!-- CTA -->
 <section class="section">
