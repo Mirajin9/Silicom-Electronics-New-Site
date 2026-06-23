@@ -265,6 +265,19 @@
       }
     ];
 
+    // Category visual for each card (dark scene illustrations → white text contrasts).
+    const applicationImages = [
+      "assets/illustrations/app-ev-2w3w.svg",      // Automotive
+      "assets/illustrations/app-smart-meter.svg",  // IoT
+      "assets/illustrations/app-led-driver.svg",   // Lighting
+      "assets/illustrations/app-gan-charger.svg",  // Mobile Chargers
+      "assets/illustrations/app-bldc.svg",         // BLDC
+      "assets/illustrations/app-solar.svg",        // Solar
+      "assets/illustrations/app-smps.svg",         // SMPS
+      "assets/illustrations/app-ev-ac-charger.svg" // EV Chargers
+    ];
+    applicationGuides.forEach((guide, i) => { guide.image = applicationImages[i % applicationImages.length]; });
+
     document.querySelectorAll("[data-application-carousel]").forEach(carousel => {
       const nameList = carousel.querySelector("[data-app-name-list]");
       const visualList = carousel.querySelector("[data-app-visuals]");
@@ -315,6 +328,8 @@
         visual.dataset.appIndex = String(index);
         visual.style.setProperty("--app-hue", app.hue);
         visual.innerHTML = ''
+          + '<img class="application-visual-img" src="' + app.image + '" alt="" loading="lazy" decoding="async" />'
+          + '<div class="application-visual-scrim"></div>'
           + '<div class="application-visual-code">' + app.code + '</div>'
           + '<div class="application-visual-title">' + app.title + '</div>'
           + '<p class="application-visual-copy">' + app.summary + '</p>';

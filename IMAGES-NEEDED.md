@@ -19,7 +19,8 @@ page with `?slots=1` at the end of the URL (e.g. `instruments.html?slots=1`) to 
 - [ ] `home.jpg` — no longer used on the home hero (replaced by the reception photo below); keep only if you reuse it elsewhere.
 
 ## 1b. Company photos used on key pages — `assets/company/`
-- [ ] `reception.jpg` — **Silicom reception desk** (home page hero, 16:9 ~1600×900)
+- [x] `reception.jpg` — **Silicom reception desk** (home page hero) — *supplied*
+- [x] `facility.jpg` — warehouse (About page) — *supplied (Silicom warehouse)*
 - [ ] `director-suneet.jpg` — Mr. Suneet Dargan headshot (About → Leadership, 1:1 square; falls back to "SD" initials)
 - [ ] `director-chandeep.jpg` — Mr. Chandeep Singh headshot (About → Leadership, 1:1 square; falls back to "CS" initials)
 
@@ -29,8 +30,8 @@ page with `?slots=1` at the end of the URL (e.g. `instruments.html?slots=1`) to 
 
 ## 2b. Instrument product photos — 2 images · `assets/products/instruments/` · product on clean/white bg
 *(These replace the existing SVG line-art placeholders; they fall back to the SVG, so nothing breaks until supplied.)*
-- [ ] `tektronix-2-series-mso.jpg` — Tektronix 2 Series MSO oscilloscope
-- [ ] `keithley-2230-dc-power-supply.jpg` — Keithley 2220 / 2230 multi-channel DC power supply
+- [x] `tektronix-2-series-mso.jpg` — Tektronix 2 Series MSO oscilloscope — *supplied*
+- [x] `keithley-2230-dc-power-supply.jpg` — Keithley 2220 / 2230 multi-channel DC power supply — *supplied*
 
 ## 3. Application photos — 9 images · `assets/applications/` · 4:3 (~1200×900)
 - [ ] `led-driver.jpg`
