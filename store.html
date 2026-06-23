@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Buy electronic components online — MOSFETs, MLCCs, diodes, TVS and protection parts in spot and hobby quantities. Single pieces welcome, with bulk price breaks." />
+<meta name="author" content="Silicom Electronics Pvt. Ltd." />
+<meta name="theme-color" content="#0d9488" />
+<link rel="icon" type="image/png" href="assets/silicom-logo-mark.png" />
+<link rel="apple-touch-icon" href="assets/silicom-logo-mark.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Silicom Electronics" />
+<meta property="og:title" content="Component Store — Spot &amp; Hobby Buying — Silicom Electronics" />
+<meta property="og:description" content="Buy components online in any quantity. Single pieces welcome, with automatic bulk price breaks." />
+<title>Component Store — Silicom Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="store.css" />
+<style>:root { --font-display: "Inter Tight", "Inter", system-ui, sans-serif; }</style>
+<!-- Razorpay Checkout -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body data-screen-label="Store" data-section="components">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="bg-mesh"></div>
+
+<div class="nav-shell">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-brand" href="index.html">
+      <span class="nav-brand-mark"></span>
+      <span>Silicom <span style="color:var(--ink-3);font-weight:500">Electronics</span></span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a class="nav-link" data-route="index.html" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="instruments.html" href="instruments.html">Instruments</a></li>
+      <li class="nav-item"><a class="nav-link active" data-route="components.html" href="components.html">Components</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="applications.html" href="applications.html">Applications</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="brands.html" href="brands.html">Brands</a></li>
+      <li class="nav-item"><a class="nav-link" data-route="about.html" href="about.html">About</a></li>
+    </ul>
+    <button class="nav-theme-toggle" aria-label="Toggle theme"></button>
+    <button class="nav-cta store-cart-btn" id="cartBtn" aria-label="Open cart">
+      Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero store-hero" id="main" tabindex="-1">
+  <div class="container">
+    <div class="hero-stack" style="max-width:46rem">
+      <span class="hero-tag">
+        <span class="hero-tag-badge">STORE</span>
+        Spot &amp; hobby buying — single pieces welcome
+      </span>
+      <h1 class="h1" style="max-width:20ch">Buy components online, <span class="hero-grad">any quantity</span>.</h1>
+      <p class="lede">
+        Order MOSFETs, MLCCs, diodes and protection parts in the quantity you actually need —
+        one piece for a prototype, or a reel for production. Prices drop automatically as you buy more.
+      </p>
+      <div class="store-hero-points">
+        <span>✓ No minimum order</span>
+        <span>✓ Automatic bulk price breaks</span>
+        <span>✓ Secure Razorpay checkout</span>
+        <span>✓ Flat-rate shipping across India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section">
+  <div class="container">
+    <div class="store-toolbar">
+      <div class="store-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="searchInput" type="search" placeholder="Search part number, name or category…" aria-label="Search components" />
+      </div>
+      <div class="store-filters" id="brandFilters"></div>
+    </div>
+    <div class="store-grid" id="productGrid" aria-live="polite">
+      <div class="store-empty" id="loadingMsg">Loading products…</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-brand" style="margin-bottom:14px">
+          <span class="nav-brand-mark"></span>
+          <span>Silicom <span style="color:var(--ink-3);font-weight:500">Electronics</span></span>
+        </div>
+        <p class="muted" style="font-size:13.5px;max-width:34ch">Trusted partner in components and test &amp; measurement equipment supply, since 1994.</p>
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <span class="chip">ISO 9001:2015</span>
+          <span class="chip">GeM Assessed</span>
+        </div>
+      </div>
+      <div><h4>Store</h4><ul>
+        <li><a href="store.html">All components</a></li>
+        <li><a href="components.html">Components division</a></li>
+        <li><a href="contact.html">Bulk / custom enquiry</a></li>
+      </ul></div>
+      <div><h4>Components</h4><ul>
+        <li><a href="components.html#mosfets">MOSFETs &amp; SiC</a></li>
+        <li><a href="components.html#diodes">Diodes</a></li>
+        <li><a href="components.html#protection">Protection</a></li>
+        <li><a href="components.html#passives">Passives</a></li>
+      </ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="brands.html">Brand partners</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="mailto:info@silicomindia.com">info@silicomindia.com</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 1994–2026 Silicom Electronics Pvt. Ltd. All rights reserved.</span>
+      <span>C-26 DSIDC Complex, Kirti Nagar, New Delhi 110015</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Product detail modal ===== -->
+<div class="store-modal" id="productModal" hidden>
+  <div class="store-modal-backdrop" data-close></div>
+  <div class="store-modal-card" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <button class="store-modal-close" data-close aria-label="Close">✕</button>
+    <div class="pm-body" id="pmBody"><!-- filled by JS --></div>
+  </div>
+</div>
+
+<!-- ===== Cart drawer ===== -->
+<div class="store-drawer" id="cartDrawer" hidden>
+  <div class="store-drawer-backdrop" data-close-cart></div>
+  <aside class="store-drawer-panel" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h3>Your cart</h3>
+      <button class="store-modal-close" data-close-cart aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-items" id="drawerItems"></div>
+    <div class="drawer-foot" id="drawerFoot"></div>
+  </aside>
+</div>
+
+<!-- ===== Checkout modal ===== -->
+<div class="store-modal" id="checkoutModal" hidden>
+  <div class="store-modal-backdrop" data-close-checkout></div>
+  <div class="store-modal-card store-checkout-card" role="dialog" aria-modal="true" aria-label="Checkout">
+    <button class="store-modal-close" data-close-checkout aria-label="Close">✕</button>
+    <div id="checkoutBody"><!-- filled by JS --></div>
+  </div>
+</div>
+
+<script src="site.js"></script>
+<script src="store.js"></script>
+</body>
+</html>

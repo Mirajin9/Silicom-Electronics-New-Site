@@ -1,0 +1,88 @@
+<% var p = product || {}; var tiers = (product && product.tiers && product.tiers.length) ? product.tiers : [{min_qty:1,unit_price:''}]; %>
+<%- include('_head', { title: product ? 'Edit product' : 'New product', active:'products', csrf }) %>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+  <a href="/admin" class="muted" style="text-decoration:none">← Products</a>
+  <h1 style="margin:0"><%= product ? 'Edit product' : 'New product' %></h1>
+</div>
+
+<form method="post" action="<%= product ? '/admin/products/'+product.id : '/admin/products' %>" enctype="multipart/form-data">
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+
+  <div class="card">
+    <div class="row">
+      <div><label>Product name *</label><input name="name" value="<%= p.name||'' %>" required></div>
+      <div><label>SKU / part number *</label><input name="sku" value="<%= p.sku||'' %>" required></div>
+    </div>
+    <div class="row3">
+      <div><label>Brand</label><input name="brand" value="<%= p.brand||'' %>"></div>
+      <div><label>Category</label><input name="category" value="<%= p.category||'' %>" placeholder="MOSFET, MLCC, Diode…"></div>
+      <div><label>URL slug</label><input name="slug" value="<%= p.slug||'' %>" placeholder="auto from name"></div>
+    </div>
+    <label>Short description <span class="muted">(shown on cards)</span></label>
+    <input name="short_desc" value="<%= p.short_desc||'' %>" maxlength="160">
+    <label>Full description</label>
+    <textarea name="long_desc"><%= p.long_desc||'' %></textarea>
+  </div>
+
+  <div class="card">
+    <div class="row3">
+      <div><label>Stock (pieces)</label><input name="stock" type="number" min="0" value="<%= p.stock!=null?p.stock:0 %>"></div>
+      <div><label>Weight per piece (g)</label><input name="weight_g" type="number" min="0" value="<%= p.weight_g!=null?p.weight_g:0 %>"></div>
+      <div><label>Status</label>
+        <select name="status">
+          <option value="active" <%= p.status!=='hidden'?'selected':'' %>>Active (visible in store)</option>
+          <option value="hidden" <%= p.status==='hidden'?'selected':'' %>>Hidden</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <label style="margin-top:0">Quantity-break pricing</label>
+    <p class="muted" style="margin-top:0">Set the price per piece at each minimum quantity. The first row (qty 1) is your ceiling price; the highest quantity is your floor. Buyers see a “buy more, save more” table.</p>
+    <div id="tiers">
+      <% tiers.forEach(function(t){ %>
+      <div class="tier-row">
+        <div><label class="muted" style="margin:0 0 4px">Min quantity</label><input name="tier_min_qty" type="number" min="1" value="<%= t.min_qty %>"></div>
+        <div><label class="muted" style="margin:0 0 4px">Price per piece (₹)</label><input name="tier_unit_price" type="number" min="0" step="0.01" value="<%= t.unit_price %>"></div>
+        <button type="button" class="btn danger sm" onclick="this.closest('.tier-row').remove()">✕</button>
+      </div>
+      <% }) %>
+    </div>
+    <button type="button" class="btn secondary sm" onclick="addTier()">+ Add tier</button>
+  </div>
+
+  <div class="card">
+    <label style="margin-top:0">Images</label>
+    <% if (product && product.images && product.images.length) { %>
+      <div style="display:flex;flex-wrap:wrap">
+        <% product.images.forEach(function(u){ %>
+          <div class="img-chip">
+            <img class="thumb" style="width:64px;height:64px" src="<%= u %>" alt="">
+            <label class="muted" style="margin:0;font-weight:500"><input type="checkbox" name="remove_image" value="<%= u %>" style="width:auto"> remove</label>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+    <label>Add images <span class="muted">(jpg / png / webp, up to 6)</span></label>
+    <input type="file" name="images" accept="image/*" multiple>
+  </div>
+
+  <div style="display:flex;gap:12px;margin-bottom:40px">
+    <button class="btn">Save product</button>
+    <a href="/admin" class="btn secondary">Cancel</a>
+  </div>
+</form>
+
+<script>
+  function addTier(){
+    var wrap = document.getElementById('tiers');
+    var div = document.createElement('div');
+    div.className = 'tier-row';
+    div.innerHTML = '<div><label class="muted" style="margin:0 0 4px">Min quantity</label><input name="tier_min_qty" type="number" min="1"></div>'
+      + '<div><label class="muted" style="margin:0 0 4px">Price per piece (₹)</label><input name="tier_unit_price" type="number" min="0" step="0.01"></div>'
+      + '<button type="button" class="btn danger sm" onclick="this.closest(\'.tier-row\').remove()">✕</button>';
+    wrap.appendChild(div);
+  }
+</script>
+<%- include('_foot') %>

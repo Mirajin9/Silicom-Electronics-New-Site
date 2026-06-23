@@ -22,3 +22,8 @@ build/
 
 # Local site backups (large zips kept out of git; git tag pre-redesign-2026-06 is the canonical restore point)
 backups/
+
+# Store backend: local database + uploaded product images (runtime data, not source)
+server/store.db
+server/store.db-*
+server/uploads/

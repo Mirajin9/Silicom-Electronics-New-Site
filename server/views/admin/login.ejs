@@ -1,0 +1,17 @@
+<%- include('_head', { title:'Log in', showNav:false, csrf }) %>
+<div style="max-width:380px;margin:8vh auto;">
+  <div class="card">
+    <div class="brand" style="font-weight:800;font-size:20px;margin-bottom:4px">Silicom <span style="color:var(--teal)">Store Admin</span></div>
+    <p class="muted" style="margin-top:0">Sign in to manage products and orders.</p>
+    <% if (error) { %><div class="flash"><%= error %></div><% } %>
+    <form method="post" action="/admin/login">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label>Username</label>
+      <input name="username" autocomplete="username" autofocus>
+      <label>Password</label>
+      <input name="password" type="password" autocomplete="current-password">
+      <button class="btn" style="margin-top:18px;width:100%;justify-content:center">Log in</button>
+    </form>
+  </div>
+</div>
+<%- include('_foot') %>

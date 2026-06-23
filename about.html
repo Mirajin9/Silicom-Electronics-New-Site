@@ -59,6 +59,7 @@
     gap: 16px;
   }
   .leader-avatar {
+    position: relative; overflow: hidden;
     width: 96px; height: 96px;
     border-radius: 50%;
     background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, white), color-mix(in oklab, var(--accent-2) 22%, white));
@@ -69,6 +70,14 @@
     font-size: 32px;
     color: var(--accent-ink);
     letter-spacing: -0.03em;
+    flex-shrink: 0;
+  }
+  /* Director photo sits over the initials; on missing image it removes itself,
+     leaving the initials as a clean fallback. */
+  .leader-avatar img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
   }
   [data-theme="dark"] .leader-avatar {
     color: white;
@@ -149,7 +158,7 @@
 </section>
 
 <!-- WHY -->
-<section class="section">
+<section class="section band">
   <div class="container">
     <div class="section-head reveal">
       <div>
@@ -251,7 +260,7 @@
 </section>
 
 <!-- LEADERSHIP -->
-<section class="section">
+<section class="section band">
   <div class="container">
     <div class="section-head reveal">
       <div>
@@ -262,7 +271,7 @@
     <div class="spotlight">
       <div class="leader-card glass reveal">
         <div style="display:flex;gap:18px;align-items:center">
-          <div class="leader-avatar">SD</div>
+          <div class="leader-avatar">SD<img src="assets/company/director-suneet.jpg" onerror="this.onerror=null;this.remove()" alt="Mr. Suneet Dargan" loading="lazy" decoding="async" /></div>
           <div>
             <div style="font-size:20px;font-weight:600;letter-spacing:-0.02em">Mr. Suneet Dargan</div>
             <div class="muted" style="font-size:13.5px">Director — Components Division</div>
@@ -277,7 +286,7 @@
 
       <div class="leader-card glass reveal">
         <div style="display:flex;gap:18px;align-items:center">
-          <div class="leader-avatar" style="background:linear-gradient(135deg,color-mix(in oklab,var(--accent-2) 30%,white),color-mix(in oklab,var(--accent) 22%,white))">CS</div>
+          <div class="leader-avatar" style="background:linear-gradient(135deg,color-mix(in oklab,var(--accent-2) 30%,white),color-mix(in oklab,var(--accent) 22%,white))">CS<img src="assets/company/director-chandeep.jpg" onerror="this.onerror=null;this.remove()" alt="Mr. Chandeep Singh" loading="lazy" decoding="async" /></div>
           <div>
             <div style="font-size:20px;font-weight:600;letter-spacing:-0.02em">Mr. Chandeep Singh</div>
             <div class="muted" style="font-size:13.5px">Director — Test &amp; Measurement Instruments</div>

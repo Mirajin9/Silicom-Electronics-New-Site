@@ -12,15 +12,25 @@ page with `?slots=1` at the end of the URL (e.g. `instruments.html?slots=1`) to 
 ---
 
 ## 1. Page heroes — 5 images · `assets/heroes/` · 16:9 (~1600×900)
-- [ ] `home.jpg` — lab bench / PCBA close-up (home page hero card)
 - [ ] `instruments.jpg` — T&M lab / oscilloscope on bench
 - [ ] `components.jpg` — reel of SMD parts / wafer / semiconductor close-up
 - [ ] `applications.jpg` — finished electronics (EV charger / solar / LED panel)
-- [ ] `brands.jpg` — wall of products / partner showcase
+- [ ] `brands.jpg` — **replace** with a new brands-hero image (wall of products / partner showcase). Slot already wired at `brands.html` hero.
+- [ ] `home.jpg` — no longer used on the home hero (replaced by the reception photo below); keep only if you reuse it elsewhere.
+
+## 1b. Company photos used on key pages — `assets/company/`
+- [ ] `reception.jpg` — **Silicom reception desk** (home page hero, 16:9 ~1600×900)
+- [ ] `director-suneet.jpg` — Mr. Suneet Dargan headshot (About → Leadership, 1:1 square; falls back to "SD" initials)
+- [ ] `director-chandeep.jpg` — Mr. Chandeep Singh headshot (About → Leadership, 1:1 square; falls back to "CS" initials)
 
 ## 2. Brand product photos — 19 images · `assets/brands/products/` · 1:1 square (~1000×1000), product on clean/white bg
 **Instruments:** `tektronix.jpg` · `keithley.jpg` · `elektro-automatik.jpg` · `microtest.jpg` · `anritsu.jpg` · `krykard.jpg` · `uni-t.jpg` · `rishabh.jpg` · `scientific.jpg`
 **Components:** `asemi.jpg` · `donghai-wxdh.jpg` · `jilin-sino.jpg` · `shikues.jpg` · `mot-inmark.jpg` · `reasunos.jpg` · `surging.jpg` · `adler.jpg` · `mlcc-base.jpg` · `cdil.jpg`
+
+## 2b. Instrument product photos — 2 images · `assets/products/instruments/` · product on clean/white bg
+*(These replace the existing SVG line-art placeholders; they fall back to the SVG, so nothing breaks until supplied.)*
+- [ ] `tektronix-2-series-mso.jpg` — Tektronix 2 Series MSO oscilloscope
+- [ ] `keithley-2230-dc-power-supply.jpg` — Keithley 2220 / 2230 multi-channel DC power supply
 
 ## 3. Application photos — 9 images · `assets/applications/` · 4:3 (~1200×900)
 - [ ] `led-driver.jpg`

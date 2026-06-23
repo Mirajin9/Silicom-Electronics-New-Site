@@ -1,0 +1,30 @@
+<%- include('_head', { title:'Orders', active:'orders', csrf }) %>
+<h1>Orders</h1>
+<% if (!orders.length) { %>
+  <div class="card muted">No orders yet.</div>
+<% } %>
+<% orders.forEach(function(o){ var items = itemsByOrder[o.id] || []; %>
+<div class="card">
+  <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <strong>Order #<%= o.id %></strong>
+    <span class="pill <%= o.status %>"><%= o.status %></span>
+    <span class="muted"><%= o.created_at %></span>
+    <span style="margin-left:auto;font-weight:700">₹<%= o.total.toLocaleString('en-IN') %></span>
+  </div>
+  <div class="muted" style="margin:6px 0 12px">
+    <%= o.customer_name %> · <%= o.email %> · <%= o.phone %><br>
+    <%= o.address %>, <%= o.city %>, <%= o.state %> — <%= o.pincode %><br>
+    Razorpay: <%= o.razorpay_payment_id || o.razorpay_order_id || '—' %>
+  </div>
+  <table>
+    <thead><tr><th>Item</th><th>SKU</th><th>Qty</th><th>Unit</th><th>Total</th></tr></thead>
+    <tbody>
+      <% items.forEach(function(it){ %>
+      <tr><td><%= it.name %></td><td class="muted"><%= it.sku %></td><td><%= it.qty %></td><td>₹<%= it.unit_price %></td><td>₹<%= it.line_total %></td></tr>
+      <% }) %>
+      <tr><td colspan="4" style="text-align:right" class="muted">Shipping</td><td><%= o.shipping>0 ? '₹'+o.shipping : 'FREE' %></td></tr>
+    </tbody>
+  </table>
+</div>
+<% }) %>
+<%- include('_foot') %>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow" />
+<title><%= typeof title !== 'undefined' ? title : 'Store Admin' %> — Silicom</title>
+<style>
+  :root { --teal:#0d9488; --teal-d:#0b7d72; --ink:#0b1020; --muted:#51566e; --line:#e4e8ef; --bg:#f4f8fe; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:var(--teal); }
+  .topbar { display:flex; align-items:center; gap:18px; padding:14px 22px; background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:10; }
+  .topbar .brand { font-weight:800; font-size:18px; }
+  .topbar .brand span { color:var(--teal); }
+  .topbar nav { display:flex; gap:16px; margin-left:8px; }
+  .topbar nav a { text-decoration:none; color:var(--muted); font-weight:600; font-size:14px; padding:6px 4px; }
+  .topbar nav a.active { color:var(--teal); border-bottom:2px solid var(--teal); }
+  .topbar .right { margin-left:auto; display:flex; gap:12px; align-items:center; }
+  .wrap { max-width:1080px; margin:28px auto; padding:0 22px; }
+  h1 { font-size:24px; margin:0 0 18px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:18px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:middle; }
+  th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  .btn { display:inline-flex; align-items:center; gap:6px; background:var(--teal); color:#fff; border:0; border-radius:9px; padding:9px 16px; font-weight:600; font-size:14px; cursor:pointer; text-decoration:none; }
+  .btn:hover { background:var(--teal-d); }
+  .btn.secondary { background:#fff; color:var(--ink); border:1px solid var(--line); }
+  .btn.danger { background:#fff; color:#c0392b; border:1px solid #f0c9c4; }
+  .btn.sm { padding:6px 11px; font-size:13px; }
+  label { display:block; font-weight:600; font-size:13px; margin:14px 0 6px; }
+  input, textarea, select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:9px; font:inherit; background:#fff; }
+  textarea { min-height:84px; resize:vertical; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .pill { display:inline-block; padding:3px 9px; border-radius:999px; font-size:12px; font-weight:600; }
+  .pill.active { background:#e3f6f3; color:var(--teal-d); }
+  .pill.hidden { background:#eee; color:#777; }
+  .pill.paid { background:#e3f6f3; color:var(--teal-d); }
+  .pill.created { background:#fef3e0; color:#b9770e; }
+  .pill.failed { background:#fde7e3; color:#c0392b; }
+  .muted { color:var(--muted); font-size:13px; }
+  .thumb { width:46px; height:46px; object-fit:cover; border-radius:8px; border:1px solid var(--line); background:#fff; }
+  .tier-row { display:grid; grid-template-columns:1fr 1fr auto; gap:10px; align-items:end; margin-bottom:8px; }
+  .flash { background:#fdecea; color:#b3261e; border:1px solid #f5c6c0; padding:10px 14px; border-radius:9px; margin-bottom:14px; font-size:14px; }
+  .img-chip { display:inline-flex; flex-direction:column; align-items:center; gap:4px; margin:6px 8px 0 0; font-size:11px; }
+  .inline { display:inline; }
+</style>
+</head>
+<body>
+<% if (typeof showNav === 'undefined' || showNav) { %>
+<div class="topbar">
+  <div class="brand">Silicom <span>Store Admin</span></div>
+  <nav>
+    <a href="/admin" class="<%= (typeof active!=='undefined'&&active==='products')?'active':'' %>">Products</a>
+    <a href="/admin/zones" class="<%= (typeof active!=='undefined'&&active==='zones')?'active':'' %>">Shipping</a>
+    <a href="/admin/orders" class="<%= (typeof active!=='undefined'&&active==='orders')?'active':'' %>">Orders</a>
+  </nav>
+  <div class="right">
+    <a href="/store.html" target="_blank" class="muted">View store ↗</a>
+    <form method="post" action="/admin/logout" class="inline"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="btn secondary sm">Log out</button></form>
+  </div>
+</div>
+<% } %>
+<div class="wrap">

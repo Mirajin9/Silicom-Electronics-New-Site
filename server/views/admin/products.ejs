@@ -1,0 +1,44 @@
+<%- include('_head', { title:'Products', active:'products', csrf }) %>
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+  <h1 style="margin:0">Products</h1>
+  <span class="muted"><%= products.length %> items · <%= paidCount %>/<%= orderCount %> orders paid</span>
+  <a href="/admin/products/new" class="btn" style="margin-left:auto">+ Add product</a>
+</div>
+
+<div class="card" style="padding:0;overflow:hidden">
+  <table>
+    <thead>
+      <tr><th></th><th>Product</th><th>SKU</th><th>Price (1pc → floor)</th><th>Stock</th><th>Status</th><th></th></tr>
+    </thead>
+    <tbody>
+      <% if (!products.length) { %>
+        <tr><td colspan="7" class="muted" style="padding:24px;text-align:center">No products yet. Click “Add product” to create your first listing.</td></tr>
+      <% } %>
+      <% products.forEach(function(p){ %>
+      <tr>
+        <td><% if (p.image_main) { %><img class="thumb" src="<%= p.image_main %>" alt=""><% } else { %><div class="thumb"></div><% } %></td>
+        <td>
+          <strong><%= p.name %></strong>
+          <div class="muted"><%= p.brand %><%= p.category ? ' · ' + p.category : '' %></div>
+        </td>
+        <td class="muted"><%= p.sku %></td>
+        <td>
+          <% if (p.price_ceiling != null) { %>
+            ₹<%= p.price_ceiling %> <span class="muted">→ ₹<%= p.price_floor %></span>
+          <% } else { %><span class="muted">no tiers</span><% } %>
+        </td>
+        <td><%= p.stock %></td>
+        <td><span class="pill <%= p.status %>"><%= p.status %></span></td>
+        <td style="white-space:nowrap;text-align:right">
+          <a href="/admin/products/<%= p.id %>/edit" class="btn secondary sm">Edit</a>
+          <form method="post" action="/admin/products/<%= p.id %>/delete" class="inline" onsubmit="return confirm('Delete <%= p.name.replace(/'/g,"\\'") %>?')">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <button class="btn danger sm">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('_foot') %>
