@@ -1,0 +1,4 @@
+# Large manufacturer source downloads stay local; retain their manifest/provenance.
+research/manufacturer/*.zip
+research/manufacturer/*.stp
+research/manufacturer/*.step

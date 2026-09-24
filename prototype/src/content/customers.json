@@ -1,0 +1,82 @@
+{
+ "vvdn": {
+  "w": 115,
+  "h": 41,
+  "tone": 0.73
+ },
+ "kaynes": {
+  "w": 115,
+  "h": 30,
+  "tone": 1
+ },
+ "syrma-sgs": {
+  "w": 111,
+  "h": 32,
+  "tone": 0.99
+ },
+ "hfcl": {
+  "w": 103,
+  "h": 32,
+  "tone": 1
+ },
+ "iit-delhi": {
+  "w": 54,
+  "h": 54,
+  "tone": 1
+ },
+ "waaree": {
+  "w": 115,
+  "h": 35,
+  "tone": 0.59
+ },
+ "stryker": {
+  "w": 110,
+  "h": 28,
+  "tone": 1
+ },
+ "marelli": {
+  "w": 67,
+  "h": 54,
+  "tone": 0.63
+ },
+ "hella": {
+  "w": 68,
+  "h": 49,
+  "tone": 1
+ },
+ "fiem": {
+  "w": 116,
+  "h": 32,
+  "tone": 0.57
+ },
+ "interface": {
+  "w": 151,
+  "h": 26,
+  "tone": 1
+ },
+ "indication-instruments": {
+  "w": 101,
+  "h": 38,
+  "tone": 1
+ },
+ "iit-roorkee": {
+  "w": 54,
+  "h": 54,
+  "tone": 0.65
+ },
+ "iit-jammu": {
+  "w": 54,
+  "h": 54,
+  "tone": 0.83
+ },
+ "iiser-mohali": {
+  "w": 84,
+  "h": 46,
+  "tone": 1
+ },
+ "inst": {
+  "w": 88,
+  "h": 53,
+  "tone": 0.72
+ }
+}

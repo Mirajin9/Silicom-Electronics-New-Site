@@ -1,0 +1,78 @@
+{
+ "tektronix": {
+  "w": 150,
+  "h": 27
+ },
+ "keithley": {
+  "w": 124,
+  "h": 28
+ },
+ "uni-t": {
+  "w": 137,
+  "h": 28
+ },
+ "scientific": {
+  "w": 150,
+  "h": 30
+ },
+ "microtest": {
+  "w": 150,
+  "h": 29
+ },
+ "elektro-automatik": {
+  "w": 97,
+  "h": 46
+ },
+ "anritsu": {
+  "w": 150,
+  "h": 15
+ },
+ "krykard": {
+  "w": 129,
+  "h": 32
+ },
+ "rishabh": {
+  "w": 40,
+  "h": 46
+ },
+ "asemi": {
+  "w": 57,
+  "h": 46
+ },
+ "jilin-sino": {
+  "w": 38,
+  "h": 46
+ },
+ "shikues": {
+  "w": 85,
+  "h": 46
+ },
+ "donghai-wxdh": {
+  "w": 98,
+  "h": 44
+ },
+ "mot-inmark": {
+  "w": 69,
+  "h": 46
+ },
+ "reasunos": {
+  "w": 135,
+  "h": 35
+ },
+ "surging": {
+  "w": 150,
+  "h": 39
+ },
+ "adler": {
+  "w": 96,
+  "h": 46
+ },
+ "mlcc-base": {
+  "w": 40,
+  "h": 46
+ },
+ "cdil": {
+  "w": 110,
+  "h": 42
+ }
+}

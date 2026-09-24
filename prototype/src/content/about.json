@@ -1,0 +1,187 @@
+{
+ "hero": {
+  "badge": "SINCE 1994",
+  "tag": "Family-run · ISO 9001:2015 · GeM Assessed",
+  "title": [
+   {
+    "text": " Three decades building ",
+    "accent": false
+   },
+   {
+    "text": "trust",
+    "accent": true
+   },
+   {
+    "text": " with India's electronics industry. ",
+    "accent": false
+   }
+  ],
+  "lede": "Incepted in the mid-90s, Silicom Electronics Pvt. Ltd. has grown into a pioneering name in the distribution of high-quality test & measurement instruments and electronic components — supporting R&D, QA and production teams across the country.",
+  "actions": [],
+  "note": null,
+  "image": null,
+  "stats": [
+   {
+    "value": "1994",
+    "label": "Founded in New Delhi"
+   },
+   {
+    "value": "20+",
+    "label": "Employees"
+   },
+   {
+    "value": "2",
+    "label": "Specialised divisions"
+   },
+   {
+    "value": "16",
+    "label": "Authorized brand partners"
+   }
+  ]
+ },
+ "image": {
+  "src": "/assets/company/facility.jpg",
+  "alt": "Silicom Electronics — New Delhi facility"
+ },
+ "why": {
+  "eyebrow": "Why customers choose Silicom",
+  "heading": "A distribution partner that knows the engineering side of the desk.",
+  "text": "",
+  "actions": [],
+  "items": [
+   {
+    "title": "30+ years in market",
+    "text": "Established relationships with manufacturing & engineering organizations across India — built one delivery, one demo, one lab visit at a time."
+   },
+   {
+    "title": "Direct EMS access",
+    "text": "Direct engagement with EMS companies, automotive electronics suppliers, telecom equipment manufacturers and industrial electronics firms."
+   },
+   {
+    "title": "Manufacturing cluster presence",
+    "text": "Active sales coverage across NCR, Baddi, Haridwar, Roorkee and the surrounding industrial belt — where the work actually gets built."
+   },
+   {
+    "title": "Production-line experience",
+    "text": "Portfolio includes custom test systems for transformer manufacturing, cable harness testing and electronics assembly — not just bench instruments."
+   },
+   {
+    "title": "Technical sales support",
+    "text": "Dedicated technical sales engineers who can run a demo on-site, talk through application notes, and answer the awkward measurement question."
+   },
+   {
+    "title": "Tender & institutional access",
+    "text": "Strong experience with government institutions, PSUs and research labs through tender procurement — active on GeM since inception."
+   }
+  ]
+ },
+ "journey": {
+  "eyebrow": "Our journey",
+  "heading": "From a single-brand distributor to a multi-division supply partner.",
+  "text": "",
+  "actions": [],
+  "rows": [
+   {
+    "year": "1994",
+    "title": "Silicom Electronics is incepted in New Delhi",
+    "text": "A small distribution office in Kirti Nagar, set up to bring quality test instruments and components to local manufacturers."
+   },
+   {
+    "year": "2000s",
+    "title": "Authorized distribution for global T&M brands",
+    "text": "Tektronix, then Microtest and others — Silicom becomes the go-to partner for oscilloscopes, hipot & transformer testers in North India."
+   },
+   {
+    "year": "2010s",
+    "title": "Components division spins up",
+    "text": "Adding semiconductors, MOSFETs, diodes, TVS, MLCCs and protection devices — a second division supporting EMS and automotive electronics customers."
+   },
+   {
+    "year": "2017",
+    "title": "ISO 9001:2015 certified · GeM assessed",
+    "text": "Process compliance for institutional and PSU customers. Active on the Government e-Marketplace platform since its inception."
+   },
+   {
+    "year": "2020s",
+    "title": "EV, GaN & SiC focus",
+    "text": "Expanding the components portfolio with wide-bandgap power, EV-specific fuses and chargers — supporting India's electrification push."
+   },
+   {
+    "year": "Today",
+    "title": "Authorized brand partners · pan-India coverage",
+    "text": "Two specialised divisions, 20+ employees, and a technical sales force covering the North India electronics belt and key clusters in the South."
+   }
+  ]
+ },
+ "leadership": {
+  "eyebrow": "Leadership",
+  "heading": "The directors behind each division.",
+  "text": "",
+  "actions": [],
+  "people": [
+   {
+    "initials": "SD",
+    "photo": null,
+    "name": "Mr. Suneet Dargan",
+    "role": "Director — Components Division",
+    "bio": "Heads the components division — sourcing semiconductors, passives and protection devices from leading global manufacturers and supporting EMS & automotive customers across North India.",
+    "contacts": [
+     "+91 9911 419 582",
+     "suneet@silicomindia.com"
+    ]
+   },
+   {
+    "initials": "CS",
+    "photo": null,
+    "name": "Mr. Chandeep Singh",
+    "role": "Director — Test & Measurement Instruments",
+    "bio": "Heads the instruments division — running technical sales for Tektronix, Microtest, UNI-T and Scientific, with a focus on R&D labs, PSU tenders and production-line test systems.",
+    "contacts": [
+     "+91 9810 045 234",
+     "info@silicomindia.com"
+    ]
+   }
+  ]
+ },
+ "offer": {
+  "eyebrow": "What we offer global manufacturers",
+  "heading": "Helping international brands establish & expand in India.",
+  "text": "",
+  "actions": [],
+  "items": [
+   {
+    "eyebrow": "Global brand representation",
+    "title": "Strong relationships across electronics manufacturing",
+    "text": "Silicom represents leading global brands. With strong relationships across electronics manufacturing companies, engineering teams and research institutions, we help international manufacturers establish and expand their presence in the Indian electronics market."
+   },
+   {
+    "eyebrow": "Dedicated technical support",
+    "title": "India-based sales engineers, on call",
+    "text": "Our India-based technical sales team supports partners through product demonstrations, application guidance and engagement with engineering and production teams — enabling effective adoption of new technologies across R&D labs and manufacturing environments."
+   },
+   {
+    "eyebrow": "Market development",
+    "title": "Built-in industry access",
+    "text": "We work with electronics manufacturing services companies, automotive electronics suppliers, telecom equipment manufacturers, power electronics companies and research institutions — supporting both engineering development and production testing applications."
+   },
+   {
+    "eyebrow": "Tender & institutional",
+    "title": "GeM-listed since inception",
+    "text": "Strong experience working with government institutions, PSUs and research laboratories through tender-based procurement. We are GeM assessed and have been active on the Government e-Marketplace platform since its inception."
+   }
+  ]
+ },
+ "cta": {
+  "eyebrow": "",
+  "heading": "Let's collaborate.",
+  "text": "Whether you're a manufacturer evaluating instruments or a global brand exploring the Indian market — we'd love to hear from you.",
+  "chips": [],
+  "actions": [
+   {
+    "label": "Contact us",
+    "href": "contact.html",
+    "primary": true
+   }
+  ]
+ }
+}

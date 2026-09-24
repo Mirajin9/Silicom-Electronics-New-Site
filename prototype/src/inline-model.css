@@ -1,0 +1,38 @@
+/* Live product models. The poster and the 3D canvas share one box and one camera
+   framing, so the model takes over from the poster without a jump. */
+.inline-model { position:relative; width:100%; min-width:0; color:inherit; }
+.inline-stage {
+  position:relative; height:460px; width:100%; cursor:grab; user-select:none; -webkit-user-select:none;
+  /* Vertical swipes keep scrolling the page; sideways swipes turn the model. */
+  touch-action:pan-y pinch-zoom;
+}
+.inline-stage:active {cursor:grabbing}
+.inline-stage:focus-visible {outline:2px solid #0b6fd3;outline-offset:-4px}
+.inline-poster,.viewer-canvas {position:absolute!important;inset:0;width:100%!important;height:100%!important}
+.inline-poster {object-fit:contain;pointer-events:none;transition:opacity .7s ease .1s}
+.viewer-canvas {opacity:0;transition:opacity .7s ease}
+.inline-model[data-ready=true] .viewer-canvas {opacity:1}
+.inline-model[data-ready=true] .inline-poster {opacity:0}
+.inline-controls {display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;position:relative;z-index:2;border-top:1px solid #829ab233;padding:12px 0}
+.inline-controls>span {opacity:.75}
+.inline-controls>div {display:flex;gap:3px}
+.inline-controls button {padding:8px;min-height:36px;min-width:36px;font-size:11px}
+.inline-controls button:hover {background:#829ab222}
+.hero-product .inline-stage {height:450px}
+.package-browser {min-width:0;width:100%}
+/* A soft pool of light so dark packages separate from the navy stage. */
+.package-browser .inline-stage::before {content:"";position:absolute;inset:8% 12%;border-radius:50%;background:radial-gradient(closest-side,#82b9f42e,#82b9f40a 60%,transparent);pointer-events:none}
+.package-navigation {display:grid;grid-template-columns:44px 1fr 44px;gap:16px;align-items:center;margin-top:16px}
+.package-navigation>button {width:44px;height:44px;border:1px solid #829ab266;display:grid;place-items:center;font-size:22px}
+.package-navigation>button:hover {background:#0b6fd3;color:#fff}
+.package-navigation>div {text-align:center;display:grid;gap:4px}
+.package-navigation strong {font-family:'Archivo Variable',sans-serif;font-size:24px;font-weight:800}
+.package-navigation span {font-size:11px;color:#b6c3d5}
+.package-dots {display:flex;justify-content:center;gap:6px;margin:16px 0}
+.package-dots button {padding:10px;font-size:11px;border-bottom:2px solid transparent}
+.package-dots button[aria-pressed=true] {border-color:#82b9f4;color:#82b9f4}
+.package-stage .package-note {font-size:10px;text-align:center;margin:10px 0 0;color:#b6c3d5}
+.package-stage-body {gap:30px;padding:25px 0}
+@media(max-width:900px){.hero-product .inline-stage{height:400px}.package-stage-body{grid-template-columns:1fr 1fr}.inline-stage{height:380px}}
+@media(max-width:650px){.hero-product .inline-stage{height:320px}.package-stage-body{grid-template-columns:1fr;gap:10px}.inline-stage{height:320px}.inline-controls{font-size:10px}.package-stage-body>.package-browser{padding:0}.package-stage{padding-bottom:35px}}
+@media(prefers-reduced-motion:reduce){.inline-poster,.viewer-canvas{transition:none}}

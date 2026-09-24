@@ -1,0 +1,576 @@
+{
+ "hero": {
+  "badge": "DIVISION",
+  "tag": "Components — Semiconductors, Passives, Protection, EV power",
+  "title": [
+   {
+    "text": "Components",
+    "accent": true
+   },
+   {
+    "text": " sourced from leading global manufacturers. ",
+    "accent": false
+   }
+  ],
+  "lede": "MOSFETs, SiC, GaN ICs, IGBTs, diodes, TVS, MLCC, MOVs, EV fuses and power modules across trusted authorized component partners.",
+  "actions": [
+   {
+    "label": "Shop components online",
+    "href": "store.html",
+    "primary": true
+   },
+   {
+    "label": "View featured brands",
+    "href": "#brands",
+    "primary": false
+   },
+   {
+    "label": "Talk to a sales engineer",
+    "href": "contact.html",
+    "primary": false
+   }
+  ],
+  "note": "<strong>New — Spot &amp; hobby buying:</strong> order single pieces or small quantities online, with automatic bulk price breaks.",
+  "image": {
+   "src": "/assets/heroes/components.jpg",
+   "alt": "Electronics PCB assembly and EMS line"
+  }
+ },
+ "brands": {
+  "head": {
+   "eyebrow": "Brand showcase",
+   "heading": "Ten authorized partners. Click a brand to see what they make.",
+   "text": "If a brand is on your AVL, this is the catalogue we can ship from. Categories below are the item families Silicom carries per partner.",
+   "actions": []
+  },
+  "note": null,
+  "cards": [
+   {
+    "slug": "asemi",
+    "logo": {
+     "src": "/assets/brand-logos/asemi-asm.png",
+     "alt": "ASEMI (ASM)"
+    },
+    "title": "ASEMI (ASM)",
+    "meta": "SMD/DIP bridges & diodes · high-volume EMS lines",
+    "categories": [
+     {
+      "label": "SMD Bridge Rectifiers",
+      "href": "contact.html?brand=asemi&cat=smd-bridge",
+      "primary": false
+     },
+     {
+      "label": "DIP Bridge Rectifiers",
+      "href": "contact.html?brand=asemi&cat=dip-bridge",
+      "primary": false
+     },
+     {
+      "label": "SMD Diodes",
+      "href": "contact.html?brand=asemi&cat=smd-diode",
+      "primary": false
+     },
+     {
+      "label": "DIP Diodes",
+      "href": "contact.html?brand=asemi&cat=dip-diode",
+      "primary": false
+     },
+     {
+      "label": "Power Diodes",
+      "href": "contact.html?brand=asemi&cat=power-diode",
+      "primary": false
+     }
+    ],
+    "note": "Used in lighting, BLDC, charger & SMPS designs",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-asemi.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=asemi",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "donghai-wxdh",
+    "logo": {
+     "src": "/assets/brand-logos/donghai-wxdh.png",
+     "alt": "Donghai / WXDH"
+    },
+    "title": "Donghai / WXDH",
+    "meta": "Cool IGBT · SGT · intelligent control semis",
+    "categories": [
+     {
+      "label": "Cool IGBT Modules",
+      "href": "contact.html?brand=wxdh&cat=cool-igbt",
+      "primary": false
+     },
+     {
+      "label": "SGT MOSFETs",
+      "href": "contact.html?brand=wxdh&cat=sgt",
+      "primary": false
+     },
+     {
+      "label": "Power MOSFETs",
+      "href": "contact.html?brand=wxdh&cat=mosfet",
+      "primary": false
+     },
+     {
+      "label": "Intelligent Control ICs",
+      "href": "contact.html?brand=wxdh&cat=control-ic",
+      "primary": false
+     }
+    ],
+    "note": "EV charger AC stage · solar string inverter",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-donghai-wxdh.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=wxdh",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "shikues",
+    "logo": {
+     "src": "/assets/brand-logos/shikues.png",
+     "alt": "Shikues"
+    },
+    "title": "Shikues",
+    "meta": "GaN ICs · PWM · IGBT · SiC diodes",
+    "categories": [
+     {
+      "label": "GaN Power ICs",
+      "href": "contact.html?brand=shikues&cat=gan",
+      "primary": false
+     },
+     {
+      "label": "PWM Controllers",
+      "href": "contact.html?brand=shikues&cat=pwm",
+      "primary": false
+     },
+     {
+      "label": "IGBTs",
+      "href": "contact.html?brand=shikues&cat=igbt",
+      "primary": false
+     },
+     {
+      "label": "MOSFETs",
+      "href": "contact.html?brand=shikues&cat=mosfet",
+      "primary": false
+     },
+     {
+      "label": "SiC Diodes",
+      "href": "contact.html?brand=shikues&cat=sic",
+      "primary": false
+     }
+    ],
+    "note": "Wide-bandgap power · GaN PD chargers · solar",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-shikues.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=shikues",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "jilin-sino",
+    "logo": {
+     "src": "/assets/brand-logos/jilin-sino.png",
+     "alt": "Jilin Sino"
+    },
+    "title": "Jilin Sino",
+    "meta": "Schottky · TVS · MOSFETs · discrete semis",
+    "categories": [
+     {
+      "label": "Schottky Diodes",
+      "href": "contact.html?brand=jilin&cat=schottky",
+      "primary": false
+     },
+     {
+      "label": "TVS / ESD Arrays",
+      "href": "contact.html?brand=jilin&cat=tvs",
+      "primary": false
+     },
+     {
+      "label": "MOSFETs",
+      "href": "contact.html?brand=jilin&cat=mosfet",
+      "primary": false
+     },
+     {
+      "label": "Power Transistors",
+      "href": "contact.html?brand=jilin&cat=power-transistor",
+      "primary": false
+     },
+     {
+      "label": "Small-signal Transistors",
+      "href": "contact.html?brand=jilin&cat=transistor",
+      "primary": false
+     }
+    ],
+    "note": "Authorized partner since 2015 · cross-application",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-jilin-sino.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=jilin",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "mot-inmark",
+    "logo": {
+     "src": "/assets/brand-logos/mot-inmark.png",
+     "alt": "MOT Inmark"
+    },
+    "title": "MOT Inmark",
+    "meta": "Trench & HV MOSFETs · rectifiers · SiC diodes",
+    "categories": [
+     {
+      "label": "Trench MOSFETs (LV/MV)",
+      "href": "contact.html?brand=motinmark&cat=trench-mosfet",
+      "primary": false
+     },
+     {
+      "label": "HV MOSFETs (600–800 V)",
+      "href": "contact.html?brand=motinmark&cat=hv-mosfet",
+      "primary": false
+     },
+     {
+      "label": "Rectifiers",
+      "href": "contact.html?brand=motinmark&cat=rectifier",
+      "primary": false
+     },
+     {
+      "label": "SiC Diodes",
+      "href": "contact.html?brand=motinmark&cat=sic-diode",
+      "primary": false
+     }
+    ],
+    "note": "SMPS · LED driver · EV charger AC stage",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-mot-inmark.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=motinmark",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "reasunos",
+    "logo": {
+     "src": "/assets/brand-logos/reasunos.png",
+     "alt": "Reasunos"
+    },
+    "title": "Reasunos",
+    "meta": "Cool MOS · SiC MOSFETs · TVS · power boost ICs",
+    "categories": [
+     {
+      "label": "Cool MOS (HV)",
+      "href": "contact.html?brand=reasunos&cat=cool-mos",
+      "primary": false
+     },
+     {
+      "label": "SiC MOSFETs",
+      "href": "contact.html?brand=reasunos&cat=sic-mosfet",
+      "primary": false
+     },
+     {
+      "label": "High-Voltage MOSFETs",
+      "href": "contact.html?brand=reasunos&cat=hv-mosfet",
+      "primary": false
+     },
+     {
+      "label": "TVS",
+      "href": "contact.html?brand=reasunos&cat=tvs",
+      "primary": false
+     },
+     {
+      "label": "Power Boosting ICs",
+      "href": "contact.html?brand=reasunos&cat=boost-ic",
+      "primary": false
+     }
+    ],
+    "note": "LED driver primary · SMPS · solar · charger sync stage",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-reasunos.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=reasunos",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "surging",
+    "logo": {
+     "src": "/assets/brand-logos/surging.png",
+     "alt": "Surging"
+    },
+    "title": "Surging",
+    "meta": "MOV · ZOV · over-protection components",
+    "categories": [
+     {
+      "label": "Metal Oxide Varistors (7D · 10D · 14D)",
+      "href": "contact.html?brand=surging&cat=mov",
+      "primary": false
+     },
+     {
+      "label": "Zinc Oxide Varistors",
+      "href": "contact.html?brand=surging&cat=zov",
+      "primary": false
+     },
+     {
+      "label": "Over-protection Components",
+      "href": "contact.html?brand=surging&cat=over-protection",
+      "primary": false
+     }
+    ],
+    "note": "Mains-side surge · smart meter · outdoor lighting",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-surging.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=surging",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "adler",
+    "logo": {
+     "src": "/assets/brand-logos/adler.png",
+     "alt": "Adler EV"
+    },
+    "title": "Adler EV",
+    "meta": "Automotive & LV EV fuses · charging equipment",
+    "categories": [
+     {
+      "label": "Automotive EV Fuses",
+      "href": "contact.html?brand=adler&cat=auto-fuse",
+      "primary": false
+     },
+     {
+      "label": "LV Block Fuses",
+      "href": "contact.html?brand=adler&cat=lv-block-fuse",
+      "primary": false
+     },
+     {
+      "label": "EV Charging Equipment",
+      "href": "contact.html?brand=adler&cat=ev-charging",
+      "primary": false
+     }
+    ],
+    "note": "EV 2W/3W · EV AC charger · battery pack protection",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-adler.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=adler",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "mlcc-base",
+    "logo": {
+     "src": "/assets/brand-logos/mlcc-base.png",
+     "alt": "MLCC Base"
+    },
+    "title": "MLCC Base",
+    "meta": "Resistors · capacitors · MLCC · SMD passives",
+    "categories": [
+     {
+      "label": "Resistors (SMD)",
+      "href": "contact.html?brand=mlccbase&cat=resistor",
+      "primary": false
+     },
+     {
+      "label": "MLCC (Ceramic Capacitors)",
+      "href": "contact.html?brand=mlccbase&cat=mlcc",
+      "primary": false
+     },
+     {
+      "label": "Electrolytic / Film Capacitors",
+      "href": "contact.html?brand=mlccbase&cat=capacitor",
+      "primary": false
+     },
+     {
+      "label": "Other SMD Passives",
+      "href": "contact.html?brand=mlccbase&cat=smd-passive",
+      "primary": false
+     }
+    ],
+    "note": "High-volume EMS lines · cross-application",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-mlcc-base.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=mlccbase",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "cdil",
+    "logo": null,
+    "title": "CDIL",
+    "meta": "Continental Devices India · modules · BLDC · diodes · MOSFETs · TVS",
+    "categories": [
+     {
+      "label": "Modules",
+      "href": "contact.html?brand=cdil&cat=modules",
+      "primary": false
+     },
+     {
+      "label": "BLDC Motor Drivers",
+      "href": "contact.html?brand=cdil&cat=bldc-driver",
+      "primary": false
+     },
+     {
+      "label": "Diodes",
+      "href": "contact.html?brand=cdil&cat=diode",
+      "primary": false
+     },
+     {
+      "label": "MOSFETs",
+      "href": "contact.html?brand=cdil&cat=mosfet",
+      "primary": false
+     },
+     {
+      "label": "TVS Arrays",
+      "href": "contact.html?brand=cdil&cat=tvs",
+      "primary": false
+     }
+    ],
+    "note": "Indian-make partner · BLDC · meter · charger",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-cdil.html",
+      "primary": false
+     },
+     {
+      "label": "Talk to sourcing",
+      "href": "contact.html?brand=cdil",
+      "primary": false
+     }
+    ]
+   }
+  ]
+ },
+ "banners": [
+  {
+   "id": "applications",
+   "eyebrow": "Applications",
+   "heading": "Building a board? Start from the application.",
+   "text": "LED drivers, GaN & SMPS adapters, smart meters, EV chargers, solar inverters, BLDC drivers and appliance boards — each opens the exact kit of parts Silicom carries, brand by brand.",
+   "chips": [
+    "LED Driver",
+    "GaN Charger",
+    "SMPS / Adapter",
+    "Smart Meter",
+    "EV AC Charger",
+    "EV 2W / 3W",
+    "Solar Inverter",
+    "BLDC Driver",
+    "Appliance Control"
+   ],
+   "actions": [
+    {
+     "label": "Browse applications",
+     "href": "applications.html",
+     "primary": true
+    },
+    {
+     "label": "Send a BOM",
+     "href": "contact.html",
+     "primary": false
+    }
+   ]
+  },
+  {
+   "id": null,
+   "eyebrow": "New — Shop online",
+   "heading": "Need just a few pieces? Buy components online.",
+   "text": "Order single pieces or small quantities straight from stock, with bulk price breaks applied automatically as quantity rises — no RFQ, no minimums. Checkout, pay and track online. Bulk and BOM sourcing still goes through our team.",
+   "chips": [
+    "Single-piece orders",
+    "Automatic price breaks",
+    "Secure checkout",
+    "Live stock",
+    "Order tracking"
+   ],
+   "actions": [
+    {
+     "label": "Shop components online",
+     "href": "store.html",
+     "primary": true
+    },
+    {
+     "label": "Send a BOM / RFQ",
+     "href": "contact.html",
+     "primary": false
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "eyebrow": "Components division",
+  "heading": "Send your BoM, we'll map it to the right partner.",
+  "text": "Share part numbers, the design you're building and target quantities. The component team comes back with sourcing options and lead times.",
+  "chips": [],
+  "actions": [
+   {
+    "label": "Send a BOM / RFQ",
+    "href": "contact.html",
+    "primary": true
+   },
+   {
+    "label": "+91 9810 029 582",
+    "href": "tel:+919810029582",
+    "primary": false
+   }
+  ]
+ }
+}

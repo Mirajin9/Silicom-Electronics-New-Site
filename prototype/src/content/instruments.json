@@ -1,0 +1,660 @@
+{
+ "hero": {
+  "badge": "DIVISION",
+  "tag": "Test & Measurement Instruments",
+  "title": [
+   {
+    "text": "Precision instruments",
+    "accent": true
+   },
+   {
+    "text": " for R&D, QA & production lines. ",
+    "accent": false
+   }
+  ],
+  "lede": "Authorized distributor for Tektronix, Keithley, Elektro-Automatik, Microtest, Anritsu, Krykard, UNI-T, Rishabh, Scientific and more — covering oscilloscopes, SMUs, RF, programmable power, electronic loads, hipot & production test systems.",
+  "actions": [
+   {
+    "label": "Browse brands",
+    "href": "#brands",
+    "primary": true
+   },
+   {
+    "label": "Request a demo",
+    "href": "contact.html",
+    "primary": false
+   }
+  ],
+  "note": null,
+  "image": {
+   "src": "/assets/heroes/instruments.jpg",
+   "alt": "Test and measurement lab bench"
+  }
+ },
+ "featured": {
+  "head": {
+   "eyebrow": "Featured products",
+   "heading": "On engineers' benches this quarter.",
+   "text": "A few instruments engineers ask us for most — click to expand and browse the highlights."
+  },
+  "products": [
+   {
+    "image": {
+     "src": "/assets/products/instruments/tektronix-mso-2-series-edu.png",
+     "alt": "Tektronix MSO 2 Series EDU oscilloscope"
+    },
+    "brandLogo": {
+     "src": "/assets/brand-logos/tektronix.png",
+     "alt": "Tektronix"
+    },
+    "brandLabel": "Tektronix · USA",
+    "model": "2 Series MSO-EDU",
+    "title": "MSO 2 Series EDU Oscilloscope",
+    "tagline": "Empower the next generation of engineers — designed specifically for educational institutions and university labs.",
+    "specs": [
+     [
+      "Bandwidth",
+      "70 / 100 / 200 MHz"
+     ],
+     [
+      "Channels",
+      "2 or 4 + 16 digital"
+     ],
+     [
+      "Sample Rate",
+      "2.5 GS/s · 10 Mpts"
+     ],
+     [
+      "Display",
+      "10.1\" HD touch"
+     ]
+    ],
+    "bullets": [
+     "Built-in 50 MHz arbitrary function generator standard",
+     "Multichannel FFT + serial protocol triggering and decode",
+     "Ultra-portable 1.8 kg with optional battery pack",
+     "USB &amp; LAN connectivity, VESA mount support, 5-year warranty"
+    ],
+    "useCase": "R&D, university labs, training rigs",
+    "link": {
+     "label": "Request demo",
+     "href": "contact.html?demo=tek-mso-2-edu",
+     "primary": false
+    }
+   },
+   {
+    "image": {
+     "src": "/assets/products/instruments/tektronix-2-series-mso.jpg",
+     "alt": "Tektronix 2 Series MSO mixed-signal oscilloscope"
+    },
+    "brandLogo": {
+     "src": "/assets/brand-logos/tektronix.png",
+     "alt": "Tektronix"
+    },
+    "brandLabel": "Tektronix · USA",
+    "model": "MSO22 / MSO24",
+    "title": "2 Series MSO Oscilloscope",
+    "tagline": "Compact, battery-capable mixed-signal scope for daily debug — up to 500 MHz with a six-instruments-in-one feature set.",
+    "specs": [
+     [
+      "Bandwidth",
+      "70 – 500 MHz"
+     ],
+     [
+      "Channels",
+      "2 or 4 + 16 digital"
+     ],
+     [
+      "Sample Rate",
+      "2.5 GS/s · 10 Mpts"
+     ],
+     [
+      "Capture Rate",
+      ">4M wfms/s"
+     ]
+    ],
+    "bullets": [
+     "Six instruments in one: scope, AFG, DPG, DVM, logic &amp; protocol analysis",
+     "50 MHz arbitrary function generator + 16-channel MSO option",
+     "10.1\" capacitive touch UI; ~1.5\" thin, 1.8 kg with optional battery pack",
+     "Serial decode: I²C, SPI, UART, CAN / CAN FD / XL, LIN, Auto-Ethernet, SENT"
+    ],
+    "useCase": "Embedded debug · power & automotive · field",
+    "link": {
+     "label": "Request demo",
+     "href": "contact.html?demo=tek-2series-mso",
+     "primary": false
+    }
+   },
+   {
+    "image": {
+     "src": "/assets/products/instruments/keithley-2230-dc-power-supply.jpg",
+     "alt": "Keithley 2230 multi-channel programmable DC power supply"
+    },
+    "brandLogo": {
+     "src": "/assets/brand-logos/keithley.png",
+     "alt": "Keithley"
+    },
+    "brandLabel": "Keithley · A Tektronix Company",
+    "model": "2220 / 2230",
+    "title": "2220 / 2230 Multi-Channel DC Power Supply",
+    "tagline": "Programmable two- and three-channel DC supplies with isolated outputs and 0.03% accuracy for characterisation and automated test.",
+    "specs": [
+     [
+      "Outputs",
+      "2×30V/1.5A (+6V/5A)"
+     ],
+     [
+      "Accuracy",
+      "0.03% V · 0.1% I"
+     ],
+     [
+      "Ripple/Noise",
+      "<3 mVpp"
+     ],
+     [
+      "Interface",
+      "USB · GPIB (“G”)"
+     ]
+    ],
+    "bullets": [
+     "Independent, isolated, individually-controlled channels with remote sense",
+     "Series to 60 V or parallel to 3 A on the two 30 V channels",
+     "Low-noise linear regulation; &lt;3 mVpp ripple &amp; noise",
+     "LabVIEW / IVI drivers for ATE; 30 setup memories; 3-year warranty"
+    ],
+    "useCase": "Circuit design · student labs · automated test",
+    "link": {
+     "label": "Request demo",
+     "href": "contact.html?demo=keithley-2230",
+     "primary": false
+    }
+   },
+   {
+    "image": {
+     "src": "/assets/products/instruments/microtest-5465-transformer-analyzer.png",
+     "alt": "Microtest 5465 Transformer Analyzer"
+    },
+    "brandLogo": {
+     "src": "/assets/brand-logos/microtest.png",
+     "alt": "Microtest"
+    },
+    "brandLabel": "Microtest · Taiwan",
+    "model": "5465",
+    "title": "5465 Transformer Analyzer",
+    "tagline": "Production-line transformer QC — inductance, leakage, turns ratio, DCR, ACR, Q-factor and pin-short detection in a single cycle.",
+    "specs": [
+     [
+      "Frequency",
+      "10 Hz – 200 kHz"
+     ],
+     [
+      "Channels",
+      "20"
+     ],
+     [
+      "Basic Accuracy",
+      "±0.1%"
+     ],
+     [
+      "DC Bias",
+      "100 mA (F5620)"
+     ]
+    ],
+    "bullets": [
+     "Inductance · leakage · DCR · ACR · Q-factor · capacitance · turns ratio · pin-short",
+     "Built-in LCR mode with 4 simultaneous parameter readouts",
+     "Pneumatic F5620 fixture with integrated 100 mA DC bias supply",
+     "On-board storage for 128 test files; customised fixture service on request"
+    ],
+    "useCase": "Transformer manufacturers across NCR & Baddi",
+    "link": {
+     "label": "Request demo",
+     "href": "contact.html?demo=microtest-5465",
+     "primary": false
+    }
+   }
+  ]
+ },
+ "brands": {
+  "head": {
+   "eyebrow": "Brand showcase",
+   "heading": "Nine authorized partners. Click a brand to see what they carry.",
+   "text": "Expand any brand to see the product families Silicom carries from them — then click a category pill to enquire or visit the brand page.",
+   "actions": []
+  },
+  "note": "Demo units available · GeM listed",
+  "cards": [
+   {
+    "slug": "tektronix",
+    "logo": {
+     "src": "/assets/brand-logos/tektronix.png",
+     "alt": "Tektronix"
+    },
+    "title": "Tektronix",
+    "meta": "",
+    "categories": [
+     {
+      "label": "Oscilloscopes",
+      "href": "contact.html?brand=tektronix&cat=oscilloscope",
+      "primary": false
+     },
+     {
+      "label": "Source Measure Units (SMU)",
+      "href": "contact.html?brand=tektronix&cat=smu",
+      "primary": false
+     },
+     {
+      "label": "DC Power Supplies",
+      "href": "contact.html?brand=tektronix&cat=power-supply",
+      "primary": false
+     },
+     {
+      "label": "Function / Waveform Generators",
+      "href": "contact.html?brand=tektronix&cat=afg",
+      "primary": false
+     },
+     {
+      "label": "Multimeters",
+      "href": "contact.html?brand=tektronix&cat=multimeter",
+      "primary": false
+     },
+     {
+      "label": "Electronic Loads",
+      "href": "contact.html?brand=tektronix&cat=load",
+      "primary": false
+     }
+    ],
+    "note": "Premium T&M · R&D, QA & production line",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-tektronix.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=tektronix",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "keithley",
+    "logo": {
+     "src": "/assets/brand-logos/keithley.png",
+     "alt": "Keithley"
+    },
+    "title": "Keithley",
+    "meta": "",
+    "categories": [
+     {
+      "label": "Source Measure Units (SMU)",
+      "href": "contact.html?brand=keithley&cat=smu",
+      "primary": false
+     },
+     {
+      "label": "Semiconductor Parameter Analyzers",
+      "href": "contact.html?brand=keithley&cat=parameter-analyzer",
+      "primary": false
+     },
+     {
+      "label": "Electrometer / Pico-ammeter",
+      "href": "contact.html?brand=keithley&cat=electrometer",
+      "primary": false
+     },
+     {
+      "label": "Precision Multimeters",
+      "href": "contact.html?brand=keithley&cat=multimeter",
+      "primary": false
+     }
+    ],
+    "note": "Semiconductor characterization · R&D labs",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-keithley.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=keithley",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "elektro-automatik",
+    "logo": {
+     "src": "/assets/brand-logos/elektro-automatik.png",
+     "alt": "Elektro-Automatik"
+    },
+    "title": "Elektro-Automatik",
+    "meta": "",
+    "categories": [
+     {
+      "label": "Programmable DC Power Supplies",
+      "href": "contact.html?brand=ea&cat=dc-supply",
+      "primary": false
+     },
+     {
+      "label": "Regenerative Electronic Loads",
+      "href": "contact.html?brand=ea&cat=regen-load",
+      "primary": false
+     },
+     {
+      "label": "Grid Simulators / AC Sources",
+      "href": "contact.html?brand=ea&cat=grid-sim",
+      "primary": false
+     }
+    ],
+    "note": "EV battery / charger test · power converter validation",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-elektro-automatik.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=ea",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "microtest",
+    "logo": {
+     "src": "/assets/brand-logos/microtest.png",
+     "alt": "Microtest"
+    },
+    "title": "Microtest",
+    "meta": "",
+    "categories": [
+     {
+      "label": "LCR Meters",
+      "href": "contact.html?brand=microtest&cat=lcr",
+      "primary": false
+     },
+     {
+      "label": "Transformer Analyzers",
+      "href": "contact.html?brand=microtest&cat=transformer",
+      "primary": false
+     },
+     {
+      "label": "Hipot Testers",
+      "href": "contact.html?brand=microtest&cat=hipot",
+      "primary": false
+     },
+     {
+      "label": "Cable Harness Testers",
+      "href": "contact.html?brand=microtest&cat=cable",
+      "primary": false
+     },
+     {
+      "label": "Power Analyzers",
+      "href": "contact.html?brand=microtest&cat=power-analyzer",
+      "primary": false
+     }
+    ],
+    "note": "Transformer manufacturers · production QC",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-microtest.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=microtest",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "anritsu",
+    "logo": {
+     "src": "/assets/brand-logos/anritsu.svg",
+     "alt": "Anritsu"
+    },
+    "title": "Anritsu",
+    "meta": "",
+    "categories": [
+     {
+      "label": "Spectrum Analyzers",
+      "href": "contact.html?brand=anritsu&cat=spectrum",
+      "primary": false
+     },
+     {
+      "label": "Vector Network Analyzers (VNA)",
+      "href": "contact.html?brand=anritsu&cat=vna",
+      "primary": false
+     },
+     {
+      "label": "Cable & Antenna Analyzers",
+      "href": "contact.html?brand=anritsu&cat=cable-antenna",
+      "primary": false
+     },
+     {
+      "label": "RF Signal Generators",
+      "href": "contact.html?brand=anritsu&cat=signal-gen",
+      "primary": false
+     }
+    ],
+    "note": "Telecom · RF · EMI pre-compliance",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-anritsu.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=anritsu",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "krykard",
+    "logo": {
+     "src": "/assets/brand-logos/krykard.avif",
+     "alt": "Krykard"
+    },
+    "title": "Krykard",
+    "meta": "",
+    "categories": [
+     {
+      "label": "Power Quality Analyzers",
+      "href": "contact.html?brand=krykard&cat=power-quality",
+      "primary": false
+     },
+     {
+      "label": "Clamp Meters",
+      "href": "contact.html?brand=krykard&cat=clamp-meter",
+      "primary": false
+     },
+     {
+      "label": "Energy Analyzers",
+      "href": "contact.html?brand=krykard&cat=energy-analyzer",
+      "primary": false
+     },
+     {
+      "label": "Data Loggers",
+      "href": "contact.html?brand=krykard&cat=data-logger",
+      "primary": false
+     }
+    ],
+    "note": "Field energy audit · power quality monitoring",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-krykard.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=krykard",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "uni-t",
+    "logo": {
+     "src": "/assets/brand-logos/uni-t.png",
+     "alt": "UNI-T"
+    },
+    "title": "UNI-T",
+    "meta": "Oscilloscopes · Power supplies · Multimeters · Spectrum",
+    "categories": [
+     {
+      "label": "Oscilloscopes",
+      "href": "contact.html?brand=unit&cat=oscilloscope",
+      "primary": false
+     },
+     {
+      "label": "Power Supplies",
+      "href": "contact.html?brand=unit&cat=power-supply",
+      "primary": false
+     },
+     {
+      "label": "Multimeters",
+      "href": "contact.html?brand=unit&cat=multimeter",
+      "primary": false
+     },
+     {
+      "label": "Spectrum Analyzers",
+      "href": "contact.html?brand=unit&cat=spectrum",
+      "primary": false
+     },
+     {
+      "label": "LCR Meters",
+      "href": "contact.html?brand=unit&cat=lcr",
+      "primary": false
+     }
+    ],
+    "note": "Value T&M · education · general bench",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-uni-t.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=unit",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "rishabh",
+    "logo": {
+     "src": "/assets/brand-logos/rishabh.png",
+     "alt": "Rishabh"
+    },
+    "title": "Rishabh",
+    "meta": "Panel meters · Multimeters · Power & energy analyzers",
+    "categories": [
+     {
+      "label": "Panel Meters",
+      "href": "contact.html?brand=rishabh&cat=panel-meter",
+      "primary": false
+     },
+     {
+      "label": "Multimeters",
+      "href": "contact.html?brand=rishabh&cat=multimeter",
+      "primary": false
+     },
+     {
+      "label": "Power & Energy Analyzers",
+      "href": "contact.html?brand=rishabh&cat=power-energy",
+      "primary": false
+     }
+    ],
+    "note": "Industrial panel instrumentation · switchboards",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-rishabh.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=rishabh",
+      "primary": false
+     }
+    ]
+   },
+   {
+    "slug": "scientific",
+    "logo": {
+     "src": "/assets/brand-logos/scientific.png",
+     "alt": "Scientific"
+    },
+    "title": "Scientific",
+    "meta": "Oscilloscopes · Power supplies · Multimeters · Hipot",
+    "categories": [
+     {
+      "label": "Oscilloscopes",
+      "href": "contact.html?brand=scientific&cat=oscilloscope",
+      "primary": false
+     },
+     {
+      "label": "Power Supplies",
+      "href": "contact.html?brand=scientific&cat=power-supply",
+      "primary": false
+     },
+     {
+      "label": "Multimeters",
+      "href": "contact.html?brand=scientific&cat=multimeter",
+      "primary": false
+     },
+     {
+      "label": "Hipot Testers",
+      "href": "contact.html?brand=scientific&cat=hipot",
+      "primary": false
+     },
+     {
+      "label": "Spectrum Analyzers",
+      "href": "contact.html?brand=scientific&cat=spectrum",
+      "primary": false
+     }
+    ],
+    "note": "GeM listed · government tender · institutional labs",
+    "links": [
+     {
+      "label": "View brand page",
+      "href": "brand-scientific.html",
+      "primary": false
+     },
+     {
+      "label": "Request demo",
+      "href": "contact.html?brand=scientific",
+      "primary": false
+     }
+    ]
+   }
+  ]
+ },
+ "banners": [],
+ "cta": {
+  "eyebrow": "Instruments division",
+  "heading": "Book a demo at your lab — or visit ours in Kirti Nagar.",
+  "text": "Our technical sales engineers travel across India for product demonstrations, application guidance and tender support.",
+  "chips": [],
+  "actions": [
+   {
+    "label": "Request a demo",
+    "href": "contact.html",
+    "primary": true
+   },
+   {
+    "label": "+91 9810 045 234",
+    "href": "tel:+919810045234",
+    "primary": false
+   }
+  ]
+ }
+}

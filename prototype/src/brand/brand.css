@@ -1,0 +1,214 @@
+/* Silicom logo: one vector source, restyled per surface through custom properties. */
+.brand-logo {
+  --logo-arrow: #8c9096;
+  --logo-se: #e0161b;
+  --logo-ink: #363636;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.brand-logo .logo-arrow,
+.brand-logo .logo-arrow-half {
+  fill: none;
+  stroke: var(--logo-arrow);
+  stroke-linejoin: miter;
+  stroke-miterlimit: 10;
+}
+.brand-logo .logo-se {
+  fill: var(--logo-se);
+  stroke: var(--logo-se);
+  stroke-linejoin: round;
+}
+.brand-logo .logo-word {
+  fill: var(--logo-ink);
+}
+/* On navy: the reversed colourway from public/brand/silicom-logo-reversed.svg. */
+.logo-on-dark .brand-logo,
+.brand-logo.logo-on-dark {
+  --logo-arrow: #b9c6d6;
+  --logo-se: #ff4a4f;
+  --logo-ink: #fff;
+}
+
+/* Draw-on: both edges of the arrow rise from the ribbon notch to the tip, then the
+   monogram and wordmark settle in. The closed outline replaces the halves at the end. */
+.brand-logo.is-drawing .logo-arrow {
+  opacity: 0;
+  animation: logo-show 1ms linear 1s forwards;
+}
+.brand-logo.is-drawing .logo-arrow-half {
+  stroke-linecap: butt;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation:
+    logo-draw 1s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    logo-hide 1ms linear 1s forwards;
+}
+.brand-logo.is-drawing .logo-se,
+.brand-logo.is-drawing .logo-word {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 60%;
+}
+.brand-logo.is-drawing .logo-se {
+  animation: logo-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+.brand-logo.is-drawing .logo-word {
+  transform-origin: 0 50%;
+  animation: logo-slide 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+}
+@keyframes logo-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes logo-show {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes logo-hide {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes logo-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6%) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes logo-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-2%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Loader: the arrow draws up, holds, then clears upward, while the monogram breathes. */
+.logo-loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  pointer-events: none;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: currentColor;
+}
+.logo-loader > span {
+  opacity: 0.7;
+}
+/* Only appears if loading takes a moment, so quick model switches don't flash it. */
+.inline-model .logo-loader {
+  opacity: 0;
+  animation: logo-show 0.3s ease 0.25s forwards;
+}
+.logo-loader .brand-logo {
+  width: auto;
+  height: 72px;
+}
+.logo-loader .logo-arrow {
+  display: none;
+}
+.logo-loader .logo-arrow-half {
+  stroke-linecap: butt;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: logo-loop 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.logo-loader .logo-se {
+  animation: logo-breathe 2.2s ease-in-out infinite;
+}
+.package-stage .logo-loader .brand-logo {
+  --logo-arrow: #b9c6d6;
+  --logo-se: #ff4a4f;
+}
+@keyframes logo-loop {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  50%,
+  62% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes logo-breathe {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50%,
+  62% {
+    opacity: 1;
+  }
+}
+
+/* First-visit intro: a white stage the logo draws on, then docks into the header. */
+.brand-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 0 8vw;
+}
+.brand-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transition: opacity 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.brand-intro.is-dock {
+  pointer-events: none;
+}
+.brand-intro.is-dock::before {
+  opacity: 0;
+}
+.brand-intro-logo {
+  position: relative;
+  width: min(84vw, 620px);
+  transform-origin: 0 0;
+}
+.brand-intro-on .header .logo {
+  visibility: hidden;
+}
+/* Set by the inline script in index.html until the intro mounts (3 s at most). */
+.intro-pending::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo.is-drawing *,
+  .logo-loader * {
+    animation: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .logo-loader .logo-arrow {
+    display: inline;
+  }
+  .logo-loader .logo-arrow-half {
+    display: none;
+  }
+}

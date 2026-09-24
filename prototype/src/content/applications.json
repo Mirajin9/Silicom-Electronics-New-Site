@@ -1,0 +1,874 @@
+{
+ "hero": {
+  "badge": "START HERE",
+  "tag": "Source by what you are building",
+  "title": [
+   {
+    "text": "Applications",
+    "accent": true
+   },
+   {
+    "text": " — pick your design, get the kit. ",
+    "accent": false
+   }
+  ],
+  "lede": "From LED drivers and GaN chargers to EV chargers, solar inverters and smart meters — see exactly which Silicom partner brands cover each board, then send your BoM.",
+  "actions": [
+   {
+    "label": "Browse applications",
+    "href": "#apps",
+    "primary": true
+   },
+   {
+    "label": "Send a BOM",
+    "href": "contact.html",
+    "primary": false
+   }
+  ],
+  "note": null,
+  "image": {
+   "src": "/assets/heroes/applications.jpg",
+   "alt": "Finished electronics built with Silicom components"
+  }
+ },
+ "head": {
+  "eyebrow": "Applications",
+  "heading": "Start from what you are building or testing.",
+  "text": "Components applications show which parts Silicom carries per design. T&M applications show which instruments prove your work. Click any card to expand.",
+  "actions": [
+   {
+    "label": "Send a BOM",
+    "href": "contact.html",
+    "primary": false
+   }
+  ]
+ },
+ "groups": [
+  {
+   "id": "components",
+   "label": "Components Applications",
+   "items": [
+    {
+     "id": "app-led-driver",
+     "title": "LED Driver (230V mains, 9–60 W)",
+     "meta": "Bulbs · tubes · panels · street & outdoor lighting",
+     "image": {
+      "src": "/assets/applications/led-driver.jpg",
+      "alt": "LED driver board with components"
+     },
+     "parts": [
+      {
+       "name": "600 V Bridge Rectifier",
+       "detail": "KBP / MB DIP-4 · SMD bridge",
+       "source": "ASEMI (ASM)"
+      },
+      {
+       "name": "HV Cool MOS — 600–800 V primary switch",
+       "detail": "TO-220 / DPAK · quasi-resonant ready",
+       "source": "Reasunos"
+      },
+      {
+       "name": "Hi-V MOSFET (alternative primary)",
+       "detail": "TO-220 / DPAK · trench",
+       "source": "MOT Inmark"
+      },
+      {
+       "name": "Output Schottky / FRD",
+       "detail": "SMA / SMB · low V<sub>F</sub>",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "Fast-Recovery diodes (output)",
+       "detail": "SMB / DPAK",
+       "source": "MOT Inmark"
+      },
+      {
+       "name": "TVS / transient protection",
+       "detail": "SMA / SMB high-energy",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "Mains-side MOV (street &amp; outdoor)",
+       "detail": "7D561 · 7D621 disc varistors",
+       "source": "Surging"
+      },
+      {
+       "name": "MLCC + SMD passives",
+       "detail": "MLCC · resistors · film caps",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "LED driver IC sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=led-driver",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-gan-charger",
+     "title": "65 W GaN USB-PD Charger",
+     "meta": "Laptop / fast-charge adapter · compact form factor",
+     "image": {
+      "src": "/assets/applications/gan-charger.jpg",
+      "alt": "65W GaN USB-PD charger"
+     },
+     "parts": [
+      {
+       "name": "GaN power IC — primary stage",
+       "detail": "Integrated GaN + driver",
+       "source": "Shikues"
+      },
+      {
+       "name": "PWM controller — flyback / QR",
+       "detail": "SOP-8 / DIP-8",
+       "source": "Shikues"
+      },
+      {
+       "name": "Sync-rectifier MOSFET (output)",
+       "detail": "SOP-8 / DFN · low R<sub>DS(on)</sub>",
+       "source": "Reasunos"
+      },
+      {
+       "name": "SMD input bridge",
+       "detail": "Compact-package bridge for tight enclosure",
+       "source": "ASEMI (ASM)"
+      },
+      {
+       "name": "USB-C TVS / ESD arrays",
+       "detail": "SOT-23-6 multi-line · VBUS &amp; CC",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "MLCC + SMD passives",
+       "detail": "Y-cap · X-cap · MLCC",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "USB-PD controller sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=65w-gan-charger",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-smps",
+     "title": "Standard SMPS / Adapter (5–30 W)",
+     "meta": "Set-top boxes · routers · retail chargers · auxiliary supplies",
+     "image": {
+      "src": "/assets/applications/smps-adapter.jpg",
+      "alt": "SMPS adapter board with transformer"
+     },
+     "parts": [
+      {
+       "name": "Primary HV MOSFET — 600–700 V",
+       "detail": "TO-220 / DPAK · Cool MOS",
+       "source": "Reasunos"
+      },
+      {
+       "name": "Primary MOSFET (alternative trench)",
+       "detail": "TO-220 · hi-V",
+       "source": "MOT Inmark"
+      },
+      {
+       "name": "Input bridge rectifier",
+       "detail": "DIP-4 KBP / SMD bridge",
+       "source": "ASEMI (ASM)"
+      },
+      {
+       "name": "Output Schottky",
+       "detail": "SMA / SMB · 40–100 V",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "Zener / small-signal diodes",
+       "detail": "SOD-123 / 323 · reference &amp; clamps",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "TVS / surge protection",
+       "detail": "SMA / SMB",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "MLCC + R + film caps",
+       "detail": "SMD passives",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "PWM controller IC sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=smps-adapter",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-smart-meter",
+     "title": "Smart Meter — SMPS & mains protection",
+     "meta": "RDSS rollout · single & three-phase residential meters",
+     "image": {
+      "src": "/assets/applications/smart-meter.jpg",
+      "alt": "Smart energy meter board"
+     },
+     "parts": [
+      {
+       "name": "Mains-side TVS array",
+       "detail": "SMA / SMB high-energy clamp",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "Line-side MOV",
+       "detail": "7D561 · 7D621 · 10D / 14D disc",
+       "source": "Surging"
+      },
+      {
+       "name": "Auxiliary SMPS MOSFET",
+       "detail": "TO-220 / DPAK · small flyback switch",
+       "source": "Reasunos / MOT Inmark"
+      },
+      {
+       "name": "Output Schottky",
+       "detail": "SMA / SMB rectifier",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "Comm-line ESD arrays",
+       "detail": "SOT-23-6 multi-line for RS-485 / RF",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "SMD passives",
+       "detail": "MLCC · current-sense resistors",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "MCU & latching relays sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=smart-meter",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-ev-ac-charger",
+     "title": "EV AC Charger (3.3 – 7.4 kW)",
+     "meta": "Residential & light-commercial Type-2 / CCS2",
+     "image": {
+      "src": "/assets/applications/ev-ac-charger.jpg",
+      "alt": "EV AC charger 7.4 kW"
+     },
+     "parts": [
+      {
+       "name": "Hi-V trench MOSFETs (power stage)",
+       "detail": "TO-220 / TO-247",
+       "source": "MOT Inmark / Reasunos"
+      },
+      {
+       "name": "Cool IGBT modules (auxiliary)",
+       "detail": "High-current switch packs",
+       "source": "Donghai / WXDH"
+      },
+      {
+       "name": "Automotive EV fuses (in-line)",
+       "detail": "AEC-grade automotive fuse holders",
+       "source": "Adler EV"
+      },
+      {
+       "name": "Low-voltage block fuses",
+       "detail": "For pilot / aux 12 V supplies",
+       "source": "Adler EV"
+      },
+      {
+       "name": "CCS / CAN comm TVS",
+       "detail": "PLC &amp; CAN protection arrays",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "Mains surge MOV bank",
+       "detail": "7D / 10D / 14D varistor banks",
+       "source": "Surging"
+      }
+     ],
+     "note": "Gate drivers & PLC ICs sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=ev-ac-charger",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-ev-2w",
+     "title": "EV 2W / 3W Charger (700 W – 3.3 kW)",
+     "meta": "On-board & portable charger banks for e-2W / e-3W",
+     "image": {
+      "src": "/assets/applications/ev-2w-3w-charger.jpg",
+      "alt": "EV two- and three-wheeler charger"
+     },
+     "parts": [
+      {
+       "name": "Cool IGBT &amp; SGT switches",
+       "detail": "Compact high-frequency switching",
+       "source": "Donghai / WXDH"
+      },
+      {
+       "name": "SiC diodes (output rectification)",
+       "detail": "TO-220 · TO-247",
+       "source": "MOT Inmark / Shikues"
+      },
+      {
+       "name": "EV block fuse (battery line)",
+       "detail": "Low-voltage in-line fuse block",
+       "source": "Adler EV"
+      },
+      {
+       "name": "Battery-line TVS / over-V",
+       "detail": "SMA / SMB high-energy clamp",
+       "source": "Jilin Sino / Reasunos"
+      },
+      {
+       "name": "BLDC driver bundle (for integrated controllers)",
+       "detail": "3-phase driver building block",
+       "source": "CDIL"
+      },
+      {
+       "name": "MLCC &amp; bulk caps",
+       "detail": "DC-link snubbing",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "Battery-protect IC sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=ev-2w-charger",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-solar",
+     "title": "Solar String Inverter (3 – 50 kW)",
+     "meta": "Rooftop & commercial inverters · PM Surya Ghar pull",
+     "image": {
+      "src": "/assets/applications/solar-inverter.jpg",
+      "alt": "Solar string inverter with PV panel"
+     },
+     "parts": [
+      {
+       "name": "SiC MOSFETs (DC boost / MPPT)",
+       "detail": "TO-247 · hi-V",
+       "source": "Reasunos / Shikues"
+      },
+      {
+       "name": "Cool IGBT (inverter bridge)",
+       "detail": "PV-grade IGBT modules",
+       "source": "Donghai / WXDH"
+      },
+      {
+       "name": "Schottky / SiC diodes",
+       "detail": "Freewheel + boost rectification",
+       "source": "Jilin Sino / MOT Inmark"
+      },
+      {
+       "name": "DC + AC TVS / MOV banks",
+       "detail": "PV string &amp; AC-out protection",
+       "source": "Surging / CDIL"
+      },
+      {
+       "name": "MLCC + bulk passives",
+       "detail": "DC-link snubbing &amp; decoupling",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "Gate drivers sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=solar-inverter",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-bldc",
+     "title": "BLDC Motor Driver (fans · e-2W/3W · appliances)",
+     "meta": "Integrated 3-phase motor-controller boards",
+     "image": {
+      "src": "/assets/applications/bldc-motor-driver.jpg",
+      "alt": "BLDC motor driver board"
+     },
+     "parts": [
+      {
+       "name": "BLDC driver module",
+       "detail": "3-phase pre-driver building block",
+       "source": "CDIL"
+      },
+      {
+       "name": "Power-stage trench MOSFETs",
+       "detail": "DPAK / TO-220 · LV–MV",
+       "source": "MOT Inmark / Reasunos"
+      },
+      {
+       "name": "Free-wheel Schottky",
+       "detail": "SMA / SMB · low V<sub>F</sub>",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "Gate &amp; supply TVS clamps",
+       "detail": "SOD-123 / SMA",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "SMD passives (current-sense + decoupling)",
+       "detail": "MLCC · resistors",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "Hall sensors & MCU sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=bldc-driver",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-appliance",
+     "title": "Appliance Control Board (230V)",
+     "meta": "AC / fridge / washing machine / fan control PCBAs",
+     "image": {
+      "src": "/assets/applications/appliance-control.jpg",
+      "alt": "Appliance control board"
+     },
+     "parts": [
+      {
+       "name": "Logic-side MOSFETs",
+       "detail": "SOT-23 / SOP-8 LV switching",
+       "source": "Reasunos / MOT Inmark"
+      },
+      {
+       "name": "Bridge rectifier (control SMPS)",
+       "detail": "DIP-4 / SMD",
+       "source": "ASEMI (ASM)"
+      },
+      {
+       "name": "Schottky &amp; small-signal diodes",
+       "detail": "SOD-123 / 323 · SMA",
+       "source": "Jilin Sino"
+      },
+      {
+       "name": "Zener / TVS clamps",
+       "detail": "SOD-123 / SMA",
+       "source": "Jilin Sino / CDIL"
+      },
+      {
+       "name": "MOV (230 V input)",
+       "detail": "7D / 10D disc varistors",
+       "source": "Surging"
+      },
+      {
+       "name": "MLCC + SMD passives",
+       "detail": "MLCC · resistors",
+       "source": "MLCC Base"
+      }
+     ],
+     "note": "Triacs · opto-triacs · optocouplers · MCU sourced on RFQ",
+     "link": {
+      "label": "Send my BoM",
+      "href": "contact.html?bom=appliance-control",
+      "primary": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "instruments",
+   "label": "T&M Instrument Applications",
+   "items": [
+    {
+     "id": "app-signal-debug",
+     "title": "Signal debugging & R&D bench",
+     "meta": "Mixed-signal bring-up · serial decode · embedded validation",
+     "image": {
+      "src": "/assets/instruments/signal-debug.jpg",
+      "alt": "Oscilloscope signal debugging bench"
+     },
+     "parts": [
+      {
+       "name": "Benchtop oscilloscope",
+       "detail": "2/3/4 Series MSO · entry to mid-bandwidth",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Benchtop oscilloscope (4-channel MSO)",
+       "detail": "Mid-range bench scope",
+       "source": "UNI-T"
+      },
+      {
+       "name": "Benchtop oscilloscope (institutional T&amp;M)",
+       "detail": "Tender-friendly lab scope",
+       "source": "Scientific"
+      },
+      {
+       "name": "Logic analyzer / mixed-signal analysis",
+       "detail": "Parallel + serial protocol decode",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Handheld oscilloscope",
+       "detail": "Portable bench / field debug",
+       "source": "UNI-T"
+      }
+     ],
+     "note": "Battery pack for field debug sourced on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=signal-debug",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-high-bw",
+     "title": "High-bandwidth validation & SI",
+     "meta": "≥1 GHz capture · signal integrity · advanced scope workflows",
+     "image": {
+      "src": "/assets/instruments/high-bw.jpg",
+      "alt": "High-bandwidth signal integrity"
+     },
+     "parts": [
+      {
+       "name": "Real-time oscilloscope",
+       "detail": "4 / 5 / 6 Series · ≥1 GHz bandwidth",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Arbitrary / function waveform generator",
+       "detail": "AFG31000 / AFG family",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Probes &amp; accessories",
+       "detail": "Hi-bandwidth differential / current probes",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Vector Network Analyzer (VNA)",
+       "detail": "S-parameter / impedance measurement",
+       "source": "Anritsu / Scientific"
+      }
+     ],
+     "note": "Application-specific demo unit on request",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=high-bw",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-edu",
+     "title": "Education & lab benches",
+     "meta": "IIT / NIT / PSU lab fit-outs · training rigs",
+     "image": {
+      "src": "/assets/instruments/education.jpg",
+      "alt": "Education lab test bench"
+     },
+     "parts": [
+      {
+       "name": "MSO 2 Series EDU oscilloscope",
+       "detail": "70 / 100 / 200 MHz · 16 digital ch · AFG",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Benchtop oscilloscope (entry-level training)",
+       "detail": "2-ch / 4-ch entry MSO",
+       "source": "UNI-T"
+      },
+      {
+       "name": "Benchtop oscilloscope (government tender ready)",
+       "detail": "GeM listed institutional T&amp;M",
+       "source": "Scientific"
+      },
+      {
+       "name": "DC power supply (training bench)",
+       "detail": "Linear / switching bench supply",
+       "source": "Scientific"
+      },
+      {
+       "name": "Benchtop multimeter",
+       "detail": "5½ / 6½ digit DMM",
+       "source": "UNI-T / Scientific"
+      }
+     ],
+     "note": "Lab bundle quote · IIT / NIT tender support",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=education",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-ev-power",
+     "title": "EV / battery / power test",
+     "meta": "Programmable DC · regenerative loading · source-measure",
+     "image": {
+      "src": "/assets/instruments/ev-power.jpg",
+      "alt": "EV battery and power test setup"
+     },
+     "parts": [
+      {
+       "name": "Programmable DC power supply",
+       "detail": "Bidirectional · multi-kW",
+       "source": "Tektronix / Elektro-Automatik"
+      },
+      {
+       "name": "Regenerative electronic load",
+       "detail": "Energy-recycling load bank",
+       "source": "Elektro-Automatik"
+      },
+      {
+       "name": "Battery tester",
+       "detail": "Cycle test · capacity profile",
+       "source": "Tektronix"
+      },
+      {
+       "name": "AC source / grid simulator",
+       "detail": "Programmable AC with fault injection",
+       "source": "Elektro-Automatik"
+      },
+      {
+       "name": "Power analyzer",
+       "detail": "3-phase efficiency &amp; quality",
+       "source": "Microtest"
+      },
+      {
+       "name": "Hipot tester (battery pack)",
+       "detail": "AC / DC dielectric strength",
+       "source": "Microtest / Scientific"
+      }
+     ],
+     "note": "CCS2 communication tester sourced on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=ev-power",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-transformer",
+     "title": "Transformer & coil test",
+     "meta": "Production-line LCR · turns ratio · leakage · pin-short",
+     "image": {
+      "src": "/assets/instruments/transformer.jpg",
+      "alt": "Transformer and coil test setup"
+     },
+     "parts": [
+      {
+       "name": "5465 Transformer Analyzer",
+       "detail": "10 Hz–200 kHz · 20 channels · ±0.1%",
+       "source": "Microtest"
+      },
+      {
+       "name": "LCR meter",
+       "detail": "Production-line LCR",
+       "source": "Microtest"
+      },
+      {
+       "name": "Hipot tester (winding insulation)",
+       "detail": "AC / DC dielectric strength",
+       "source": "Microtest"
+      },
+      {
+       "name": "F5620 pneumatic fixture",
+       "detail": "Built-in 100 mA DC bias",
+       "source": "Microtest"
+      },
+      {
+       "name": "Customised testing fixture service",
+       "detail": "OEM-specific jigs &amp; cycle programs",
+       "source": "Microtest"
+      }
+     ],
+     "note": "Customer-specific test cycle on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=transformer",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-cable-harness",
+     "title": "Cable harness & USB-C cable testing",
+     "meta": "Continuity · open/short · Hipot · E-marker · 4-wire",
+     "image": {
+      "src": "/assets/instruments/cable.jpg",
+      "alt": "Cable harness and USB-C cable tester"
+     },
+     "parts": [
+      {
+       "name": "8761 Universal Cable Harness Tester",
+       "detail": "64 / 128 / 256 test pins · 500 stored programs",
+       "source": "Microtest"
+      },
+      {
+       "name": "Type-C Cable Tester",
+       "detail": "E-marker IC · V-drop test at 5 A",
+       "source": "Microtest"
+      },
+      {
+       "name": "AC / DC Hipot test",
+       "detail": "Built into 8761 platform",
+       "source": "Microtest"
+      },
+      {
+       "name": "4-wire continuity",
+       "detail": "Low-resistance harness validation",
+       "source": "Microtest"
+      }
+     ],
+     "note": "Connector-specific test jigs on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=cable-harness",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-rf-telecom",
+     "title": "RF · telecom · antenna",
+     "meta": "Spectrum · cable/antenna · VNA · field RF validation",
+     "image": {
+      "src": "/assets/instruments/rf.jpg",
+      "alt": "RF telecom and antenna test"
+     },
+     "parts": [
+      {
+       "name": "Spectrum analyzer (handheld + benchtop)",
+       "detail": "Sub-6 GHz / mmWave options",
+       "source": "Anritsu"
+      },
+      {
+       "name": "Cable &amp; antenna analyzer",
+       "detail": "Site Master / field validation",
+       "source": "Anritsu"
+      },
+      {
+       "name": "Vector Network Analyzer (VNA)",
+       "detail": "2-port / 4-port S-parameter",
+       "source": "Anritsu"
+      },
+      {
+       "name": "Spectrum analyzer (lab bench)",
+       "detail": "Entry / mid-range bench unit",
+       "source": "UNI-T / Scientific"
+      },
+      {
+       "name": "RF signal generator",
+       "detail": "Vector / analog signal source",
+       "source": "Anritsu"
+      }
+     ],
+     "note": "EMI / EMC pre-compliance kit on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=rf-telecom",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-smu-semi",
+     "title": "Precision SMU & semiconductor parameter",
+     "meta": "Source-measure · low-current · parameter analysis",
+     "image": {
+      "src": "/assets/instruments/smu.jpg",
+      "alt": "Precision SMU and semiconductor parameter test"
+     },
+     "parts": [
+      {
+       "name": "Source Measure Unit (SMU)",
+       "detail": "4 / 6 / 7-Series · sub-pA / fV resolution",
+       "source": "Keithley"
+      },
+      {
+       "name": "SMU (Tektronix range)",
+       "detail": "Low-current measurement",
+       "source": "Tektronix"
+      },
+      {
+       "name": "Semiconductor parameter analyzer",
+       "detail": "I-V / C-V characterization",
+       "source": "Keithley"
+      },
+      {
+       "name": "Low-current / resistance measurement system",
+       "detail": "Electrometer / pico-ammeter",
+       "source": "Keithley"
+      }
+     ],
+     "note": "Probe station integration on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=smu-semi",
+      "primary": false
+     }
+    },
+    {
+     "id": "app-field-electrical",
+     "title": "Field electrical maintenance",
+     "meta": "Portable testers · insulation · panel metering · loggers",
+     "image": {
+      "src": "/assets/instruments/field.jpg",
+      "alt": "Field electrical maintenance with clamp meter"
+     },
+     "parts": [
+      {
+       "name": "Power quality analyzer (field &amp; energy audit)",
+       "detail": "Harmonics · sag/swell · logging",
+       "source": "Krykard"
+      },
+      {
+       "name": "Clamp meter / power &amp; energy analyzer",
+       "detail": "Single &amp; three-phase measurement",
+       "source": "Krykard"
+      },
+      {
+       "name": "Panel meter (switchboard install)",
+       "detail": "DIN / 96 mm panel mount",
+       "source": "Rishabh"
+      },
+      {
+       "name": "Power &amp; energy analyzer (facility-scale)",
+       "detail": "3-phase power quality / energy",
+       "source": "Rishabh"
+      },
+      {
+       "name": "Multimeter / temperature data logger",
+       "detail": "Long-duration logging",
+       "source": "UNI-T"
+      }
+     ],
+     "note": "Calibration certificate package on RFQ",
+     "link": {
+      "label": "Discuss application",
+      "href": "contact.html?app=field-electrical",
+      "primary": false
+     }
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "eyebrow": "Applications",
+  "heading": "Tell us the design, we will map it to the right partners.",
+  "text": "Share the board you are building, part numbers and target quantities. Our team comes back with sourcing options and lead times.",
+  "chips": [],
+  "actions": [
+   {
+    "label": "Send a BOM / RFQ",
+    "href": "contact.html",
+    "primary": true
+   },
+   {
+    "label": "+91 9810 029 582",
+    "href": "tel:+919810029582",
+    "primary": false
+   }
+  ]
+ }
+}

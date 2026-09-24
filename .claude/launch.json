@@ -4,14 +4,59 @@
     {
       "name": "silicom-site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "3000"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "3000"
+      ],
       "port": 3000
     },
     {
       "name": "silicom-store",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["server/index.js"],
+      "runtimeArgs": [
+        "server/index.js"
+      ],
       "port": 4000
+    },
+    {
+      "name": "prototype-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "preview",
+        "--prefix",
+        "prototype",
+        "--",
+        "--port",
+        "4173"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "prototype-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "prototype",
+        "--",
+        "--port",
+        "5174"
+      ],
+      "port": 5174
+    },
+    {
+      "name": "prototype-pages",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "preview:pages",
+        "--prefix",
+        "prototype"
+      ],
+      "port": 4180
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "source": "https://download.tek.com/document/MSO%205%206%20Series%203D%20CAD%20Models.zip",
+  "index": "https://www.tek.com/en/support/cad",
+  "downloaded": "2026-09-23",
+  "archive_bytes": 50574732,
+  "sha256": "50769e0ea28e80f7ed960ebb9ddc1ab038c3521149077020ac817eb6bde5732e",
+  "entries": [
+    {
+      "file": "MSO 5 6 Series 3D CAD Models/",
+      "bytes": 0
+    },
+    {
+      "file": "MSO 5 6 Series 3D CAD Models/5_6 Series MSO.stp",
+      "bytes": 147123683
+    },
+    {
+      "file": "MSO 5 6 Series 3D CAD Models/6B_SERIES_8CH_MSO_STP.stp",
+      "bytes": 118601597
+    }
+  ],
+  "status": "Manufacturer source archive only; exact 5 Series B match and reuse terms not yet assessed. No web-ready model created."
+}

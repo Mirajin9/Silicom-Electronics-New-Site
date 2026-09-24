@@ -1,0 +1,87 @@
+{
+  "uploads/Company Profiles/JILIN SINO CATALOGUE  (Mosfets).pdf": {
+    "page_count": 42,
+    "matches": [
+      {
+        "page": 16,
+        "packages": [
+          "DPAK",
+          "SOP-7",
+          "TO-126",
+          "TO-220C",
+          "TO-220HF",
+          "TO-263",
+          "TO-92"
+        ],
+        "excerpt": "单位：万块 \nModule 20 million pcs / year  \n3.12 \n1.44 \n1.8 \n5.04 \n0.67 \n0.8 \n0.6 \n1.2 \n3 \n3.6 \n3.1 \n0.36 \nIPAK/DPAK TO-263 SOP-7/8 TO-220HF/220MF TO-3PH/247 SOT系列 DO"
+      },
+      {
+        "page": 27,
+        "packages": [
+          "DPAK"
+        ],
+        "excerpt": "03 \nPlanar MOSFET \n40V-1500V/0.5A-200A  / Optimized Bar-type cell /  VLD Terminal technology \nLight source \nPC power supply \nInverter \nAdapter \nLED \nIntelligent"
+      },
+      {
+        "page": 31,
+        "packages": [
+          "DPAK"
+        ],
+        "excerpt": "03 \n330V~1350V / Trench-FS technology / Super-thin wafer technology \nBetter short circuit ability / High reliability \nWhite household appliance \nIndustrial freq"
+      },
+      {
+        "page": 35,
+        "packages": [
+          "DPAK"
+        ],
+        "excerpt": "03 \n200V-1200V / Soft fast recovery / Small oscillation / High \nreliability /  Max.  junction temperature is 175 ℃ / Better surge \ncurrent capability and avalan"
+      },
+      {
+        "page": 37,
+        "packages": [
+          "DPAK",
+          "SOT223"
+        ],
+        "excerpt": "03 \nSingle and double mesa planar technique / 600V~2000V \nImproved DI/DT capability / High surge current capability / \nOperating junction temperature is 150℃ / "
+      },
+      {
+        "page": 38,
+        "packages": [
+          "DPAK",
+          "SOD-123",
+          "SOD-323",
+          "SOT-23"
+        ],
+        "excerpt": "03 \nBJT、TVS、Zener \nComplete BJT products / Unidirectional TVS / Bidirectional \nTVS / 3.3V~51V Zener diode series \nComputer system \nCommunication equipment \nAC/D"
+      }
+    ]
+  },
+  "uploads/Company Profiles/Shikues Introduction_FINAL.pdf": {
+    "page_count": 15,
+    "matches": []
+  },
+  "uploads/Company Profiles/WXDH Profile.pdf": {
+    "page_count": 19,
+    "matches": [
+      {
+        "page": 8,
+        "packages": [
+          "QFN\nSOT-363",
+          "SOT-223",
+          "SOT-23",
+          "SOT-323",
+          "TO-126",
+          "TO-220C",
+          "TO-220F",
+          "TO-220M",
+          "TO-247",
+          "TO-251",
+          "TO-252",
+          "TO-263",
+          "TO-92DFN"
+        ],
+        "excerpt": "  Jiangsu DongHai Semiconductor  Co.,Ltd\n江苏东海半导体股份有限公司\n产品封装\nTO-247\nTO-263\n TO-220C\nTO-126 TO-251 TO-220F\nTO-220M TO-252 TO-3P\nTO-92DFN QFN\nSOT-363 SOT-8 SOT-223"
+      }
+    ]
+  }
+}

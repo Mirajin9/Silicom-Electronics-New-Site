@@ -1,0 +1,15 @@
+{
+  "routes": 27,
+  "textCount": 2559,
+  "linkCount": 379,
+  "idCount": 72,
+  "fieldCount": 8,
+  "reworded": {
+    "16": "About now counts the 19 brand partners the site lists (it said 16)",
+    "A few instruments engineers ask us for most — click to expand and browse the highlights.": "featured products are shown open; the \"click to expand\" instruction is dropped",
+    "Components applications show which parts Silicom carries per design. T&M applications show which instruments prove your work. Click any card to expand.": "every application is shown open; the \"click to expand\" instruction is dropped",
+    "Thanks — we've logged your enquiry. We'll be in touch within one working day.": "the form opens an email draft, so the confirmation now says that truthfully"
+  },
+  "failures": [],
+  "broken": []
+}

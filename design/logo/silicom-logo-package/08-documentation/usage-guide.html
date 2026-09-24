@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Silicom Electronics — logo usage guide</title>
+<style>
+  @page { size: A4; margin: 16mm; }
+  :root { --ink: #0b1020; --muted: #51566e; --line: #d6dce4; --navy: #061a33; }
+  * { box-sizing: border-box; }
+  body { font: 10.5pt/1.55 "Segoe UI", Arial, sans-serif; color: var(--ink); margin: 0 auto; max-width: 178mm; background: #fff; }
+  h1 { font-size: 24pt; margin: 0 0 4mm; letter-spacing: -0.02em; }
+  h2 { font-size: 13pt; margin: 9mm 0 3mm; padding-top: 4mm; border-top: 1px solid var(--line); }
+  p, li { color: var(--muted); }
+  .lead { font-size: 11.5pt; }
+  .tile { border: 1px solid var(--line); padding: 8mm; display: flex; align-items: center; justify-content: center; }
+  .tile.dark { background: var(--navy); border-color: var(--navy); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  img { max-width: 100%; display: block; }
+  .clear { position: relative; padding: 11mm; border: 1px dashed #e0161b; display: inline-block; }
+  .clear::before { content: "X = cap height of the wordmark"; position: absolute; top: 2mm; left: 3mm; font-size: 8pt; color: #e0161b; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  th, td { text-align: left; padding: 2mm 2.5mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--ink); }
+  .sw { width: 9mm; height: 9mm; border: 1px solid var(--line); }
+  .dont { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 8mm; padding-left: 5mm; }
+  .grid, .clear, table, .dont { break-inside: avoid; }
+  h2 { break-after: avoid; }
+  code { font-size: 9pt; }
+</style>
+</head>
+<body>
+<h1>Silicom Electronics logo</h1>
+<p class="lead">Usage guide for the vector logo rebuilt in September 2026 from the only supplied artwork, two small raster files. The mark and wordmark keep the original design; this package makes them sharp at any size and gives every surface the right version.</p>
+
+<section>
+<h2>What changed from the old files</h2>
+<ul>
+  <li><strong>Arrow:</strong> redrawn as a single clean outline with true corners.</li>
+  <li><strong>SE monogram:</strong> the standalone mark from the company-profile cover, rebuilt with smooth calligraphic strokes and continuous hairlines.</li>
+  <li><strong>Wordmark:</strong> reset in <em>Alegreya</em> (SIL Open Font License), the closest open typeface to the original lettering in a letter-by-letter comparison. Every letter keeps the original's position, height and width. Outlines are embedded in the files; no font needs to be installed.</li>
+</ul>
+</section>
+
+<section>
+<h2>Versions</h2>
+<div class="grid">
+  <div class="tile"><img src="../01-primary/primary-color.svg" alt="Primary logo, colour"></div>
+  <div class="tile dark"><img src="../02-reverse/primary-reverse.svg" alt="Primary logo, reversed"></div>
+  <div class="tile"><img src="../04-stacked/stacked-color.svg" alt="Stacked logo" style="height:34mm"></div>
+  <div class="tile"><img src="../05-symbol/symbol-color.svg" alt="Symbol" style="height:34mm"></div>
+</div>
+<table style="margin-top:4mm">
+  <tr><th>Version</th><th>Use it for</th></tr>
+  <tr><td>Primary (<code>01-primary</code>)</td><td>Default: website header, letterhead, documents, signage on light backgrounds.</td></tr>
+  <tr><td>Primary short</td><td>Tight horizontal spaces where "Pvt. Ltd." would be too small to read. Use the full name in legal and financial documents.</td></tr>
+  <tr><td>Reverse (<code>02-reverse</code>)</td><td>Navy or dark photography: website footer, dark slides, vehicle livery.</td></tr>
+  <tr><td>Mono black / white / blue (<code>03-mono</code>)</td><td>One-colour print, stamps, engraving, foil, embroidery, fax.</td></tr>
+  <tr><td>Stacked (<code>04-stacked</code>)</td><td>Square and narrow spaces: social profile images, merchandise, booth panels.</td></tr>
+  <tr><td>Symbol (<code>05-symbol</code>)</td><td>Where the name is already present or space is very small; app icons and avatars.</td></tr>
+  <tr><td>Favicon (<code>06-favicon</code>)</td><td>Browser tabs and home-screen icons. The favicon uses heavier strokes so it still reads at 16 px.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Clear space</h2>
+<p>Keep a margin of <strong>X</strong> on every side, where X is the height of the capital S in the wordmark. Nothing else (text, photos edges or other logos) should enter it.</p>
+<div class="clear"><img src="../01-primary/primary-color.svg" alt="Clear space" style="width:120mm"></div>
+</section>
+
+<section>
+<h2>Minimum size</h2>
+<table>
+  <tr><th>Version</th><th>Screen</th><th>Print</th></tr>
+  <tr><td>Primary</td><td>160 px wide</td><td>40 mm wide</td></tr>
+  <tr><td>Primary short</td><td>120 px wide</td><td>30 mm wide</td></tr>
+  <tr><td>Stacked</td><td>90 px wide</td><td>22 mm wide</td></tr>
+  <tr><td>Symbol</td><td>24 px tall (below this, use the favicon files)</td><td>10 mm tall</td></tr>
+  <tr><td>Embroidery</td><td colspan="2">Use the mono symbol or mono stacked version at 25 mm or larger; the SE hairlines need at least 1 mm thread width.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Colours</h2>
+<table>
+  <tr><th></th><th>Role</th><th>HEX</th><th>RGB</th><th>CMYK (approximate)</th></tr>
+  <tr><td><div class="sw" style="background:#E0161B"></div></td><td>SE monogram red</td><td>#E0161B</td><td>224 22 27</td><td>0 90 88 12</td></tr>
+  <tr><td><div class="sw" style="background:#8C9096"></div></td><td>Arrow grey</td><td>#8C9096</td><td>140 144 150</td><td>7 4 0 41</td></tr>
+  <tr><td><div class="sw" style="background:#363636"></div></td><td>Wordmark charcoal</td><td>#363636</td><td>54 54 54</td><td>0 0 0 79</td></tr>
+  <tr><td><div class="sw" style="background:#0B6FD3"></div></td><td>Silicom blue (mono version, website)</td><td>#0B6FD3</td><td>11 111 211</td><td>95 47 0 17</td></tr>
+  <tr><td><div class="sw" style="background:#061A33"></div></td><td>Navy background (reverse)</td><td>#061A33</td><td>6 26 51</td><td>88 49 0 80</td></tr>
+  <tr><td><div class="sw" style="background:#B9C6D6"></div></td><td>Arrow on navy</td><td>#B9C6D6</td><td>185 198 214</td><td>14 7 0 16</td></tr>
+  <tr><td><div class="sw" style="background:#FF4A4F"></div></td><td>SE on navy</td><td>#FF4A4F</td><td>255 74 79</td><td>0 71 69 0</td></tr>
+</table>
+<p>CMYK values are straight conversions. Ask your printer for a proof; for spot colour, match the red and grey against a physical Pantone swatch book.</p>
+</section>
+
+<section>
+<h2>Don't</h2>
+<div class="dont">
+  <p>✕ Stretch, squash or rotate the logo.</p>
+  <p>✕ Recolour it outside the versions in this package.</p>
+  <p>✕ Replace the wordmark with another typeface.</p>
+  <p>✕ Rearrange the arrow, monogram and name.</p>
+  <p>✕ Add shadows, glows, bevels or gradients.</p>
+  <p>✕ Put the colour version on dark or busy backgrounds; use the reverse.</p>
+  <p>✕ Use the old PNG logo files for print; they are low resolution.</p>
+  <p>✕ Draw the arrow filled in; it is always an outline.</p>
+</div>
+</section>
+
+<section>
+<h2>Files</h2>
+<p>SVG is the master for every version. Use PDF for print, PNG (transparent, 256–2048 px wide) for slides and documents, and JPG (white background) for email signatures. The files are generated by <code>prototype/scripts/build-logo.py</code>; edit that script rather than the files. The Alegreya font licence is in <code>prototype/scripts/fonts/Alegreya-OFL.txt</code>.</p>
+</section>
+</body>
+</html>
