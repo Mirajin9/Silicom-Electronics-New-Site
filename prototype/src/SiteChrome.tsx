@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "./brand/Logo";
 import { categoriesOf, categoryBrands, categoryHref, categoryPhoto } from "./content/categories";
 import { url } from './base';
+import { ADLER_PATH } from "./content/adler";
 const nav = [
   ["Instruments", "instruments"],
   ["Components", "components"],
@@ -30,6 +31,7 @@ function MegaMenu({ division, open }: { division: Division; open: boolean }) {
         <span className="mega-count">{partnerCount(division)} authorized partners</span>
         <a className="mega-all" href={url(`/${division}.html`)}>{d.all} <Arrow /></a>
         <a className="mega-brands" href={url("/brands.html")}>Browse by brand <Arrow diagonal /></a>
+        {division === "components" && <a className="mega-promo" href={url(ADLER_PATH)}><strong>ADLER fuses in stock</strong><span>IATF 16949 solar and EV fuses and holders</span></a>}
       </div>
       <ul className="mega-grid">
         {categoriesOf(division).map((c) => <li key={c.id}>

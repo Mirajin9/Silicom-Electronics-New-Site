@@ -10,7 +10,7 @@ const ease = (t: number) => 1 - Math.pow(1 - t, 3);
 
 /** Software WebGL (blocklisted GPUs, some office laptops) renders at a few frames a
  *  second and pins the CPU; those visitors get the still image instead. */
-function softwareRenderer(gl: WebGLRenderer) {
+export function softwareRenderer(gl: WebGLRenderer) {
   const context = gl.getContext();
   const info = context.getExtension('WEBGL_debug_renderer_info');
   const name = info ? String(context.getParameter(info.UNMASKED_RENDERER_WEBGL)) : '';

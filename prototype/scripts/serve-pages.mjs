@@ -1,12 +1,12 @@
-// Serves the repository root the way GitHub Pages does, under /Silicom-Electronics-New-Site/,
-// so the Pages preview (../redesign, from `npm run build:pages`) can be checked before it is
-// pushed: http://localhost:4180/Silicom-Electronics-New-Site/redesign/
+// Serves dist-pages (from `npm run build:pages`) the way GitHub Pages will, under
+// /Silicom-Electronics-New-Site/ and with its 404 page, so it can be checked before it is
+// published: http://localhost:4180/Silicom-Electronics-New-Site/
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const repo = 'Silicom-Electronics-New-Site';
-const root = path.resolve(import.meta.dirname, '../..');
+const root = path.resolve(import.meta.dirname, '../dist-pages');
 const port = Number(process.env.PORT) || 4180;
 const types = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
@@ -18,15 +18,16 @@ const types = {
 http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
   if (pathname === '/' || pathname === `/${repo}`) {
-    res.writeHead(302, { Location: `/${repo}/redesign/` }).end();
+    res.writeHead(302, { Location: `/${repo}/` }).end();
     return;
   }
   let file = pathname.startsWith(`/${repo}/`) ? path.join(root, pathname.slice(repo.length + 2)) : '';
   if (file && fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
   if (!file || !file.startsWith(root) || !fs.existsSync(file)) {
-    res.writeHead(404, { 'Content-Type': 'text/plain' }).end('404 Not Found');
+    res.writeHead(404, { 'Content-Type': types['.html'] });
+    fs.createReadStream(path.join(root, '404.html')).pipe(res);
     return;
   }
   res.writeHead(200, { 'Content-Type': types[path.extname(file).toLowerCase()] || 'application/octet-stream' });
   fs.createReadStream(file).pipe(res);
-}).listen(port, () => console.log(`GitHub Pages preview: http://localhost:${port}/${repo}/redesign/`));
+}).listen(port, () => console.log(`GitHub Pages preview: http://localhost:${port}/${repo}/`));

@@ -2,6 +2,8 @@ import { Layout } from '../Layout';
 import { applications, brands } from '../content';
 import { Arrow, ContactBand, PageHero, Photo, Rich, Title, href } from '../ui';
 import { url } from '../base';
+import { brandPath } from '../content/categories';
+import { AdlerSpotlight } from '../catalogue';
 
 /** Link a part's source ("Jilin Sino / CDIL") to the brand pages it names. */
 function Sources({ text }: { text: string }) {
@@ -10,9 +12,12 @@ function Sources({ text }: { text: string }) {
   const parts = whole ? [text] : text.split(' / ');
   return <>{parts.map((name, i) => {
     const b = bySlug(name);
-    return <span key={name}>{i > 0 && ' / '}{b ? <a href={url(`/brand-${b.slug}.html`)}>{name.trim()}</a> : name.trim()}</span>;
+    return <span key={name}>{i > 0 && ' / '}{b ? <a href={url(brandPath(b.slug))}>{name.trim()}</a> : name.trim()}</span>;
   })}</>;
 }
+
+/** Solar and EV designs where ADLER fuses and holders protect the DC path. */
+const ADLER_APPLICATIONS = ['app-solar', 'app-ev-ac-charger', 'app-ev-2w'];
 
 export default function ApplicationsPage() {
   const { hero, head, groups, cta } = applications;
@@ -64,6 +69,7 @@ export default function ApplicationsPage() {
                   </tr>)}</tbody>
                 </table>
               </div>
+              {ADLER_APPLICATIONS.includes(a.id) && <AdlerSpotlight compact />}
               <footer className="app-block-foot">
                 <span>{a.note}</span>
                 <a className="text-link" href={href(a.link.href)}>{a.link.label} <Arrow diagonal /></a>

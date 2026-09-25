@@ -7,6 +7,7 @@ import applicationsJson from './applications.json';
 import brandsJson from './brands.json';
 import aboutJson from './about.json';
 import brandLogoSizes from './brand-logos.json';
+import { paceBrand, paceCard, paceTile } from './pace';
 import type { Img, Link, TitlePart } from '../ui';
 import type { ModelId } from '../models';
 
@@ -47,15 +48,44 @@ export type Tile = {
   description: string; chips: string[]; viewLabel: string;
 };
 
-export const instruments = instrumentsJson as unknown as Division;
+const instrumentsSource = instrumentsJson as unknown as Division;
+/** PACE (added in the redesign) is the tenth instrument partner. */
+export const instruments: Division = {
+  ...instrumentsSource,
+  brands: {
+    ...instrumentsSource.brands,
+    head: { ...instrumentsSource.brands.head, heading: instrumentsSource.brands.head.heading.replace(/^Nine /, 'Ten ') },
+    cards: [...instrumentsSource.brands.cards, paceCard],
+  },
+};
 export const components = componentsJson as unknown as Division;
-export const applications = applicationsJson as unknown as {
+type ApplicationsContent = {
   hero: Hero; head: Head; groups: { id: string; label: string; items: Application[] }[]; cta: Banner;
 };
-export const brands = (brandsJson as unknown as { brands: Brand[] }).brands;
-export const brandIndex = (brandsJson as unknown as {
+/** The original site's instrument application photos showed a competitor's oscilloscope, vintage
+ *  analogue scopes, a pole transformer and battery cells; these show the instruments we supply. */
+const applicationPhotos: Record<string, Img> = {
+  'app-signal-debug': { src: '/images/products/tektronix-2-series-mso.webp', alt: 'Tektronix 2 Series mixed-signal oscilloscope' },
+  'app-ev-power': { src: '/images/products/elektro-automatik-psi9000.webp', alt: 'Elektro-Automatik programmable DC power supply' },
+  'app-transformer': { src: '/images/products/microtest-5465.webp', alt: 'Microtest 5465 transformer analyzer' },
+  'app-cable-harness': { src: '/images/products/microtest-8761.webp', alt: 'Microtest 8761 cable harness tester' },
+  'app-rf-telecom': { src: '/images/products/anritsu-ms2720t.webp', alt: 'Anritsu Spectrum Master handheld spectrum analyzer' },
+  'app-smu-semi': { src: '/images/products/keithley-2450.webp', alt: 'Keithley 2450 SourceMeter source measure unit' },
+};
+const applicationsSource = applicationsJson as unknown as ApplicationsContent;
+export const applications: ApplicationsContent = {
+  ...applicationsSource,
+  groups: applicationsSource.groups.map((g) => ({ ...g, items: g.items.map((a) => (applicationPhotos[a.id] ? { ...a, image: applicationPhotos[a.id] } : a)) })),
+};
+export const brands = [...(brandsJson as unknown as { brands: Brand[] }).brands, paceBrand];
+const brandIndexSource = (brandsJson as unknown as {
   index: { hero: Hero; filters: { id: string; label: string }[]; tiles: Tile[]; banner: Banner; cta: Banner };
 }).index;
+/** PACE sits with the other instrument partners, before the component brands. */
+export const brandIndex = {
+  ...brandIndexSource,
+  tiles: [...brandIndexSource.tiles.filter((t) => t.cat === 'instruments'), paceTile, ...brandIndexSource.tiles.filter((t) => t.cat !== 'instruments')],
+};
 export const about = aboutJson as unknown as {
   hero: Hero & { stats: { value: string; label: string }[] };
   image: Img;

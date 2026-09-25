@@ -10,11 +10,14 @@ Run: python scripts/build-images.py
    src/content/customers.json. Partner logos (../assets/brand-logos) get the same sizing,
    in colour: public/images/brands/*.webp and src/content/brand-logos.json.
 
-2. Category photos (stock photography already licensed for the site, see
-   ../assets/IMAGE-SOURCES-stock.md): cropped to 4:3 around a focal point and encoded as
-   WebP for the category heroes, cards and menu thumbnails. Writes public/images/categories/.
+2. Category photos: instrument categories show a real product photo whole on white; component
+   categories use the licensed stock photography (../assets/IMAGE-SOURCES-stock.md) or ADLER's
+   range photography, cropped to 4:3. WebP for heroes, cards and menu thumbnails
+   (public/images/categories/). Product photos for galleries and cards go to
+   public/images/products/, ADLER's range photos to public/images/adler/.
+   Sources outside ../assets are in image-source/ (see image-source/SOURCES.md).
 """
-import json, math, os
+import json, math, os, time
 import numpy as np
 from PIL import Image
 
@@ -88,6 +91,7 @@ BRAND_LOGOS = {
     'shikues': 'shikues.png', 'donghai-wxdh': 'donghai-wxdh.png', 'mot-inmark': 'mot-inmark.png',
     'reasunos': 'reasunos.png', 'surging': 'surging.png', 'adler': 'adler.png', 'mlcc-base': 'mlcc-base.png',
     'cdil': 'cdil.png',
+    'pace': '../../prototype/image-source/pace/logo.png',
 }
 BRAND_AREA, BRAND_MAX_H, BRAND_MAX_W = 4600, 46, 150
 
@@ -111,6 +115,11 @@ def open_logo(path):
         subprocess.run(['node', os.path.join(HERE, 'render-icons.cjs'), jobs], check=True, cwd=PROTO)
         path = png
     im = Image.open(path).convert('RGBA')
+    # A logo drawn white for dark headers (PACE's) is shown in the page's ink colour instead.
+    a = np.asarray(im)
+    if a[..., 3].max() > 0 and a[..., :3][a[..., 3] > 40].mean() > 235:
+        a = a.copy(); a[..., :3] = (11, 16, 32)
+        im = Image.fromarray(a, 'RGBA')
     corners = [im.getpixel(p) for p in [(0, 0), (im.width - 1, 0), (0, im.height - 1), (im.width - 1, im.height - 1)]]
     if all(c[3] > 250 and min(c[:3]) > 240 for c in corners):
         im = white_to_alpha(im)
@@ -148,22 +157,82 @@ def brand_logos():
 
 
 # ---------------------------------------------------------------- category photos
-# id: (source under ../assets, focal point x, y as fractions of the image)
+# Sources: '../assets/…' (the original site's photos) or 'image-source/…' (see image-source/SOURCES.md).
+# Scenes are cropped to 4:3 around a focal point ('cover'); product photos on white are shown
+# whole, centred on white with a margin ('contain'), so an instrument is never cut off.
+A = '../assets/'
 PHOTOS = {
-    'oscilloscopes': ('instruments/rf.jpg', 0.5, 0.5),
-    'power': ('instruments/ev-power.jpg', 0.5, 0.5),
-    'rf': ('instruments/high-bw.jpg', 0.45, 0.55),
-    'production': ('instruments/transformer.jpg', 0.5, 0.42),
-    'meters': ('instruments/field.jpg', 0.5, 0.42),
-    'smu': ('instruments/education.jpg', 0.55, 0.5),
-    'mosfets': ('applications/smps-adapter.jpg', 0.55, 0.55),
-    'transistors': ('applications/bldc-motor-driver.jpg', 0.5, 0.5),
-    'diodes': ('heroes/brands.jpg', 0.5, 0.5),
-    'protection': ('applications/smart-meter.jpg', 0.5, 0.4),
-    'passives': ('heroes/home.jpg', 0.5, 0.5),
-    'ics': ('applications/led-driver.jpg', 0.6, 0.55),
+    'oscilloscopes': (A + 'brands/products/tektronix.jpg', 0.5, 0.5, 'cover'),
+    'power': ('image-source/instruments/unit-utp3000-dual-bench-psu.png', 0.5, 0.5, 'contain'),
+    'rf': ('image-source/instruments/unit-uts1000-spectrum-analyzer.png', 0.5, 0.5, 'contain'),
+    'production': (A + 'products/instruments/microtest-5465-transformer-analyzer.png', 0.5, 0.5, 'contain'),
+    'meters': (A + 'brands/products/uni-t.jpg', 0.5, 0.5, 'contain'),
+    'smu': (A + 'brands/products/keithley.jpg', 0.5, 0.5, 'contain'),
+    'soldering': ('image-source/pace/ads200-station-large.jpg', 0.5, 0.5, 'contain'),
+    'mosfets': (A + 'applications/smps-adapter.jpg', 0.55, 0.55, 'cover'),
+    'transistors': (A + 'applications/bldc-motor-driver.jpg', 0.5, 0.5, 'cover'),
+    'diodes': (A + 'heroes/brands.jpg', 0.5, 0.5, 'cover'),
+    'protection': ('image-source/adler/range-ev-fuses.jpg', 0.5, 0.5, 'cover'),
+    'passives': (A + 'heroes/home.jpg', 0.5, 0.5, 'cover'),
+    'ics': (A + 'applications/led-driver.jpg', 0.6, 0.55, 'cover'),
 }
 SIZES = {'': (1400, 1050, 78), '-card': (720, 540, 76), '-thumb': (192, 144, 74)}
+
+# Product photos for galleries, cards and application images: 4:3, whole product on white.
+PRODUCTS = {
+    'tektronix-tbs2000': A + 'brands/products/tektronix.jpg',
+    'tektronix-2-series-mso': A + 'products/instruments/tektronix-2-series-mso.jpg',
+    'unit-upo-mso': 'image-source/instruments/unit-upo-mso-oscilloscope.png',
+    'unit-utp3000': 'image-source/instruments/unit-utp3000-dual-bench-psu.png',
+    'unit-udp3000': 'image-source/instruments/unit-udp3000-programmable-psu.png',
+    'unit-udp6720': 'image-source/instruments/unit-udp6720-programmable-psu.png',
+    'unit-utl8200': 'image-source/instruments/unit-utl8200-electronic-load.png',
+    'unit-uts1000': 'image-source/instruments/unit-uts1000-spectrum-analyzer.png',
+    'unit-ut8802e': 'image-source/instruments/unit-ut8802e-bench-multimeter.png',
+    'unit-ut61e': A + 'brands/products/uni-t.jpg',
+    'rishabh-613': A + 'brands/products/rishabh.jpg',
+    'elektro-automatik-psi9000': A + 'brands/products/elektro-automatik.jpg',
+    'keithley-2230': A + 'products/instruments/keithley-2230-dc-power-supply.jpg',
+    'keithley-2450': A + 'brands/products/keithley.jpg',
+    'anritsu-ms2720t': A + 'brands/products/anritsu.jpg',
+    'microtest-lcr': A + 'brands/products/microtest.jpg',
+    'microtest-5465': A + 'products/instruments/microtest-5465-transformer-analyzer.png',
+    'microtest-8761': A + 'products/instruments/microtest-8761-cable-harness-tester.png',
+    'krykard-alm31': A + 'brands/products/krykard.jpg',
+    'pace-ads200': 'image-source/pace/ads200-station.jpg',
+    'pace-ads200-large': 'image-source/pace/ads200-station-large.jpg',
+    'pace-st35': 'image-source/pace/st35-station.jpg',
+    'pace-td200': 'image-source/pace/td200-iron.png',
+    'pace-ps90': 'image-source/pace/ps90-iron-kit.jpg',
+    'pace-mbt360': 'image-source/pace/mbt360-rework.jpg',
+    'pace-mbt450': 'image-source/pace/mbt450-rework.jpg',
+    'pace-st125': 'image-source/pace/st125-rework.jpg',
+    'pace-prc2000': 'image-source/pace/prc2000-repair.jpg',
+    'pace-ir3100': 'image-source/pace/ir3100-bga.jpg',
+    'pace-tf1800': 'image-source/pace/tf1800-bga.jpg',
+    'pace-tf2800': 'image-source/pace/tf2800-bga.jpg',
+    'pace-st325': 'image-source/pace/st325-hot-air.jpg',
+    'pace-st1600': 'image-source/pace/st1600-preheater.jpg',
+    'pace-arm-evac-150': 'image-source/pace/arm-evac-150.jpg',
+    'pace-tj70': 'image-source/pace/tj70-thermojet.jpg',
+    'pace-mt200': 'image-source/pace/mt200-minitweez.jpg',
+    'adler-a83': 'image-source/adler/a83.png',
+    'adler-a85': 'image-source/adler/a85.png',
+    'adler-a65': 'image-source/adler/a65.png',
+    'adler-a94': 'image-source/adler/a94.png',
+    'adler-bh300': 'image-source/adler/bh300.png',
+    'adler-bh400': 'image-source/adler/bh400.png',
+    'adler-ev-bolt-down': 'image-source/adler/ev-bolt-down.png',
+    'adler-ev-mini-blade': 'image-source/adler/ev-mini-blade.png',
+    'adler-evse-at1': 'image-source/adler/evse-at1.png',
+    'adler-ev-bfr-holder': 'image-source/adler/ev-bfr-holder.png',
+}
+# ADLER's own range photography (from its catalogues), 4:3.
+RANGES = ['range-pv-fuses', 'range-pv-holders', 'range-ev-fuses', 'range-evse-fuses']
+
+
+def source(path):
+    return Image.open(os.path.join(PROTO, path)).convert('RGB')
 
 
 def crop_to(im, ratio, fx, fy):
@@ -177,14 +246,49 @@ def crop_to(im, ratio, fx, fy):
     return im.crop((x, y, x + cw, y + ch))
 
 
+def contain(im, ratio=4 / 3, margin=0.1):
+    """The product trimmed of its white surround, centred on a white 4:3 canvas."""
+    a = np.asarray(im).astype(int)
+    ys, xs = np.nonzero((255 - a).max(axis=2) > 18)
+    if len(xs):
+        im = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
+    w = max(im.width, im.height * ratio) / (1 - 2 * margin)
+    canvas = Image.new('RGB', (round(w), round(w / ratio)), 'white')
+    canvas.paste(im, ((canvas.width - im.width) // 2, (canvas.height - im.height) // 2))
+    return canvas
+
+
+def save_sizes(im, folder, name, sizes):
+    os.makedirs(os.path.join(PUBLIC, folder), exist_ok=True)
+    for suffix, (w, h, q) in sizes.items():
+        # Small product shots are enlarged to the card size rather than left tiny.
+        out = im.resize((w, h), Image.LANCZOS) if im.width != w else im
+        # Write then swap, retrying briefly: OneDrive locks a file while it syncs it.
+        path = os.path.join(PUBLIC, folder, f'{name}{suffix}.webp')
+        out.save(path + '.tmp', 'WEBP', quality=q, method=6)
+        for attempt in range(20):
+            try:
+                os.replace(path + '.tmp', path)
+                break
+            except PermissionError:
+                if attempt == 19:
+                    raise
+                time.sleep(0.5)
+
+
 def categories():
-    os.makedirs(os.path.join(PUBLIC, 'categories'), exist_ok=True)
-    for cid, (src, fx, fy) in PHOTOS.items():
-        im = crop_to(Image.open(os.path.join(ASSETS, src)).convert('RGB'), 4 / 3, fx, fy)
-        for suffix, (w, h, q) in SIZES.items():
-            out = im if im.width <= w else im.resize((w, h), Image.LANCZOS)
-            out.save(os.path.join(PUBLIC, 'categories', f'{cid}{suffix}.webp'), quality=q, method=6)
+    for cid, (src, fx, fy, mode) in PHOTOS.items():
+        im = source(src)
+        im = contain(im) if mode == 'contain' else crop_to(im, 4 / 3, fx, fy)
+        save_sizes(im, 'categories', cid, SIZES)
     print(f'  {len(PHOTOS)} category photos x {len(SIZES)} sizes')
+    for name, src in PRODUCTS.items():
+        save_sizes(contain(source(src)), 'products', name, {'': (900, 675, 82)})
+    print(f'  {len(PRODUCTS)} product photos')
+    for name in RANGES:
+        im = source(f'image-source/adler/{name}.jpg')
+        save_sizes(crop_to(im, 4 / 3, 0.5, 0.5), 'adler', name, {'': (1400, 1050, 80), '-card': (720, 540, 76)})
+    print(f'  {len(RANGES)} ADLER range photos')
 
 
 if __name__ == '__main__':
@@ -192,5 +296,5 @@ if __name__ == '__main__':
     customers()
     print('partner logos')
     brand_logos()
-    print('category photos')
+    print('category, product and ADLER photos')
     categories()

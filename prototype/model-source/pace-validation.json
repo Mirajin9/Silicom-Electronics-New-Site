@@ -1,0 +1,86 @@
+[
+  {
+    "model": "pace-ads200",
+    "bytes": 548544,
+    "triangles": 89860,
+    "drawCalls": 33,
+    "errors": 0,
+    "warnings": 0,
+    "nodes": [
+      "Brass_cleaner",
+      "Flexible_cable",
+      "Front_controls",
+      "Power_source",
+      "TD200_handpiece",
+      "Tool_stand",
+      "PACE_ADS200_PLUS"
+    ],
+    "messages": [
+      {
+        "code": "UNSUPPORTED_EXTENSION",
+        "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+        "severity": 2,
+        "pointer": "/extensionsUsed/0"
+      },
+      {
+        "code": "IMAGE_NPOT_DIMENSIONS",
+        "message": "Image has non-power-of-two dimensions: 1536x1152.",
+        "severity": 2,
+        "pointer": "/images/0"
+      },
+      {
+        "code": "IMAGE_NPOT_DIMENSIONS",
+        "message": "Image has non-power-of-two dimensions: 1536x1152.",
+        "severity": 2,
+        "pointer": "/images/1"
+      },
+      {
+        "code": "IMAGE_NPOT_DIMENSIONS",
+        "message": "Image has non-power-of-two dimensions: 907x373.",
+        "severity": 2,
+        "pointer": "/images/2"
+      }
+    ]
+  },
+  {
+    "model": "pace-blue-tips",
+    "bytes": 149332,
+    "triangles": 31884,
+    "drawCalls": 32,
+    "errors": 0,
+    "warnings": 0,
+    "nodes": [
+      "TIP_01",
+      "TIP_02",
+      "TIP_03",
+      "TIP_04",
+      "TIP_05",
+      "TIP_06",
+      "TIP_07",
+      "TIP_08",
+      "TIP_09",
+      "TIP_10",
+      "TIP_11",
+      "TIP_12",
+      "TIP_13",
+      "TIP_14",
+      "TIP_15",
+      "TIP_16",
+      "PACE_BLUE_SERIES_16_TIPS"
+    ],
+    "messages": [
+      {
+        "code": "UNSUPPORTED_EXTENSION",
+        "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+        "severity": 2,
+        "pointer": "/extensionsUsed/0"
+      },
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/buffers/0"
+      }
+    ]
+  }
+]

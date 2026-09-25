@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 
 const cli = 'node_modules/@gltf-transform/cli/bin/cli.js';
-for (const name of ['scope', 'to220', 'to247', 'qfn', 'sot23']) {
+for (const name of (process.argv.length > 2 ? process.argv.slice(2) : ['scope', 'to220', 'to247', 'qfn', 'sot23', 'adler-bh300', 'adler-bh400', 'adler-a94', 'adler-a84'])) {
   const input = `model-source/glb/${name}.glb`;
   const output = `public/models/${name}.glb`;
   execFileSync(process.execPath, [cli, 'optimize', input, output,

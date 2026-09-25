@@ -2,7 +2,7 @@ import { Layout, useReducedMotion } from '../Layout';
 import { InlineModel, PackageBrowser } from '../InlineModel';
 import { components, instruments, type BrandCard, type Division } from '../content';
 import { categoriesOf } from '../content/categories';
-import { CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
+import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
 import { Actions, Arrow, Chips, ContactBand, PageHero, Rich, Title, href } from '../ui';
 
 function CategoryIndex({ division }: { division: 'instruments' | 'components' }) {
@@ -59,6 +59,7 @@ export default function DivisionPage({ id }: { id: 'instruments' | 'components' 
       {d.hero.note && <Rich as="p" className="hero-note" html={d.hero.note} />}
     </PageHero>
     <CategoryIndex division={id} />
+    {id === 'components' && <AdlerSpotlight />}
     {d.featured && <section className="featured section-shell" aria-labelledby="featured-title">
       <div className="page-intro">
         <div>

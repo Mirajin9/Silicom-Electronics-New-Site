@@ -20,6 +20,9 @@ Thumbs.db
 dist/
 build/
 
+# Checkout of the gh-pages branch (the published site), from prototype: npm run deploy:pages
+.gh-pages/
+
 # Local site backups (large zips kept out of git; git tag pre-redesign-2026-06 is the canonical restore point)
 backups/
 

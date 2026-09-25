@@ -1,4 +1,7 @@
-export type ModelId = 'scope' | 'to220' | 'to247' | 'qfn' | 'sot23';
+import adlerFrames from './adler-frames.json';
+import paceModels from './pace-models.json';
+
+export type ModelId = 'scope' | 'to220' | 'to247' | 'qfn' | 'sot23' | 'adler-bh300' | 'adler-bh400' | 'adler-a94' | 'adler-a84' | 'pace-ads200';
 
 type Frame =
   // Matches an orthographic Blender render, so the live model can replace the poster in place.
@@ -54,7 +57,30 @@ export const MODELS: Record<ModelId, ModelSpec> = {
   to247: pkg('to247', 'TO-247 package'),
   qfn: pkg('qfn', 'QFN package'),
   sot23: pkg('sot23', 'SOT-23 package'),
+  'adler-bh300': adler('bh300', 'ADLER BH300 fuse holder'),
+  'adler-bh400': adler('bh400', 'ADLER BH400 fuse holder'),
+  'adler-a94': adler('a94', 'ADLER A94 cylindrical fuse link'),
+  'adler-a84': adler('a84', 'ADLER A84 cylindrical fuse link'),
+  // Built with ChatGPT (scripts/build-pace.py); framing from its poster camera (src/pace-models.json).
+  'pace-ads200': {
+    id: 'pace-ads200', label: 'PACE ADS200 PLUS soldering station', url: '/models/pace-ads200.glb',
+    view: paceModels['pace-ads200'].view as [number, number, number],
+    frame: { kind: 'poster', width: paceModels['pace-ads200'].frame.width, height: paceModels['pace-ads200'].frame.height,
+      target: paceModels['pace-ads200'].frame.target as [number, number, number] },
+    poster: '/images/pace/pace-ads200.webp', fallback: '/images/pace/pace-ads200.webp',
+    sway: 0.28, tone: 'agx',
+  },
 };
+
+function adler(name: 'bh300' | 'bh400' | 'a94' | 'a84', label: string): ModelSpec {
+  return {
+    id: `adler-${name}`, label, url: `/models/adler-${name}.glb`,
+    view: name.startsWith('bh') ? [4, 4.6, 9] : [2.6, 4.8, 9],
+    frame: { kind: 'poster', ...adlerFrames[name], target: adlerFrames[name].target as [number, number, number] },
+    poster: `/images/adler/${name}.webp`, fallback: `/images/adler/${name}.webp`,
+    sway: .22, tone: 'agx',
+  };
+}
 
 /** Pointer, keyboard and button input, written by the DOM and read by the 3D frame loop. */
 export type ViewerInput = {

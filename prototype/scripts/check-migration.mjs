@@ -19,11 +19,13 @@ const REWORDED = {
   'A few instruments engineers ask us for most — click to expand and browse the highlights.': 'featured products are shown open; the "click to expand" instruction is dropped',
   'Components applications show which parts Silicom carries per design. T&M applications show which instruments prove your work. Click any card to expand.': 'every application is shown open; the "click to expand" instruction is dropped',
   "Thanks — we've logged your enquiry. We'll be in touch within one working day.": 'the form opens an email draft, so the confirmation now says that truthfully',
-  '16': 'About now counts the 19 brand partners the site lists (it said 16)',
+  '16': 'About now counts the brand partners the site lists (it said 16)',
+  'Nine authorized partners. Click a brand to see what they carry.': 'PACE joined as the tenth instrument partner ("Ten authorized partners…")',
 };
 // Links that intentionally point somewhere else now.
 const RELINKED = {
   'assets/heroes/instruments.jpg': 'hero photos replaced by live 3D models and real photography',
+  'brand-adler.html': 'ADLER links go to the established URL electronic-components/adler.html (brand-adler.html still exists)',
 };
 
 const failures = [];
@@ -58,7 +60,7 @@ for (const name of ['index.html', ...routes]) {
 
 // Every internal link and anchor across the built site (new pages included) must resolve.
 const broken = [];
-for (const name of fs.readdirSync(out).filter((n) => n.endsWith('.html'))) {
+for (const name of fs.readdirSync(out, { recursive: true }).map((n) => n.replace(/\\/g, '/')).filter((n) => n.endsWith('.html'))) {
   const doc = parse(fs.readFileSync(path.join(out, name), 'utf8'));
   for (const a of walk(doc, (n) => n.tagName === 'a' && !!attr(n, 'href'))) {
     const href = attr(a, 'href');

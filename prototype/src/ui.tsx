@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react';
 import { url } from './base';
+import { ADLER_PATH } from './content/adler';
 
 export type Link = { label: string; href: string; primary?: boolean };
 export type Img = { src: string; alt: string } | null;
 export type TitlePart = { text: string; accent: boolean };
 
 /** Old pages used relative links (contact.html); the new site serves every route from the root. */
-export const href = (h: string) => url(/^(#|\/|[a-z]+:)/.test(h) ? h : '/' + h);
+export const href = (h: string) => url(h === 'brand-adler.html' ? ADLER_PATH : /^(#|\/|[a-z]+:)/.test(h) ? h : '/' + h);
 
 export const Arrow = ({ diagonal = false }: { diagonal?: boolean }) => (
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">

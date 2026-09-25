@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import { validateBytes } from "gltf-validator";
 
 const results = [];
-for (const name of ["scope", "to220", "to247", "qfn", "sot23"]) {
+for (const name of ["scope", "to220", "to247", "qfn", "sot23", "adler-bh300", "adler-bh400", "adler-a94", "adler-a84", "pace-ads200", "pace-blue-tips"]) {
   const bytes = await fs.readFile(`public/models/${name}.glb`);
   const report = await validateBytes(new Uint8Array(bytes), {
     uri: `${name}.glb`,

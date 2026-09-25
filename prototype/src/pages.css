@@ -189,6 +189,113 @@ h1, h2, h3 { word-spacing: 0.06em; }
 .app-cards span { font-size: 11.5px; line-height: 1.5; color: #51566e; }
 .app-cards a:hover strong { color: var(--blue); }
 
+/* ---------- ADLER (page, spotlight, callout) ---------- */
+.adler-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+.adler-badges span { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 10px; background: var(--navy); color: #fff; }
+.adler-badges span:nth-child(2) { background: #0f8a4b; }
+.adler-badges span:nth-child(3) { background: var(--blue); }
+.adler-hero h1 { max-width: 11ch; }
+.adler-stock-section, .adler-credentials, .adler-pair-band { padding-top: 96px; padding-bottom: 100px; }
+.adler-stock-section { background: #f4f8fe; }
+.adler-stock-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.adler-stock-card { background: #fff; display: flex; flex-direction: column; }
+.adler-stock-media { aspect-ratio: 4 / 3; border-bottom: 1px solid var(--line); }
+.adler-stock-media img { width: 100%; height: 100%; object-fit: contain; }
+.adler-stock-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.adler-stock-tag { align-self: flex-start; font-size: 9.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #0f7a43; background: #e3f5ea; padding: 5px 8px; }
+.adler-stock-body h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.15; }
+.adler-stock-body h3 span { color: var(--blue); }
+.adler-part { font-size: 11px; font-weight: 700; color: #51566e; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; }
+.adler-stock-note { font-size: 12px; color: #51566e; line-height: 1.55; }
+.adler-stock-body .text-link { margin-top: auto; }
+.adler-range { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6%; align-items: center; padding-top: 96px; padding-bottom: 96px; border-bottom: 1px solid var(--line); }
+.adler-range.is-reversed .adler-range-media { order: 2; }
+.adler-range-media img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.adler-range-copy { display: grid; gap: 16px; align-content: start; }
+.adler-range-copy h2 { font-size: clamp(30px, 3.2vw, 48px); font-weight: 850; letter-spacing: -0.05em; line-height: 1.02; }
+.adler-range-copy > p { font-size: 14px; line-height: 1.7; color: #51566e; }
+.adler-families { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.adler-families li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.adler-families li:not(:has(img)) { grid-template-columns: minmax(0, 1fr); }
+.adler-families img { width: 76px; height: 57px; object-fit: contain; background: #fff; border: 1px solid var(--line); }
+.adler-families strong { display: block; font-size: 14px; font-weight: 800; }
+.adler-families span { font-size: 12px; color: #51566e; line-height: 1.5; }
+.adler-apps { font-size: 12px; color: #51566e; }
+.adler-apps a { color: var(--blue); font-weight: 700; }
+.adler-legacy-title { margin-top: 16px; font: 800 20px/1.25 "Archivo Variable", sans-serif; letter-spacing: -0.03em; color: #51566e; }
+.adler-distributor .brand-about-text h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin-top: 10px; }
+.adler-credentials .numbered-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.adler-credentials .numbered-grid > div:nth-child(n) { padding: 26px 22px 30px; border-left: 1px solid var(--line); }
+.adler-credentials .numbered-grid > div:first-child { padding-left: 0; border-left: 0; }
+.adler-credentials h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.04em; }
+.adler-credentials p { font-size: 13px; color: #51566e; line-height: 1.6; }
+.adler-pair-band { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 6%; align-items: start; background: var(--pale); }
+.adler-pair-band h2 { font-size: clamp(28px, 3vw, 44px); font-weight: 850; letter-spacing: -0.05em; line-height: 1.05; margin-top: 14px; }
+.adler-pair-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.adler-pair-list a { background: #fff; padding: 24px; display: flex; flex-direction: column; gap: 10px; border: 1px solid transparent; transition: border-color 0.2s; }
+.adler-pair-list a:hover { border-color: var(--blue); }
+.adler-pair-list strong { font: 800 22px/1.1 "Archivo Variable", sans-serif; letter-spacing: -0.04em; }
+.adler-pair-list a > span:not([class]) { font-size: 13px; line-height: 1.6; color: #51566e; }
+.adler-about-silicom { margin-top: 34px; font-size: 12.5px; line-height: 1.7; color: #51566e; max-width: 90ch; }
+.adler-about-silicom strong { color: var(--ink); }
+.adler-spotlight { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 6%; align-items: center; padding-top: 90px; padding-bottom: 90px; background: var(--navy); color: #fff; }
+.adler-spotlight .eyebrow { color: #82b9f4; }
+.adler-spotlight h2 { margin-top: 16px; font-size: clamp(34px, 3.8vw, 58px); font-weight: 850; letter-spacing: -0.05em; line-height: 1; }
+.adler-spotlight h2 span { color: #82b9f4; }
+.adler-spotlight-copy > p { margin-top: 20px; font-size: 14px; line-height: 1.7; color: #b6c3d5; max-width: 52ch; }
+.adler-stock { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.adler-stock li { font-size: 11px; font-weight: 700; padding: 7px 10px; background: #ffffff14; border: 1px solid #ffffff2e; }
+.adler-spotlight .hero-actions { margin-top: 28px; }
+.adler-spotlight .button.primary { background: #fff; color: var(--navy); }
+.adler-spotlight .button.primary:hover { background: #cbe3ff; }
+.adler-spotlight .text-link { color: #fff; }
+.adler-spotlight .adler-pair { margin-top: 24px; font-size: 12px; color: #b6c3d5; }
+.adler-pair a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.adler-spotlight-media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.adler-spotlight-media a { display: grid; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #b6c3d5; }
+.adler-spotlight-media img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.adler-spotlight-media a:hover img { transform: scale(1.03); }
+.adler-spotlight-media a:hover { color: #fff; }
+.adler-callout { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 20px; padding: 16px 18px; background: #eef6f1; border-left: 3px solid #0f8a4b; }
+.adler-callout img { width: 110px; height: 82px; object-fit: contain; background: #fff; }
+.adler-callout .eyebrow { color: #0f7a43; }
+.adler-callout p { margin: 6px 0 8px; font-size: 13px; line-height: 1.55; color: #2a2f44; }
+.mega-promo { display: grid; gap: 3px; margin-top: 4px; padding: 10px 12px; background: #eef6f1; border-left: 3px solid #0f8a4b; font-size: 11px; color: #2a2f44; }
+.mega-promo strong { font-size: 12px; color: #0f7a43; }
+.mega-promo:hover strong { text-decoration: underline; }
+
+/* ---------- PACE (live station, Blue Series tip lineup) ---------- */
+.brand-hero-model { height: auto; }
+.pace-tips-section { padding-top: 96px; padding-bottom: 100px; background: #f4f8fe; }
+.pace-tips { background: linear-gradient(160deg, #fff, #eef3f9); border: 1px solid var(--line); padding: 28px 28px 22px; }
+.pace-tips-scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.pace-tips-track { min-width: 760px; }
+.pace-tips-stage { position: relative; width: 100%; }
+.pace-tips-poster, .pace-tips-canvas { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
+.pace-tips-poster { object-fit: contain; transition: opacity 0.4s ease; }
+.pace-tips-poster.is-hidden { opacity: 0; }
+.pace-tip-buttons { position: relative; height: 42px; margin-top: 8px; border-top: 1px solid var(--line); }
+.pace-tip-buttons button { position: absolute; top: 6px; transform: translateX(-50%); width: 38px; height: 30px; font-size: 11px; font-weight: 700; color: #51566e; border-bottom: 2px solid transparent; }
+.pace-tip-buttons button:hover, .pace-tip-buttons button.is-active { color: var(--blue); }
+.pace-tip-buttons button[aria-pressed=true] { background: var(--pale); border-color: var(--blue); color: #07529d; }
+.pace-tip-buttons button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.pace-tips-swipe { display: none; margin: 0 0 10px; font-size: 11px; font-weight: 700; color: #07529d; }
+@media (max-width: 820px) { .pace-tips-swipe { display: block; } }
+.pace-tip-name { min-height: 26px; margin-top: 12px; text-align: center; font-size: 13px; color: #51566e; }
+.pace-tip-name strong { color: var(--blue); margin-right: 8px; }
+.pace-tip-name .pace-tip-sku { margin-right: 8px; }
+.pace-tip-sku { font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
+.pace-tip-parts { list-style: none; margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px 18px; }
+.pace-tip-parts button { display: grid; grid-template-columns: 24px auto; column-gap: 8px; width: 100%; padding: 7px 8px; text-align: left; font-size: 12px; line-height: 1.35; color: #51566e; border-left: 2px solid transparent; }
+.pace-tip-parts button:hover, .pace-tip-parts button.is-active { background: #fff; border-left-color: var(--blue); }
+.pace-tip-parts button[aria-pressed=true] { background: var(--pale); }
+.pace-tip-parts button:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
+.pace-tip-num { grid-row: span 2; font-size: 11px; font-weight: 700; color: var(--blue); padding-top: 1px; }
+.pace-tip-desc { grid-column: 2; }
+@media (max-width: 1100px) { .pace-tip-parts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .pace-tip-parts { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .pace-tips-poster { transition: none; } }
+
 /* ---------- Featured products ---------- */
 .featured { background: #f4f8fe; padding-top: 96px; padding-bottom: 100px; }
 .feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -465,6 +572,10 @@ a.info-value:hover, a.info-sub:hover { color: var(--blue); }
 }
 @media (max-width: 1100px) {
   .nav-trigger { font-size: 10px; }
+  .adler-stock-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .adler-credentials .numbered-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .adler-credentials .numbered-grid > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .adler-pair-band { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .mega-inner { grid-template-columns: 200px minmax(0, 1fr); gap: 30px; padding-left: 6%; padding-right: 6%; }
   .mega-intro { padding-right: 24px; }
   .mega-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -487,6 +598,9 @@ a.info-value:hover, a.info-sub:hover { color: var(--blue); }
 }
 @media (max-width: 820px) {
   .mega { display: none !important; }
+  .adler-stock-section, .adler-credentials, .adler-pair-band, .adler-range, .adler-spotlight { padding-top: 64px; padding-bottom: 68px; }
+  .adler-range, .adler-spotlight { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .adler-range.is-reversed .adler-range-media { order: 0; }
   .category-range, .category-brands, .category-apps, .category-more { padding-top: 64px; padding-bottom: 68px; }
   .category-hero-media { padding: 0 0 20px 20px; }
   .type-list li { grid-template-columns: 36px minmax(0, 1fr); gap: 10px 14px; }
@@ -523,6 +637,13 @@ a.info-value:hover, a.info-sub:hover { color: var(--blue); }
 }
 @media (max-width: 580px) {
   .category-cards, .app-cards { grid-template-columns: minmax(0, 1fr); }
+  .pace-tips { padding: 16px 12px 14px; }
+  .pace-tips-section { padding-top: 64px; padding-bottom: 68px; }
+  .adler-stock-grid, .adler-pair-list, .adler-spotlight-media { grid-template-columns: minmax(0, 1fr); }
+  .adler-credentials .numbered-grid { grid-template-columns: minmax(0, 1fr); }
+  .adler-credentials .numbered-grid > div:nth-child(n) { padding: 22px 0 24px; border-left: 0; }
+  .adler-callout { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
+  .adler-callout img { width: 76px; height: 57px; }
   .category-card-body strong { font-size: 22px; }
   .type-gallery li { padding: 12px 12px 10px; }
   .page-hero h1 { font-size: clamp(38px, 10.5vw, 56px); }

@@ -4,6 +4,7 @@ import { brandIndex, brandModel } from '../content';
 import { Actions, Arrow, Chips, ContactBand, PageHero, Title } from '../ui';
 import { PartnerLogo } from '../catalogue';
 import { url } from '../base';
+import { brandPath } from '../content/categories';
 
 export default function BrandsPage() {
   const { hero, filters, tiles, banner, cta } = brandIndex;
@@ -27,7 +28,7 @@ export default function BrandsPage() {
         {tiles.map((t) => {
           const model = brandModel[t.slug];
           return <article key={t.slug} className="brand-tile" data-cat={t.cat} hidden={filter !== 'all' && filter !== t.cat}>
-            <a className="brand-tile-link" href={url(`/brand-${t.slug}.html`)} aria-label={`View ${t.name} details`}><span className="sr-only">{t.linkLabel}</span></a>
+            <a className="brand-tile-link" href={url(brandPath(t.slug))} aria-label={`View ${t.name} details`}><span className="sr-only">{t.linkLabel}</span></a>
             <div className={`brand-tile-media${t.image ? '' : model ? ' is-render' : ' is-logo'}`}>
               {t.image ? <img src={url(t.image.src)} alt={t.image.alt} loading="lazy" />
                 : model ? <img src={url(`/images/packages/${model}.webp`)} alt="" loading="lazy" />

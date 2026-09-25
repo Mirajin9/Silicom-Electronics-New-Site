@@ -1,7 +1,8 @@
-import { Layout } from '../Layout';
+import { Layout, useReducedMotion } from '../Layout';
+import { InlineModel } from '../InlineModel';
 import { applications, brandBySlug, instruments, type Product } from '../content';
-import { CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
-import { categoriesOf, categoryBrands, categoryByRoute, categoryPhoto } from '../content/categories';
+import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
+import { brandPath, categoriesOf, categoryBrands, categoryByRoute, categoryPhoto } from '../content/categories';
 import { Arrow, ContactBand, Photo } from '../ui';
 import { url } from '../base';
 
@@ -10,6 +11,7 @@ const allApplications = applications.groups.flatMap((g) => g.items);
 
 export default function CategoryPage({ route }: { route: string }) {
   const c = categoryByRoute(route)!;
+  const reduced = useReducedMotion();
   const brands = categoryBrands(c).map(brandBySlug);
   const others = [...new Set(c.types.flatMap((t) => t.others ?? []))];
   const products = (c.products ?? []).map((t) => instruments.featured?.products.find((p) => p.title === t)).filter((p): p is Product => !!p);
@@ -37,7 +39,9 @@ export default function CategoryPage({ route }: { route: string }) {
           </div>
         </div>
         <div className="page-hero-media category-hero-media">
-          <img className="page-hero-photo" src={url(categoryPhoto(c))} alt={c.photoAlt} width="1400" height="1050" fetchPriority="high" />
+          {c.live
+            ? <div className="hero-product"><InlineModel model={c.live} reduced={reduced} /></div>
+            : <img className="page-hero-photo" src={url(categoryPhoto(c))} alt={c.photoAlt} width="1400" height="1050" fetchPriority="high" />}
           {c.model && <img className="category-render" src={url(`/images/packages/${c.model}.webp`)} alt="" width="1000" height="750" loading="lazy" />}
         </div>
       </div>
@@ -55,7 +59,7 @@ export default function CategoryPage({ route }: { route: string }) {
       </div>
       {gallery.length > 0 && <ul className="type-gallery">
         {gallery.map((t) => <li key={t.name}>
-          <img src={url(t.image!)} alt={`${t.name} from ${t.brands.map((s) => brandBySlug(s).name).join(', ')}`} loading="lazy" />
+          <img src={url(t.image!)} alt={t.name} loading="lazy" />
           <span>{t.name}</span>
         </li>)}
       </ul>}
@@ -67,7 +71,7 @@ export default function CategoryPage({ route }: { route: string }) {
             <p>{t.text}</p>
           </div>
           <div className="type-brands">
-            {t.brands.map((s) => <a key={s} href={url(`/brand-${s}.html`)}>{brandBySlug(s).name} <Arrow diagonal /></a>)}
+            {t.brands.map((s) => <a key={s} href={url(brandPath(s))}>{brandBySlug(s).name} <Arrow diagonal /></a>)}
             {t.others?.map((o) => <span key={o}>{o}</span>)}
             {!t.brands.length && !t.others?.length && <span>Sourced on request</span>}
           </div>
@@ -75,6 +79,8 @@ export default function CategoryPage({ route }: { route: string }) {
         </li>)}
       </ol>
     </section>
+
+    {c.spotlight === 'adler' && <AdlerSpotlight />}
 
     {products.length > 0 && <section className="featured section-shell" aria-labelledby="featured-title">
       <div className="page-intro">
@@ -95,7 +101,7 @@ export default function CategoryPage({ route }: { route: string }) {
       </div>
       <ul className="partner-grid">
         {brands.map((b) => <li key={b.slug}>
-          <a href={url(`/brand-${b.slug}.html`)}>
+          <a href={url(brandPath(b.slug))}>
             <span className="partner-logo"><PartnerLogo slug={b.slug} name={b.name} /></span>
             <strong>{b.name}</strong>
             <span className="partner-types">{c.types.filter((t) => t.brands.includes(b.slug)).map((t) => t.name).join(' · ')}</span>
