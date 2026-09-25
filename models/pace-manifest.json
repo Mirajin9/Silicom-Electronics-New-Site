@@ -1,0 +1,260 @@
+{
+  "pace-ads200": {
+    "view": [
+      0.17378534376621246,
+      0.4634275734424591,
+      0.8689267039299011
+    ],
+    "frame": {
+      "kind": "poster",
+      "width": 30.760135091145834,
+      "height": 23.070101318359374,
+      "target": [
+        -0.7029339075088501,
+        5.330976963043213,
+        -0.9135228395462036
+      ]
+    },
+    "dimensionsSourceUnits": [
+      25.101726531982422,
+      20.54514503479004,
+      10.430000305175781
+    ],
+    "url": "/models/pace-ads200.glb",
+    "poster": "/images/pace/pace-ads200.webp"
+  },
+  "pace-blue-tips": {
+    "view": [
+      0.0,
+      0.07833001762628555,
+      0.9969274401664734
+    ],
+    "frame": {
+      "kind": "poster",
+      "width": 13.368357238769532,
+      "height": 4.545241461181641,
+      "target": [
+        -0.007483243942260742,
+        1.734398365020752,
+        0.0003255950578022748
+      ]
+    },
+    "dimensionsSourceUnits": [
+      11.936033248901367,
+      0.6759999990463257,
+      3.4770846366882324
+    ],
+    "url": "/models/pace-blue-tips.glb",
+    "poster": "/images/pace/pace-blue-tips.webp"
+  },
+  "tips": [
+    {
+      "node": "TIP_01",
+      "index": 1,
+      "label": "Broad truncated conical",
+      "homePosition": [
+        -5.6375,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 2.94,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_02",
+      "index": 2,
+      "label": "Extended fine conical",
+      "homePosition": [
+        -4.8,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.19,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_03",
+      "index": 3,
+      "label": "Wide chisel",
+      "homePosition": [
+        -4.175,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 2.96,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_04",
+      "index": 4,
+      "label": "Extended conical",
+      "homePosition": [
+        -3.4125,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.36,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_05",
+      "index": 5,
+      "label": "Narrow rounded chisel",
+      "homePosition": [
+        -2.7125,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.15,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_06",
+      "index": 6,
+      "label": "Oval bevel",
+      "homePosition": [
+        -1.925,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.2,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_07",
+      "index": 7,
+      "label": "Bent chisel",
+      "homePosition": [
+        -1.2375,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.41,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_08",
+      "index": 8,
+      "label": "Fine conical",
+      "homePosition": [
+        -0.5625,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.18,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_09",
+      "index": 9,
+      "label": "Bent fine conical",
+      "homePosition": [
+        0.175,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.17,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_10",
+      "index": 10,
+      "label": "Necked conical",
+      "homePosition": [
+        1.025,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.3,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_11",
+      "index": 11,
+      "label": "Slim chisel",
+      "homePosition": [
+        1.7875,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.27,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_12",
+      "index": 12,
+      "label": "Large oval bevel",
+      "homePosition": [
+        2.5375,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.23,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_13",
+      "index": 13,
+      "label": "Slim conical",
+      "homePosition": [
+        3.1875,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.3,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_14",
+      "index": 14,
+      "label": "Knife blade",
+      "homePosition": [
+        3.875,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.44,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_15",
+      "index": 15,
+      "label": "Medium chisel",
+      "homePosition": [
+        4.775,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.23,
+      "skuVerified": false
+    },
+    {
+      "node": "TIP_16",
+      "index": 16,
+      "label": "Extra wide chisel",
+      "homePosition": [
+        5.6375,
+        0,
+        0
+      ],
+      "axis": "Y",
+      "height": 3.14,
+      "skuVerified": false
+    }
+  ]
+}

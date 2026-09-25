@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Tektronix 2 Series MSO oscilloscope">
+  <defs>
+    <linearGradient id="tbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4049"/><stop offset="1" stop-color="#23272e"/>
+    </linearGradient>
+    <linearGradient id="tscreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1726"/><stop offset="1" stop-color="#0a1220"/>
+    </linearGradient>
+  </defs>
+  <!-- kickstand -->
+  <path d="M120 300 L150 250 L165 256 L140 306 Z" fill="#1b1e23"/>
+  <!-- body -->
+  <rect x="58" y="70" width="364" height="226" rx="20" fill="url(#tbody)" stroke="#0f1216" stroke-width="2"/>
+  <rect x="58" y="70" width="364" height="20" rx="20" fill="#1f86d6" opacity="0.85"/>
+  <text x="74" y="85" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#fff" opacity="0.9">Tektronix · 2 SERIES MSO</text>
+  <!-- screen -->
+  <rect x="74" y="104" width="228" height="168" rx="8" fill="url(#tscreen)" stroke="#0a0d12" stroke-width="2"/>
+  <g stroke="#1b2c45" stroke-width="1">
+    <line x1="74" y1="146" x2="302" y2="146"/><line x1="74" y1="188" x2="302" y2="188"/><line x1="74" y1="230" x2="302" y2="230"/>
+    <line x1="131" y1="104" x2="131" y2="272"/><line x1="188" y1="104" x2="188" y2="272"/><line x1="245" y1="104" x2="245" y2="272"/>
+  </g>
+  <path d="M84 200 q20 -70 40 0 t40 0 t40 0 t40 0" fill="none" stroke="#ffd23f" stroke-width="2.5"/>
+  <path d="M84 158 h28 v40 h28 v-40 h28 v40 h28 v-40 h28 v40 h28" fill="none" stroke="#36d4f0" stroke-width="2.5"/>
+  <!-- right control panel -->
+  <circle cx="350" cy="130" r="22" fill="#2c313a" stroke="#11151a" stroke-width="2"/>
+  <circle cx="350" cy="130" r="9" fill="#3a4049" stroke="#0e1217" stroke-width="1.5"/>
+  <circle cx="398" cy="130" r="22" fill="#2c313a" stroke="#11151a" stroke-width="2"/>
+  <circle cx="398" cy="130" r="9" fill="#3a4049" stroke="#0e1217" stroke-width="1.5"/>
+  <g fill="#2c313a" stroke="#11151a" stroke-width="1.5">
+    <rect x="326" y="168" width="20" height="16" rx="3"/><rect x="352" y="168" width="20" height="16" rx="3"/><rect x="378" y="168" width="20" height="16" rx="3"/>
+    <rect x="326" y="190" width="20" height="16" rx="3"/><rect x="352" y="190" width="20" height="16" rx="3"/><rect x="378" y="190" width="20" height="16" rx="3"/>
+  </g>
+  <g fill="none" stroke-width="2.5">
+    <circle cx="336" cy="222" r="8" stroke="#36d4f0"/><circle cx="362" cy="222" r="8" stroke="#ffd23f"/>
+    <circle cx="388" cy="222" r="8" stroke="#54e08a"/>
+  </g>
+  <!-- BNC inputs -->
+  <g fill="#1a1d22" stroke="#3a4049" stroke-width="2">
+    <circle cx="96" cy="284" r="9"/><circle cx="128" cy="284" r="9"/><circle cx="160" cy="284" r="9"/><circle cx="192" cy="284" r="9"/>
+  </g>
+  <circle cx="360" cy="284" r="11" fill="#1a1d22" stroke="#1f86d6" stroke-width="2.5"/>
+</svg>
