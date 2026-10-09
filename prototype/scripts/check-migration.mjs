@@ -28,6 +28,21 @@ const RELINKED = {
   'brand-adler.html': 'ADLER links go to the established URL electronic-components/adler.html (brand-adler.html still exists)',
 };
 
+// User-approved product consolidation/replacements. Exempt only the named old cards,
+// and verify their replacements and the relocated listing below.
+const APPROVED_CARDS = new Set(['MSO 2 Series EDU Oscilloscope', '2220 / 2230 Multi-Channel DC Power Supply', '5465 Transformer Analyzer']);
+const inApprovedCard = (n) => {
+  for (let p = n; p; p = p.parentNode) {
+    if (p.tagName === 'article' && (attr(p, 'class') || '').split(/\s+/).includes('product-feature-card')) {
+      return walk(p, x => x.tagName === 'h3').some(h => APPROVED_CARDS.has(norm(text(h))));
+    }
+  }
+  return false;
+};
+const UPDATED_TEXT = {
+  'applications.html': new Set(['MSO 2 Series EDU oscilloscope', '5465 Transformer Analyzer']),
+  'instruments.html': new Set(['2 or 4 + 16 digital', 'Embedded debug · power & automotive · field']),
+};
 const failures = [];
 let textCount = 0, linkCount = 0, idCount = 0, fieldCount = 0;
 for (const name of ['index.html', ...routes]) {
@@ -37,12 +52,13 @@ for (const name of ['index.html', ...routes]) {
   const destText = norm(text(dest));
   for (const n of walk(source, (n) => n.nodeName === '#text')) {
     const value = norm(n.value);
-    if (value.length < 3 || REWORDED[value]) continue;
+    if (value.length < 3 || REWORDED[value] || UPDATED_TEXT[name]?.has(value) || name === 'instruments.html' && inApprovedCard(n)) continue;
     textCount++;
     if (!destText.includes(value)) failures.push(`${name}: missing text: ${value.slice(0, 100)}`);
   }
   const destHrefs = new Set(walk(dest, (n) => !!attr(n, 'href')).map((n) => normHref(attr(n, 'href'))));
   for (const n of walk(source, (n) => n.tagName === 'a' && !!attr(n, 'href'))) {
+    if (name === 'instruments.html' && inApprovedCard(n)) continue;
     const href = normHref(attr(n, 'href'));
     linkCount++;
     if (!destHrefs.has(href) && !RELINKED[href]) failures.push(`${name}: missing link ${href}`);
@@ -57,6 +73,24 @@ for (const name of ['index.html', ...routes]) {
     }
   }
 }
+
+// Check the approved replacements in the built output, not merely the source data.
+const readPage = name => parse(fs.readFileSync(path.join(out, name), 'utf8'));
+const required = {
+ 'instruments.html': ['AFG31252 Arbitrary Function Generator', '5265N Transformer Analyzer', 'PSI 9000 DT Programmable DC Power Supply', 'DMM6500 Bench Digital Multimeter', 'DAQ6510 Data Acquisition & Logging System', 'EDU bundles offer education pricing'],
+ 'instruments-oscilloscopes.html': ['AFG31252', '2 Series MSO Oscilloscope', 'EDU bundles offer education pricing'],
+ 'instruments-meters.html': ['DMM6500', 'DAQ6510', 'Up to 80 channels*'],
+ 'instruments-production.html': ['5265N Transformer Analyzer'],
+ 'applications.html': ['5265N Transformer Analyzer', '2 Series MSO oscilloscope — EDU bundle'],
+};
+for (const [file, phrases] of Object.entries(required)) {
+ const copy=norm(text(readPage(file)));
+ for(const phrase of phrases) if(!copy.includes(phrase)) failures.push(`${file}: approved update missing: ${phrase}`);
+ if(copy.includes('5465 Transformer Analyzer') || copy.includes('MSO 2 Series EDU Oscilloscope')) failures.push(`${file}: superseded product card still shown`);
+}
+const powerPage=readPage('instruments-power.html');
+const oldPower=walk(parse(extract('instruments.html').html), n => n.tagName==='article' && walk(n,x=>x.tagName==='h3').some(h=>norm(text(h))==='2220 / 2230 Multi-Channel DC Power Supply'))[0];
+for(const n of walk(oldPower,n=>n.nodeName==='#text')) if(norm(n.value).length>2 && !norm(text(powerPage)).includes(norm(n.value))) failures.push(`instruments-power.html: relocated supply text missing: ${norm(n.value)}`);
 
 // Every internal link and anchor across the built site (new pages included) must resolve.
 const broken = [];

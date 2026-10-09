@@ -21,6 +21,7 @@ export type Category = {
   /** One line for the header menu and category cards. */
   menu: string;
   headline: [string, string];
+  rangeHeading: [string, string];
   lede: string;
   photoAlt: string;
   types: CategoryType[];
@@ -48,6 +49,7 @@ export const brandPath = (slug: string) => (slug === 'adler' ? ADLER_PATH : `/br
 export const categories: Category[] = [
   // ------------------------------------------------------------------ instruments
   {
+    rangeHeading: ['See the signal.', 'Understand the behaviour.'],
     id: 'oscilloscopes', division: 'instruments', name: 'Oscilloscopes',
     menu: 'Benchtop, mixed-signal and handheld scopes, and signal generators',
     headline: ['Oscilloscopes', 'from the teaching lab to GHz debug.'],
@@ -57,34 +59,36 @@ export const categories: Category[] = [
       { name: 'Benchtop oscilloscopes', text: 'Two- and four-channel digital storage oscilloscopes for R&D benches, service and teaching labs.', brands: ['tektronix', 'uni-t', 'scientific'], image: img('unit-upo-mso') },
       { name: 'Mixed-signal & logic analysis', text: 'Analog and digital channels together, with serial-bus decode for embedded, FPGA and power-integrity debug.', brands: ['tektronix'], image: img('tektronix-2-series-mso') },
       { name: 'Handheld oscilloscopes', text: 'Battery-powered scopes for field service, installation and maintenance work.', brands: [] },
-      { name: 'Function & arbitrary generators', text: 'AFGs and function generators for stimulus, clocking and waveform replay during board bring-up.', brands: ['tektronix', 'uni-t', 'scientific'] },
+      { name: 'Function & arbitrary generators', text: 'AFGs and function generators for stimulus, clocking and waveform replay during board bring-up.', brands: ['tektronix', 'uni-t', 'scientific'], image: img('tektronix-afg31000') },
     ],
-    products: ['MSO 2 Series EDU Oscilloscope', '2 Series MSO Oscilloscope'],
+    products: ['2 Series MSO Oscilloscope', 'AFG31252 Arbitrary Function Generator'],
     applications: ['app-signal-debug', 'app-high-bw', 'app-edu'],
   },
   {
+    rangeHeading: ['Source with precision.', 'Test under load.'],
     id: 'power', division: 'instruments', name: 'Power Supplies & Loads',
     menu: 'Programmable DC supplies, regenerative loads and grid simulation',
     headline: ['Power supplies & loads', 'to source, sink and simulate.'],
     lede: 'Programmable and bidirectional DC supplies, bench supplies, electronic and regenerative loads, and grid and AC sources for converter, battery, EV and solar test, from Elektro-Automatik, Tektronix, Keithley, UNI-T and Scientific.',
-    photoAlt: 'UNI-T UTP3000-series dual-output bench DC power supply',
+    photoAlt: 'EA Elektro-Automatik PSI 9000 DT programmable DC power supply',
     types: [
-      { name: 'Programmable DC power supplies', text: 'High-power autoranging supplies for converter, battery and component test.', brands: ['elektro-automatik', 'tektronix', 'uni-t'], image: img('unit-udp3000') },
+      { name: 'Programmable DC power supplies', text: 'High-power autoranging supplies for converter, battery and component test.', brands: ['elektro-automatik', 'tektronix', 'uni-t'], image: img('elektro-automatik-psi9000') },
       { name: 'Bench & multi-channel supplies', text: 'Linear and multi-channel bench supplies for design, test and education.', brands: ['keithley', 'scientific', 'uni-t'], image: img('keithley-2230') },
-      { name: 'Bidirectional source / sink', text: 'Two-quadrant instruments that source and sink power for battery cycling and charge/discharge profiles.', brands: ['elektro-automatik'], image: img('elektro-automatik-psi9000') },
+      { name: 'Bidirectional source / sink', text: 'Two-quadrant instruments that source and sink power for battery cycling and charge/discharge profiles.', brands: ['elektro-automatik'] },
       { name: 'Electronic & regenerative loads', text: 'DC electronic loads, and regenerative loads that return absorbed energy to the mains for low-heat, high-power testing.', brands: ['elektro-automatik', 'tektronix', 'uni-t'], image: img('unit-utl8200') },
       { name: 'Grid simulators & AC sources', text: 'Grid and photovoltaic profile emulation for inverter and charger test.', brands: ['elektro-automatik'] },
       { name: 'Battery testers', text: 'Battery test instruments for cell and pack characterisation.', brands: ['tektronix'] },
     ],
-    products: ['2220 / 2230 Multi-Channel DC Power Supply'],
+    products: ['PSI 9000 DT Programmable DC Power Supply', '2220 / 2230 Multi-Channel DC Power Supply'],
     applications: ['app-ev-power'],
   },
   {
+    rangeHeading: ['Characterise the signal.', 'Verify the connection.'],
     id: 'rf', division: 'instruments', name: 'RF & Spectrum',
     menu: 'Spectrum, network, cable and antenna analyzers',
     headline: ['RF & spectrum analysis', 'from the bench to the tower.'],
     lede: 'Spectrum and vector network analyzers, cable and antenna analyzers, RF signal generators and field instruments for telecom, defence and RF component work, from Anritsu, UNI-T and Scientific.',
-    photoAlt: 'UNI-T UTS1000-series spectrum analyzer',
+    photoAlt: 'Anritsu Spectrum Master handheld spectrum analyzer',
     types: [
       { name: 'Spectrum analyzers', text: 'Benchtop and handheld analyzers for interference hunting and signal characterisation.', brands: ['anritsu', 'uni-t', 'scientific'], image: img('anritsu-ms2720t') },
       { name: 'Vector network analyzers', text: 'S-parameter, component and material measurement.', brands: ['anritsu'] },
@@ -95,38 +99,43 @@ export const categories: Category[] = [
     applications: ['app-rf-telecom'],
   },
   {
+    rangeHeading: ['Check every winding.', 'Validate every assembly.'],
     id: 'production', division: 'instruments', name: 'Production Test',
     menu: 'LCR, hipot, transformer, cable-harness and motor testers',
     headline: ['Production test', 'for the end of the line.'],
     lede: 'LCR meters, hipot and electrical-safety testers, transformer, cable-harness and motor testers, and complete production test systems for transformer and wire-harness lines. Led by Microtest, with UNI-T and Scientific.',
-    photoAlt: 'Microtest 5465 transformer analyzer',
+    photoAlt: 'Microtest 5260N Series transformer analyzer',
     types: [
       { name: 'LCR meters & impedance analyzers', text: 'Benchtop and automated LCR meters for passive component and impedance measurement.', brands: ['microtest', 'uni-t'], image: img('microtest-lcr') },
-      { name: 'Transformer & coil testers', text: 'Turns ratio, leakage inductance and winding test for magnetics production.', brands: ['microtest'] },
+      { name: 'Transformer & coil testers', text: 'Turns ratio, leakage inductance and winding test for magnetics production.', brands: ['microtest'], image: img('microtest-5260n') },
       { name: 'Cable & harness testers', text: 'Multi-pin cable, harness and USB-C / E-marker testers with hipot screening.', brands: ['microtest'], image: img('microtest-8761') },
       { name: 'Hipot & electrical-safety testers', text: 'Withstand, insulation and safety tests for QA and compliance.', brands: ['microtest', 'uni-t', 'scientific'] },
       { name: 'Motor testing systems', text: 'Stator and rotor test for motor winding lines.', brands: ['microtest'] },
       { name: 'Production test systems', text: 'Complete test stations for transformer and wire-harness manufacturing.', brands: ['microtest'] },
     ],
-    products: ['5465 Transformer Analyzer'],
+    products: ['5265N Transformer Analyzer'],
     applications: ['app-transformer', 'app-cable-harness'],
   },
   {
+    rangeHeading: ['Precision on the bench.', 'Insight across every channel.'],
     id: 'meters', division: 'instruments', name: 'Multimeters & Meters',
     menu: 'Bench, handheld, clamp and panel meters, and data loggers',
     headline: ['Multimeters & meters', 'for the bench, the panel and the field.'],
-    lede: 'Precision and bench digital multimeters, handheld and clamp meters, panel meters, insulation testers and data loggers, from Tektronix, Keithley, UNI-T, Scientific, Rishabh and Krykard.',
-    photoAlt: 'UNI-T UT61E+ handheld digital multimeter',
+    lede: 'Keithley DMM6500 precision bench multimeters and DAQ6510 data acquisition systems lead our bench range, alongside handheld, clamp and panel meters, insulation testers and loggers from UNI-T, Scientific, Rishabh, Krykard and Tektronix.',
+    photoAlt: 'Keithley DMM6500 precision bench digital multimeter',
     types: [
-      { name: 'Precision & bench multimeters', text: 'High-resolution bench DMMs that also integrate into automated test stations.', brands: ['tektronix', 'keithley', 'uni-t', 'scientific'], image: img('unit-ut8802e') },
+      { name: 'Precision & bench multimeters', text: 'Keithley DMM6500 6½-digit graphical multimeters for precision bench work and automated test.', brands: ['keithley', 'tektronix', 'uni-t', 'scientific'], image: img('keithley-dmm6500') },
+      { name: 'Data acquisition & logging systems', text: 'Keithley DAQ6510 combines a 6½-digit multimeter with multi-channel scanning; up to 80 channels with optional switching modules.', brands: ['keithley'], image: img('keithley-daq6510') },
       { name: 'Handheld & clamp meters', text: 'Digital multimeters, clamp meters and process meters for field and maintenance work.', brands: ['uni-t', 'rishabh', 'krykard'], image: img('rishabh-613') },
       { name: 'Panel meters', text: 'Analog and digital panel meters for switchboards and control panels.', brands: ['rishabh'] },
       { name: 'Insulation & electrical testers', text: 'Insulation, continuity and electrical testers for contractors and utilities.', brands: ['rishabh'] },
       { name: 'Data loggers', text: 'Multimeter, temperature and electrical data loggers for monitoring.', brands: ['krykard'] },
     ],
+    products: ['DMM6500 Bench Digital Multimeter', 'DAQ6510 Data Acquisition & Logging System'],
     applications: ['app-field-electrical'],
   },
   {
+    rangeHeading: ['Source. Measure.', 'Characterise the device.'],
     id: 'smu', division: 'instruments', name: 'SMU & Power Analysis',
     menu: 'Source-measure units, parameter, power and power-quality analyzers',
     headline: ['Source-measure & power analysis', 'down to the picoamp.'],
@@ -143,6 +152,7 @@ export const categories: Category[] = [
   },
 
   {
+    rangeHeading: ['Build the connection.', 'Perfect the repair.'],
     id: 'soldering', division: 'instruments', name: 'Soldering & Rework',
     menu: 'PACE soldering stations, rework, BGA and fume extraction',
     headline: ['Soldering & rework', 'for production lines and repair benches.'],
@@ -161,6 +171,7 @@ export const categories: Category[] = [
   },
   // ------------------------------------------------------------------ components
   {
+    rangeHeading: ['Choose the switch.', 'Shape the power stage.'],
     id: 'mosfets', division: 'components', name: 'MOSFETs & SiC',
     menu: 'Trench, SGT, super-junction, SiC and GaN switches',
     headline: ['MOSFETs & SiC', 'for every stage of the power path.'],
@@ -177,6 +188,7 @@ export const categories: Category[] = [
     model: 'to247',
   },
   {
+    rangeHeading: ['Control the current.', 'Drive the load.'],
     id: 'transistors', division: 'components', name: 'IGBTs & Transistors',
     menu: 'IGBTs, IGBT and power modules, power transistors',
     headline: ['IGBTs, modules & transistors', 'for drives and high-power switching.'],
@@ -192,6 +204,7 @@ export const categories: Category[] = [
     model: 'to220',
   },
   {
+    rangeHeading: ['Rectify. Recover.', 'Keep current on course.'],
     id: 'diodes', division: 'components', name: 'Diodes & Rectifiers',
     menu: 'Bridges, Schottky, fast-recovery and SiC diodes',
     headline: ['Diodes & rectifiers', 'from the mains input to the output stage.'],
@@ -208,6 +221,7 @@ export const categories: Category[] = [
     model: 'sot23',
   },
   {
+    rangeHeading: ['Protect the circuit.', 'Contain the fault.'],
     id: 'protection', division: 'components', name: 'Circuit Protection',
     menu: 'ADLER EV and solar fuses, TVS, varistors and surge parts',
     headline: ['Circuit protection', 'against surges, faults and overloads.'],
@@ -225,6 +239,7 @@ export const categories: Category[] = [
     spotlight: 'adler',
   },
   {
+    rangeHeading: ['Set the value.', 'Stabilise the circuit.'],
     id: 'passives', division: 'components', name: 'Passives',
     menu: 'MLCCs, chip resistors and capacitors',
     headline: ['Passive components', 'for high-volume SMD assembly.'],
@@ -239,6 +254,7 @@ export const categories: Category[] = [
     applications: ['app-led-driver', 'app-smart-meter', 'app-smps'],
   },
   {
+    rangeHeading: ['Regulate the supply.', 'Control the drive.'],
     id: 'ics', division: 'components', name: 'Power ICs & Drivers',
     menu: 'GaN ICs, PWM controllers, BLDC and LED drivers',
     headline: ['Power ICs & drivers', 'to complete the design.'],

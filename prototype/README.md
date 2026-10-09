@@ -4,6 +4,8 @@ Status: **all 27 original pages rebuilt in React, plus 13 category pages, the AD
 
 This implements the approved Industrial Editorial direction. The original site remains in the parent folder. Every route of the original site now has a React template in the homepage's design language, rendered to static HTML at build time and hydrated in the browser. The prototype also has a vector Silicom logo, the existing blue/navy/pale-blue colours, local Archivo and Manrope fonts and live product models.
 
+Catalogue update, 7 October 2026: Tektronix AFG31252 added; EDU consolidated into the 2 Series MSO card; EA/Anritsu lead their categories; Microtest 5265N and Keithley DMM6500/DAQ6510 featured. Category headings are now individual. Curated overrides live in `src/content/instrument-updates.ts` and survive `extract:content`. Sources and rationale are in `../design/research/instrument-updates-2026-10-07.md`.
+
 ## Preview
 
 To start development from this folder:

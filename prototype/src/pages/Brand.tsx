@@ -1,7 +1,8 @@
 import { Layout, useReducedMotion } from '../Layout';
 import { brandBySlug, brandModel } from '../content';
 import { Actions, Arrow, Chips, ContactBand, Photo, Title } from '../ui';
-import { PartnerLogo } from '../catalogue';
+import { afg31252, dmm6500, daq6510, transformer5265, eaPower } from '../content/instrument-updates';
+import { PartnerLogo, ProductCard } from '../catalogue';
 import { url } from '../base';
 import { brandPath } from '../content/categories';
 import { InlineModel } from '../InlineModel';
@@ -13,6 +14,7 @@ const liveModels: Record<string, ModelId> = { pace: 'pace-ads200' };
 
 export default function BrandPage({ slug }: { slug: string }) {
   const b = brandBySlug(slug);
+  const featured = slug === 'tektronix' ? [afg31252] : slug === 'keithley' ? [dmm6500, daq6510] : slug === 'microtest' ? [transformer5265] : slug === 'elektro-automatik' ? [eaPower] : [];
   const live = liveModels[slug];
   const reduced = useReducedMotion();
   const model = brandModel[slug];
@@ -55,6 +57,11 @@ export default function BrandPage({ slug }: { slug: string }) {
       </div>
       <div className="brand-about-text">{b.about.paragraphs.map((p) => <p key={p.slice(0, 20)}>{p}</p>)}</div>
     </section>
+
+    {featured.length > 0 && <section className="featured section-shell" aria-labelledby="featured-title">
+      <div className="page-intro"><div><span className="eyebrow">Selected instruments</span><h2 id="featured-title">{slug === 'keithley' ? 'Precision measurement. Connected test.' : `A closer look at ${b.name}.`}</h2></div></div>
+      <div className="feature-grid">{featured.map(p => <ProductCard key={p.model} p={p} />)}</div>
+    </section>}
 
     <section className="brand-range section-shell">
       <div className="page-intro">

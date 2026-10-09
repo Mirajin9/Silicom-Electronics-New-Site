@@ -1,6 +1,6 @@
 import { Layout, useReducedMotion } from '../Layout';
 import { InlineModel } from '../InlineModel';
-import { applications, brandBySlug, instruments, type Product } from '../content';
+import { applications, brandBySlug, instrumentProducts, type Product } from '../content';
 import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
 import { brandPath, categoriesOf, categoryBrands, categoryByRoute, categoryPhoto } from '../content/categories';
 import { Arrow, ContactBand, Photo } from '../ui';
@@ -14,7 +14,7 @@ export default function CategoryPage({ route }: { route: string }) {
   const reduced = useReducedMotion();
   const brands = categoryBrands(c).map(brandBySlug);
   const others = [...new Set(c.types.flatMap((t) => t.others ?? []))];
-  const products = (c.products ?? []).map((t) => instruments.featured?.products.find((p) => p.title === t)).filter((p): p is Product => !!p);
+  const products = (c.products ?? []).map((t) => instrumentProducts.find((p) => p.title === t)).filter((p): p is Product => !!p);
   const gallery = c.types.filter((t) => t.image);
   const apps = c.applications.map((id) => allApplications.find((a) => a.id === id)).filter((a) => !!a);
   const enquire = (topic?: string) => `/contact.html?division=${c.division}&cat=${encodeURIComponent(topic ?? c.name)}`;
@@ -51,7 +51,7 @@ export default function CategoryPage({ route }: { route: string }) {
       <div className="page-intro">
         <div>
           <span className="eyebrow">What we supply</span>
-          <h2 id="range-title">{c.types.length} product types.<br /><span>One point of contact.</span></h2>
+          <h2 id="range-title">{c.rangeHeading[0]}<br /><span>{c.rangeHeading[1]}</span></h2>
         </div>
         <div className="page-intro-side">
           <p>Tell us the part or measurement and we will match it to the right partner, with pricing, lead time and support.</p>

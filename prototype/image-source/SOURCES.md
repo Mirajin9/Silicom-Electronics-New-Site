@@ -32,6 +32,19 @@ Product photos extracted from the *UNI-T 2022 Instruments Catalog*.
 | `unit-ut8802e-bench-multimeter.png` | p45 | UT8802E bench digital multimeter |
 | `unit-upo-mso-oscilloscope.png` | p4 | UPO-series mixed-signal oscilloscope |
 
+## Instrument catalogue updates — 7 October 2026
+
+Official product photographs, downloaded by `scripts/fetch-instrument-updates.py`:
+
+| File in `instruments/` | Manufacturer source |
+|---|---|
+| `tektronix-afg31000.jpg` | https://www.tek.com/-/media/images/product-series/afg31000/afg31000-front_0.jpg |
+| `keithley-dmm6500.jpg` | https://www.tek.com/-/media/images/product-images/dmm6500.jpg |
+| `keithley-daq6510.png` | https://www.tek.com/-/media/images/product-series/daq6500/daq6510_frontwfeet_measureplot.png |
+| `microtest-5260n.jpg` | https://www.microtest.com.tw/product/20260824155950.jpg |
+
+AFG31000 and 5260N are family illustrations, labelled as such in alt text. EA power and Anritsu RF category imagery reuse the existing sourced brand/product photographs documented in `../../assets/IMAGE-SOURCES-products.md`. The EA photo depicts a PSI 9080-60 DT in the PSI 9000 DT family. Selection and specification references: `../../design/research/instrument-updates-2026-10-07.md`.
+
 ## `pace/`: PACE Worldwide
 
 Downloaded on 25 September 2026 from paceworldwide.com, with Silicom's approval. PACE lists Silicom as its national distributor for India. The product photos are PACE's catalogue images from `https://paceworldwide.com/sites/default/files/…` (400 × 400, and 695 × 390 for `ads200-station-large.jpg`).

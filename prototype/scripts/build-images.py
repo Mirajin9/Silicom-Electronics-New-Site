@@ -163,10 +163,10 @@ def brand_logos():
 A = '../assets/'
 PHOTOS = {
     'oscilloscopes': (A + 'brands/products/tektronix.jpg', 0.5, 0.5, 'cover'),
-    'power': ('image-source/instruments/unit-utp3000-dual-bench-psu.png', 0.5, 0.5, 'contain'),
-    'rf': ('image-source/instruments/unit-uts1000-spectrum-analyzer.png', 0.5, 0.5, 'contain'),
-    'production': (A + 'products/instruments/microtest-5465-transformer-analyzer.png', 0.5, 0.5, 'contain'),
-    'meters': (A + 'brands/products/uni-t.jpg', 0.5, 0.5, 'contain'),
+    'power': (A + 'brands/products/elektro-automatik.jpg', 0.5, 0.5, 'contain'),
+    'rf': (A + 'brands/products/anritsu.jpg', 0.5, 0.5, 'contain'),
+    'production': ('image-source/instruments/microtest-5260n.jpg', 0.5, 0.5, 'contain'),
+    'meters': ('image-source/instruments/keithley-dmm6500.jpg', 0.5, 0.5, 'contain'),
     'smu': (A + 'brands/products/keithley.jpg', 0.5, 0.5, 'contain'),
     'soldering': ('image-source/pace/ads200-station-large.jpg', 0.5, 0.5, 'contain'),
     'mosfets': (A + 'applications/smps-adapter.jpg', 0.55, 0.55, 'cover'),
@@ -180,6 +180,10 @@ SIZES = {'': (1400, 1050, 78), '-card': (720, 540, 76), '-thumb': (192, 144, 74)
 
 # Product photos for galleries, cards and application images: 4:3, whole product on white.
 PRODUCTS = {
+    'tektronix-afg31000': 'image-source/instruments/tektronix-afg31000.jpg',
+    'keithley-dmm6500': 'image-source/instruments/keithley-dmm6500.jpg',
+    'keithley-daq6510': 'image-source/instruments/keithley-daq6510.png',
+    'microtest-5260n': 'image-source/instruments/microtest-5260n.jpg',
     'tektronix-tbs2000': A + 'brands/products/tektronix.jpg',
     'tektronix-2-series-mso': A + 'products/instruments/tektronix-2-series-mso.jpg',
     'unit-upo-mso': 'image-source/instruments/unit-upo-mso-oscilloscope.png',

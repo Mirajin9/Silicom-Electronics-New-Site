@@ -1,6 +1,7 @@
 // Content of the original site, extracted by scripts/extract-content.mjs, plus the few
 // structures written for the new design (see also ./categories.ts). Re-run the extractor
 // if the original pages change.
+import { updatedProducts } from './instrument-updates';
 import instrumentsJson from './instruments.json';
 import componentsJson from './components.json';
 import applicationsJson from './applications.json';
@@ -52,12 +53,15 @@ const instrumentsSource = instrumentsJson as unknown as Division;
 /** PACE (added in the redesign) is the tenth instrument partner. */
 export const instruments: Division = {
   ...instrumentsSource,
+  featured: { ...instrumentsSource.featured!, products: updatedProducts(instrumentsSource.featured!.products) },
   brands: {
     ...instrumentsSource.brands,
     head: { ...instrumentsSource.brands.head, heading: instrumentsSource.brands.head.heading.replace(/^Nine /, 'Ten ') },
     cards: [...instrumentsSource.brands.cards, paceCard],
   },
 };
+// Retain the Keithley bench-supply listing in the power category while EA leads the division.
+export const instrumentProducts: Product[] = [...instruments.featured!.products, ...instrumentsSource.featured!.products.filter(p => p.model === '2220 / 2230')];
 export const components = componentsJson as unknown as Division;
 type ApplicationsContent = {
   hero: Hero; head: Head; groups: { id: string; label: string; items: Application[] }[]; cta: Banner;
@@ -67,7 +71,7 @@ type ApplicationsContent = {
 const applicationPhotos: Record<string, Img> = {
   'app-signal-debug': { src: '/images/products/tektronix-2-series-mso.webp', alt: 'Tektronix 2 Series mixed-signal oscilloscope' },
   'app-ev-power': { src: '/images/products/elektro-automatik-psi9000.webp', alt: 'Elektro-Automatik programmable DC power supply' },
-  'app-transformer': { src: '/images/products/microtest-5465.webp', alt: 'Microtest 5465 transformer analyzer' },
+  'app-transformer': { src: '/images/products/microtest-5260n.webp', alt: 'Microtest 5260N Series transformer analyzer' },
   'app-cable-harness': { src: '/images/products/microtest-8761.webp', alt: 'Microtest 8761 cable harness tester' },
   'app-rf-telecom': { src: '/images/products/anritsu-ms2720t.webp', alt: 'Anritsu Spectrum Master handheld spectrum analyzer' },
   'app-smu-semi': { src: '/images/products/keithley-2450.webp', alt: 'Keithley 2450 SourceMeter source measure unit' },
@@ -75,7 +79,7 @@ const applicationPhotos: Record<string, Img> = {
 const applicationsSource = applicationsJson as unknown as ApplicationsContent;
 export const applications: ApplicationsContent = {
   ...applicationsSource,
-  groups: applicationsSource.groups.map((g) => ({ ...g, items: g.items.map((a) => (applicationPhotos[a.id] ? { ...a, image: applicationPhotos[a.id] } : a)) })),
+  groups: applicationsSource.groups.map((g) => ({ ...g, items: g.items.map((a) => ({ ...a, image: applicationPhotos[a.id] ?? a.image, parts: a.parts.map(p => ({ ...p, name: p.name.replace('5465 Transformer Analyzer', '5265N Transformer Analyzer').replace('MSO 2 Series EDU oscilloscope', '2 Series MSO oscilloscope — EDU bundle') })) })) })),
 };
 export const brands = [...(brandsJson as unknown as { brands: Brand[] }).brands, paceBrand];
 const brandIndexSource = (brandsJson as unknown as {
