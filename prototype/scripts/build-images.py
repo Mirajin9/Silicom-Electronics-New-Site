@@ -162,7 +162,7 @@ def brand_logos():
 # whole, centred on white with a margin ('contain'), so an instrument is never cut off.
 A = '../assets/'
 PHOTOS = {
-    'oscilloscopes': (A + 'brands/products/tektronix.jpg', 0.5, 0.5, 'cover'),
+    'oscilloscopes': ('image-source/instruments/tektronix-5-series-b-cutout.png', 0.5, 0.5, 'cutout'),
     'power': (A + 'brands/products/elektro-automatik.jpg', 0.5, 0.5, 'contain'),
     'rf': (A + 'brands/products/anritsu.jpg', 0.5, 0.5, 'contain'),
     'production': ('image-source/instruments/microtest-5260n.jpg', 0.5, 0.5, 'contain'),
@@ -283,7 +283,16 @@ def save_sizes(im, folder, name, sizes):
 def categories():
     for cid, (src, fx, fy, mode) in PHOTOS.items():
         im = source(src)
-        im = contain(im) if mode == 'contain' else crop_to(im, 4 / 3, fx, fy)
+        if mode == 'cutout':
+            # The supplied alpha was prepared with the image tool. Preserve it
+            # when framing and encoding; never flatten onto a white rectangle.
+            im = Image.open(os.path.join(PROTO, src)).convert('RGBA')
+            w = max(im.width, im.height * 4 / 3) / 0.88
+            canvas = Image.new('RGBA', (round(w), round(w * 3 / 4)), (0, 0, 0, 0))
+            canvas.alpha_composite(im, ((canvas.width - im.width) // 2, (canvas.height - im.height) // 2))
+            im = canvas
+        else:
+            im = contain(im) if mode == 'contain' else crop_to(im, 4 / 3, fx, fy)
         save_sizes(im, 'categories', cid, SIZES)
     print(f'  {len(PHOTOS)} category photos x {len(SIZES)} sizes')
     for name, src in PRODUCTS.items():

@@ -1,7 +1,8 @@
 // Catalogue pieces shared by the division and category pages.
-import type { CSSProperties } from 'react';
-import { brandBySlug, brandLogo, type Product } from './content';
-import { brandPath, categoryBrands, categoryHref, categoryPhoto, type Category } from './content/categories';
+import { useState, type CSSProperties } from 'react';
+import { CollectionPager } from './CollectionPager';
+import { brandLogo, type Product } from './content';
+import { brandPath, categoryHref, categoryPhoto, type Category } from './content/categories';
 import { ADLER_PATH, pairWith, ranges, stockChips } from './content/adler';
 import { Arrow, Photo, Rich, href } from './ui';
 import { url } from './base';
@@ -17,8 +18,7 @@ export function CategoryCards({ items, current }: { items: Category[]; current?:
       <span className="category-card-body">
         <strong>{c.name}</strong>
         <span className="category-card-text">{c.menu}</span>
-        <span className="category-card-brands">{categoryBrands(c).map((s) => brandBySlug(s).name).join(' · ')}</span>
-        <span className="category-card-go">{c.id === current ? 'You are here' : 'Explore'} <Arrow /></span>
+        <span className="category-card-go" aria-label={c.id === current ? 'You are here' : 'Explore'}><Arrow /></span>
       </span>
     </a>)}
   </div>;
@@ -45,6 +45,20 @@ export function ProductCard({ p }: { p: Product }) {
       </div>
     </div>
   </article>;
+}
+
+/** One complete product at a time, with explicit controls and no nested scrolling. */
+export function ProductBrowser({ products }: { products: Product[] }) {
+  const [index, setIndex] = useState(0);
+  return <div className="product-browser">
+    <div className="product-picker" role="group" aria-label="Featured product">
+      {products.map((p, i) => <button key={p.title} type="button" aria-pressed={index === i} aria-controls="product-panel" onClick={() => setIndex(i)}>{p.model}</button>)}
+    </div>
+    <div id="product-panel" className="product-panel" aria-live="polite">
+      {products.map((p, i) => <div key={p.title} hidden={index !== i}><ProductCard p={p} /></div>)}
+    </div>
+    <CollectionPager page={index} pages={products.length} onChange={setIndex} label="Browse featured products" controls="product-panel" />
+  </div>;
 }
 
 /** A partner logo at its balanced size (scaled by --logo-scale in CSS), or the name as text. */

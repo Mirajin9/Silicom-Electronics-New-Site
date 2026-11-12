@@ -1,4 +1,4 @@
-import React, { Fragment, useState, type CSSProperties } from "react";
+import { Fragment, useState, type CSSProperties } from "react";
 import { SiteHeader, SiteFooter } from "../SiteChrome";
 import { InlineModel, PackageBrowser } from "../InlineModel";
 import { BrandIntro } from "../brand/BrandIntro";
@@ -6,6 +6,7 @@ import { useReducedMotion } from "../Layout";
 import { Arrow } from "../ui";
 import { categoriesOf, categoryHref } from "../content/categories";
 import customerLogos from "../content/customers.json";
+import { brands } from '../content';
 import { url } from '../base';
 
 const logoSizes: Record<string, { w: number; h: number; tone: number }> = customerLogos;
@@ -126,6 +127,7 @@ const CategoryLinks = ({ division }: { division: "instruments" | "components" })
 
 export default function HomePage() {
   const [appIndex, setAppIndex] = useState(0);
+  const [divisionIndex, setDivisionIndex] = useState(0);
   const [allCustomers, setAllCustomers] = useState(false);
   const reduced = useReducedMotion();
   const app = applications[appIndex];
@@ -189,7 +191,7 @@ export default function HomePage() {
               <InlineModel model="scope" reduced={reduced} />
               <div className="product-caption">
                 <span>Test & measurement</span>
-                <span>Tektronix · 5 Series B</span>
+                <span>Tektronix · MSO58B · 2 GHz</span>
               </div>
             </div>
           </div>
@@ -246,8 +248,12 @@ export default function HomePage() {
               work.
             </p>
           </div>
+          <div className="division-switcher" role="group" aria-label="Explore divisions">
+            <button type="button" aria-pressed={divisionIndex === 0} aria-controls="home-instruments" onClick={() => setDivisionIndex(0)}>Instruments</button>
+            <button type="button" aria-pressed={divisionIndex === 1} aria-controls="home-components" onClick={() => setDivisionIndex(1)}>Components</button>
+          </div>
           <div className="division-grid">
-            <article className="division instruments">
+            <article className="division instruments" id="home-instruments" data-active={divisionIndex === 0}>
               <div className="division-top">
                 <span>01 / Instruments</span>
                 <a href={url("/instruments.html")} aria-label="Explore instruments">
@@ -266,10 +272,10 @@ export default function HomePage() {
               </p>
               <img
                 className="instrument-detail"
-                src={url("/images/scope-detail.webp")}
-                alt="Tektronix oscilloscope model showing its screen, controls and inputs"
-                width="1100"
-                height="850"
+                src={url("/images/categories/oscilloscopes.webp")}
+                alt="Tektronix MSO58B oscilloscope with its handle, display and eight inputs visible"
+                width="1400"
+                height="1050"
                 loading="lazy"
               />
               <div className="division-links">
@@ -279,7 +285,7 @@ export default function HomePage() {
                 <CategoryLinks division="instruments" />
               </div>
             </article>
-            <article className="division components">
+            <article className="division components" id="home-components" data-active={divisionIndex === 1}>
               <div className="division-top">
                 <span>02 / Components</span>
                 <a href={url("/components.html")} aria-label="Explore components">
@@ -316,11 +322,7 @@ export default function HomePage() {
         <section className="applications section-shell" id="applications">
           <div className="application-heading">
             <span className="eyebrow">Built around your application</span>
-            <h2>
-              What are
-              <br />
-              you building?
-            </h2>
+            <h2>What are you building?</h2>
             <a className="text-link" href={url("/applications.html")}>
               All applications <Arrow diagonal />
             </a>
@@ -390,14 +392,7 @@ export default function HomePage() {
                 <span>{app.tag}</span>
               </div>
               <div className="application-content">
-                <h3>
-                  {app.title.split("\n").map((line, i) => (
-                    <React.Fragment key={line}>
-                      {i > 0 && <br />}
-                      {line}
-                    </React.Fragment>
-                  ))}
-                </h3>
+                <h3>{app.title.replace('\n', ' ')}</h3>
                 <p>{app.text}</p>
                 <ul>
                   {app.parts.map((part) => (
@@ -431,10 +426,8 @@ export default function HomePage() {
                 <span>Built to perform.</span>
               </h2>
               <p>
-                Explore the form behind the function.
-                <br />A closer look at the packages
-                <br />
-                that connect your design.
+                Explore the form behind the function. A closer look at the
+                packages that connect your design.
               </p>
               <a className="button light" href={url("/components.html")}>Explore components <Arrow /></a>
             </div>
@@ -460,9 +453,9 @@ export default function HomePage() {
               can count on.
             </h2>
             <p>
-              Three decades of working alongside India’s engineering teams. From
-              component sourcing to instrument demonstrations, our two divisions
-              bring practical knowledge to every conversation.
+              Since 1994, we have connected India’s engineering teams and
+              institutes with global partners such as Tektronix, combining
+              reliable products with practical support.
             </p>
             <div className="company-facts">
               <div>
@@ -470,7 +463,7 @@ export default function HomePage() {
                 <span>Our story begins</span>
               </div>
               <div>
-                <strong>19</strong>
+                <strong>{brands.length}</strong>
                 <span>Brand partners</span>
               </div>
               <div>

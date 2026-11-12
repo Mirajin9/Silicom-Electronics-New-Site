@@ -1,0 +1,337 @@
+/* Viewport-aware rhythm. Content can grow at large text sizes; no section is
+   clipped or given an internal scrollbar to force it into one screen. */
+:root {
+  --header-height: 80px;
+  --section-space: clamp(28px, 5svh, 56px);
+  --intro-space: clamp(20px, 3svh, 32px);
+  --media-height: clamp(220px, 42svh, 430px);
+}
+.header { height: var(--header-height); }
+html { scroll-padding-top: calc(var(--header-height) + 16px); }
+[id] { scroll-margin-top: 0; }
+.site main, .section-shell, .page-hero-body > *, .division-grid > *, .application-browser > * { min-width: 0; }
+.hero-actions { flex-wrap: wrap; }
+.mega { max-height: calc(100svh - var(--header-height)); overflow-y: auto; }
+.mobile-nav { top: var(--header-height); max-height: calc(100svh - var(--header-height)); }
+.section-intro, .page-intro { margin-bottom: var(--intro-space); gap: 28px; }
+h2, .page-intro h2 { font-size: clamp(32px, min(4vw, 6.5svh), 56px); }
+.page-intro .eyebrow { margin-bottom: 12px; }
+:is(.divisions, .company, .families, .featured, .brand-index, .apps,
+  .category-range, .category-brands, .category-apps, .category-more,
+  .adler-stock-section, .adler-credentials, .adler-pair-band, .adler-range, .adler-spotlight,
+  .pace-tips-section, .brand-about, .brand-range, .brand-why, .brand-faq,
+  .about-why, .about-story, .leadership, .offer) {
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+}
+.hero { padding-top: 22px; }
+.hero-body { min-height: 0; padding: 20px 0; }
+.hero-copy { padding: 16px 0; }
+.hero h1 { font-size: clamp(42px, min(6.3vw, 10svh), 88px); }
+.hero-copy > p { margin-top: 20px; }
+.hero-actions { margin-top: 22px; gap: 20px; }
+.hero-bottom { padding: 16px 0; }
+.hero-product .inline-stage { height: var(--media-height); }
+.product-orbit { width: min(90%, 48svh); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.trust { padding-top: 24px; padding-bottom: 24px; }
+.customer-logos > div { height: 52px; }
+
+/* Equal frames prevent the portrait EV photo from determining the grid height. */
+.applications { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+.application-heading { grid-template-columns: 1fr auto; align-items: center; gap: 12px 28px; margin-bottom: 22px; }
+.application-heading .eyebrow { grid-column: 1 / -1; padding: 0; }
+.application-heading h2 { font-size: clamp(34px, min(4vw, 6.5svh), 56px); }
+.application-heading h2 br { display: none; }
+.application-heading > .text-link { grid-column: 2; margin: 0; }
+.application-browser { grid-template-columns: minmax(170px, 0.7fr) minmax(0, 2.3fr); gap: 28px; }
+.application-tabs > button { padding: 18px 0; min-height: 50px; font-size: 13px; }
+.application-panel { min-height: clamp(300px, 44svh, 360px); grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: stretch; }
+.application-media { min-width: 0; min-height: 0; }
+.application-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 44%; }
+.application-content { padding: 24px; }
+.application-content h3 { font-size: clamp(24px, 2.1vw, 30px); }
+.application-content > p { margin-top: 12px; line-height: 1.6; }
+.application-content ul { margin-top: 12px; line-height: 1.8; }
+.application-content .application-brands { margin-top: 14px; padding-top: 12px; }
+.application-content > .text-link { padding-top: 14px; }
+
+.division { min-height: 0; padding: 24px 26px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.division-switcher { display: none; }
+.division-top { grid-column: 1 / -1; }
+.division h3 { grid-column: 1; font-size: clamp(28px, 3vw, 42px); margin-top: 6px; }
+.division > p { grid-column: 1; margin-top: 0; }
+.division > img { grid-column: 2; grid-row: 2 / span 2; width: 100%; max-width: 100%; height: clamp(130px, 23svh, 210px); margin: 0; align-self: center; }
+.division .instrument-detail, .division .package-detail { transform: none; padding: 0; }
+.division-links { grid-column: 1 / -1; margin-top: 8px; padding: 18px 0; }
+.division-links > .division-categories { font-size: 10px; line-height: 1.7; }
+.package-stage { padding-top: 24px; padding-bottom: 24px; }
+.package-stage-body { min-height: 0; padding: 20px 0 0; }
+.package-stage h2 { font-size: clamp(36px, min(4.6vw, 7.2svh), 64px); }
+.package-stage p { margin: 20px 0; }
+.package-stage-body > div > p { max-width: 34ch; }
+.package-browser .inline-stage { height: clamp(170px, 30svh, 320px); }
+.package-navigation { margin-top: 8px; }
+.package-dots { margin: 6px 0; }
+.package-stage .package-note { margin-top: 6px; }
+.inline-controls { padding: 5px 0; }
+.company { gap: 28px 6%; align-items: center; }
+.company-image { min-height: 0; height: clamp(260px, 49svh, 480px); }
+.company-copy { padding-top: 0; }
+.company-copy h2 { font-size: clamp(34px, min(4vw, 6svh), 54px); margin: 16px 0; }
+.company-facts { margin: 20px 0; padding-top: 18px; }
+.company-facts strong { font-size: clamp(34px, 4.5svh, 46px); }
+.coverage { margin-top: 20px; padding-top: 16px; }
+.company-details summary { padding: 18px 0; font-size: 20px; }
+.resources { padding-top: 28px; padding-bottom: 36px; }
+.contact-band { padding-top: 32px; padding-bottom: 36px; }
+.contact-band h2, .page-band h2 { font-size: clamp(36px, min(5vw, 8svh), 68px); }
+
+.page-hero { padding-top: 22px; padding-bottom: 32px; }
+.page-hero-body { min-height: 0; gap: 4%; padding-top: 24px; }
+.page-hero-copy { padding-top: 0; }
+.hero-view-picker { display: none; }
+.page-hero h1 { font-size: clamp(38px, min(5.2vw, 7.8svh), 72px); }
+.page-lede { margin-top: 20px; font-size: 14px; line-height: 1.65; }
+.page-hero-photo { max-height: var(--media-height); object-fit: cover; }
+.category-hero-media { padding: 0 0 18px 18px; }
+.category-hero-media .page-hero-photo { object-fit: contain; }
+.hero-note { margin-top: 18px; }
+.stat-row { margin-top: 24px; }
+.stat-row > div { padding-top: 16px; }
+.stat-row dd { font-size: clamp(30px, 4.5svh, 46px); }
+.about-photos img { height: min(40svh, 350px); aspect-ratio: auto !important; }
+.about-photos img:first-child { height: min(34svh, 300px); }
+.about-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6%; border-bottom: 1px solid var(--line); }
+.about-story .page-intro { margin: 0; align-items: start; }
+.about-story-copy { display: grid; gap: 16px; color: #51566e; font-size: 14px; }
+.about-why { background: #f4f8fe; }
+.numbered-grid > div { padding-top: 20px; padding-bottom: 22px; }
+.leader { padding: 24px; gap: 14px; }
+.offer-grid > div { padding-top: 20px; padding-bottom: 22px; }
+
+/* The complete category index fits in compact rows. Details live on each category page. */
+.category-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.category-card { display: grid; grid-template-columns: 96px minmax(0, 1fr); position: relative; }
+.category-card-media { aspect-ratio: auto; min-height: 96px; }
+.category-card-media img { position: absolute; inset: 0; object-fit: contain; }
+.category-card-num { padding: 5px 6px; font-size: 9px; }
+.category-card-body { padding: 14px 42px 14px 16px; gap: 6px; }
+.category-card-body strong { font-size: 20px; }
+.category-card-text { font-size: 12px; line-height: 1.45; }
+.category-card-go { position: absolute; right: 14px; top: 16px; padding: 0; }
+.feature-grid { grid-template-columns: minmax(0, 1fr); }
+.feature { grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr); }
+.feature-media { border-right: 1px solid var(--line); border-bottom: 0; padding: 24px; }
+.feature-media img { max-height: min(30svh, 240px); }
+.feature-body { padding: 22px 24px; gap: 10px; }
+.product-picker { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.product-picker button { min-height: 40px; padding: 10px 14px; border: 1px solid var(--line); font-size: 11px; font-weight: 700; }
+.product-picker button[aria-pressed=true] { background: var(--navy); color: #fff; border-color: var(--navy); }
+.collection-pager { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-top: 14px; margin-top: 14px; border-top: 1px solid var(--line); }
+.collection-pager button { min-height: 40px; padding: 10px 0; font-size: 12px; font-weight: 700; }
+.collection-pager button:hover:enabled { color: var(--blue); }
+.collection-pager button:disabled { opacity: 0.35; }
+.collection-pager > span { font-size: 11px; color: #51566e; }
+.families .page-intro h2, .featured .page-intro h2, .brand-index .page-intro h2 { max-width: none; font-size: clamp(30px, min(3.4vw, 5.5svh), 48px); }
+.featured .page-intro-side { max-width: 360px; }
+.product-browser .spec-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.product-browser .bullets { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px 24px; }
+.product-browser .feature-brand { min-height: 28px; }
+.brand-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+.brand-row summary { grid-template-columns: 92px minmax(0, 1fr) 40px; gap: 16px; }
+.brand-row-name strong { font-size: 22px; }
+.brand-row-count { display: none; }
+.brand-row-logo { --logo-scale: 0.65; }
+.brand-row-body { padding-left: 0; }
+.brand-row .category-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.offer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
+.offer-grid h3 { font-size: 23px; }
+.spec-grid > div { padding-top: 8px; padding-bottom: 8px; }
+.banner-pair, .banner-pair.single { padding-top: var(--section-space); padding-bottom: var(--section-space); }
+.banner { padding: 28px; }
+.logo-wall li { aspect-ratio: auto; min-height: 56px; padding: 12px; }
+.logo-wall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.brand-grid-section { padding-top: var(--section-space); }
+.brand-tile-media { aspect-ratio: 16 / 9; }
+.brand-tile-media.is-partner-logo { background: #f4f8fe; }
+.brand-tile-media.is-partner-logo .partner-logo-img { width: auto; height: auto; max-width: 65%; max-height: 82px; padding: 0; object-fit: contain; }
+.brand-tile-head { min-height: 30px; }
+.brand-row summary { padding-top: 12px; padding-bottom: 12px; }
+.app-photo { max-height: min(34svh, 300px); object-fit: cover; }
+.app-block-body { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); }
+.apps-index { top: calc(var(--header-height) + 20px); max-height: calc(100svh - var(--header-height) - 40px); }
+.apps-group + .apps-group { margin-top: var(--section-space); }
+.brand-about-text { padding-top: 0; }
+.brand-hero-photo { max-height: var(--media-height); }
+.brand-hero-photo img { object-fit: contain; }
+.adler-hero h1 { max-width: 14ch; }
+.adler-badges { margin-bottom: 16px; }
+.adler-browser .inline-stage { height: clamp(160px, 28svh, 280px); }
+.adler-browser { padding: 16px 20px; }
+.adler-selector button { padding: 8px 4px; }
+.adler-product-caption { padding-top: 12px; }
+
+@media (min-width: 1600px) {
+  .section-shell, .header { padding-left: max(5%, calc((100vw - 1440px) / 2)); padding-right: max(5%, calc((100vw - 1440px) / 2)); }
+}
+@media (min-width: 821px) and (max-height: 650px) {
+  :root { --header-height: 68px; --section-space: 22px; }
+  .company { row-gap: 16px; }
+  .company-copy h2 { margin-top: 12px; margin-bottom: 12px; }
+  .company-facts { margin-top: 14px; margin-bottom: 14px; }
+  .coverage { margin-top: 14px; }
+}
+@media (max-width: 1100px) {
+  .application-browser { grid-template-columns: 180px minmax(0, 1fr); gap: 22px; }
+  .application-panel { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .application-content { padding: 20px; }
+  .application-tabs > button { font-size: 12px; }
+}
+@media (max-width: 820px) {
+  :root { --header-height: 72px; --section-space: 32px; --media-height: clamp(200px, 35svh, 320px); }
+  .page-hero-body { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 24px; }
+  .page-hero h1 { font-size: clamp(34px, 4.9vw, 44px); }
+  .page-lede { font-size: 13px; }
+  .page-intro { margin-bottom: 24px; }
+  .page-hero .hero-actions { row-gap: 14px; }
+  .stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .logo-wall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .logo-wall li { min-height: 48px; }
+  .application-browser { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .application-tabs { flex-direction: row; overflow-x: auto; gap: 22px; border-bottom: 1px solid var(--line); }
+  .application-tabs > button { flex-shrink: 0; min-height: 44px; padding: 12px 0; }
+  .application-panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .company { gap: 24px 5%; }
+  .company-image { height: 330px; }
+  .company-facts strong { font-size: 32px; }
+  .company-copy h2 { font-size: 34px; }
+  .company-copy > p { font-size: 12px; }
+  .coverage { font-size: 10px; }
+  .division { padding: 20px 20px 0; }
+  .division h3 { font-size: 30px; }
+  .division > img { height: 130px; }
+  .division > p { font-size: 11px; }
+  .app-block-body { grid-template-columns: minmax(0, 1fr); }
+  .apps-index { position: static; max-height: none; }
+  .app-photo { aspect-ratio: 16 / 7; }
+  .category-card { grid-template-columns: 76px minmax(0, 1fr); }
+  .category-card-body strong { font-size: 18px; }
+  .category-card-body { padding: 12px 28px 12px 12px; }
+  .category-card-go { right: 8px; top: 12px; }
+  .brand-row summary { grid-template-columns: 64px minmax(0, 1fr) 36px; gap: 12px; }
+  .brand-row-name strong { font-size: 20px; }
+  .brand-row-logo { --logo-scale: 0.45; }
+  .brand-row-name span { font-size: 11px; }
+  .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-browser .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-browser .bullets { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 580px) {
+  :root { --header-height: 68px; --section-space: 28px; }
+  .hero-body { padding-top: 12px; padding-bottom: 0; }
+  .hero-copy { padding: 8px 0; }
+  .hero h1 { font-size: clamp(38px, min(11.5vw, 7svh), 58px); }
+  .hero-copy > p { margin-top: 16px; }
+  .hero-product .inline-stage { height: clamp(160px, 25svh, 230px); }
+  .hero-actions { gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+  .hero-bottom { margin-top: 8px; }
+  .product-caption { font-size: 8px; }
+  .division-grid { gap: 14px; }
+  .division-switcher { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 14px; border: 1px solid var(--line); }
+  .division-switcher button { min-height: 44px; padding: 12px; font-size: 12px; font-weight: 700; }
+  .division-switcher button[aria-pressed=true] { background: var(--navy); color: #fff; }
+  .division[data-active=false] { display: none; }
+  .division { grid-template-columns: 1fr 0.9fr; padding: 20px 22px 0; }
+  .division h3 { font-size: 32px; }
+  .division > img { height: 140px; }
+  .division .package-detail { height: 140px; }
+  .division-links { padding: 16px 0; }
+  .section-intro p { margin-top: 14px; }
+  .application-heading { display: grid; gap: 12px; }
+  .application-heading h2 { font-size: 34px; }
+  .application-heading > .text-link { grid-column: 1; }
+  .application-tabs { display: flex; gap: 20px; padding-bottom: 0; overflow-x: auto; }
+  .application-tabs > button { font-size: 12px; border: 0; white-space: nowrap; }
+  .application-panel { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .application-media { height: clamp(130px, 18svh, 180px); }
+  .application-content { padding: 20px; }
+  .application-content h3 { font-size: 27px; }
+  .application-content > p { font-size: 12px; }
+  .application-content ul { font-size: 12px; margin-top: 10px; }
+  .application-content .application-brands { margin-top: 12px; padding-top: 10px; }
+  .application-content > .text-link { padding-top: 12px; }
+  .package-stage-body { grid-template-columns: minmax(0, 1fr); padding-top: 24px; gap: 16px; }
+  .package-stage h2 { font-size: 36px; }
+  .package-stage-body > div > p { margin: 14px 0; font-size: 12px; }
+  .package-browser .inline-stage { height: clamp(150px, 24svh, 220px); }
+  .package-navigation { gap: 10px; }
+  .package-navigation strong { font-size: 21px; }
+  .package-dots button { padding: 10px 8px; }
+  .company { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .company-image { height: clamp(140px, 19svh, 180px); min-height: 0; }
+  .company-copy h2 { font-size: 34px; }
+  .company-facts { margin: 18px 0; padding-top: 16px; }
+  .company-details { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .company-details summary { padding: 16px 0; font-size: 19px; }
+  .page-hero-body { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .page-hero h1 { font-size: clamp(34px, 9.5vw, 46px); }
+  .page-lede { margin-top: 16px; }
+  .page-hero-media > .page-hero-photo, .category-hero-media .page-hero-photo { max-height: 26svh; }
+  .about-photos { grid-template-columns: minmax(0, 1fr); }
+  .about-photos img:first-child { height: 20svh; object-position: center 40%; }
+  .about-story { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .about-story-copy { font-size: 13px; }
+  .stat-row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+  .stat-row > div { padding: 12px 0 0; }
+  .stat-row dd { font-size: 28px; }
+  .stat-row dt { font-size: 9px; line-height: 1.5; }
+  .category-cards { grid-template-columns: minmax(0, 1fr); }
+  .category-card { grid-template-columns: 84px minmax(0, 1fr); }
+  .category-card-media { min-height: 84px; }
+  .category-card-body strong { font-size: 19px; }
+  .feature { grid-template-columns: minmax(0, 1fr); }
+  .feature-media { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px; }
+  .feature-media img { max-height: 140px; }
+  .feature-body { padding: 20px; }
+  .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brand-grid { grid-template-columns: minmax(0, 1fr); }
+  .brand-tile-media { aspect-ratio: 16 / 7; }
+  .brand-tile-media.is-partner-logo .partner-logo-img { max-height: 72px; }
+  .logo-wall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .logo-wall li { min-height: 44px; padding: 9px; }
+  .logo-wall li { --logo-scale: 0.6; }
+  .contact-photo { aspect-ratio: 16 / 8; }
+  .enquiry-form { padding: 24px 20px; }
+  .brand-rows, .offer-grid { grid-template-columns: minmax(0, 1fr); }
+  .brand-row summary { grid-template-columns: 78px minmax(0, 1fr) 40px; }
+  .brand-row-logo { --logo-scale: 0.55; }
+  .product-picker { gap: 5px; }
+  .product-picker button { font-size: 10px; padding: 8px 10px; }
+  .hero-view-picker { display: grid; grid-template-columns: 1fr 1fr; margin-top: 18px; border: 1px solid var(--line); }
+  .hero-view-picker button { min-height: 44px; padding: 12px; font-size: 12px; font-weight: 700; }
+  .hero-view-picker button[aria-pressed=true] { background: var(--navy); color: #fff; }
+  .page-hero-dark .hero-view-picker button[aria-pressed=true] { background: #fff; color: var(--navy); }
+  [data-hero-view=overview] .page-hero-media, [data-hero-view=model] .page-hero-copy { display: none; }
+  .adler-hero h1 { max-width: none; }
+  .adler-browser .inline-stage { height: 22svh; }
+}
+@media (max-width: 360px) {
+  :root { --section-space: 22px; }
+  .application-heading .eyebrow { display: none; }
+  .application-heading h2 { font-size: 31px; }
+  .application-media { height: 100px; }
+  .application-content { padding: 16px; }
+  .application-content h3 { font-size: 24px; }
+  .application-content ul { line-height: 1.6; }
+  .application-content > .text-link { padding-top: 10px; }
+  .package-browser .inline-stage { height: 140px; }
+  .package-stage-body { gap: 12px; }
+  .package-stage h2 { font-size: 32px; }
+  .company { gap: 14px; }
+  .company-image { height: 100px; }
+  .company-copy h2 { font-size: 30px; margin: 12px 0; }
+  .company-facts { margin: 14px 0; padding-top: 12px; }
+  .company-facts strong { font-size: 30px; }
+  .coverage { margin-top: 14px; padding-top: 12px; }
+  .company-details summary { padding: 12px 0; font-size: 18px; }
+}

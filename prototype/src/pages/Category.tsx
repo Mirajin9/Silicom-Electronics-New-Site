@@ -1,7 +1,7 @@
 import { Layout, useReducedMotion } from '../Layout';
 import { InlineModel } from '../InlineModel';
 import { applications, brandBySlug, instrumentProducts, type Product } from '../content';
-import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
+import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductBrowser } from '../catalogue';
 import { brandPath, categoriesOf, categoryBrands, categoryByRoute, categoryPhoto } from '../content/categories';
 import { Arrow, ContactBand, Photo } from '../ui';
 import { url } from '../base';
@@ -89,7 +89,7 @@ export default function CategoryPage({ route }: { route: string }) {
           <h2 id="featured-title">Featured products.</h2>
         </div>
       </div>
-      <div className="feature-grid">{products.map((p) => <ProductCard key={p.title} p={p} />)}</div>
+      <ProductBrowser products={products} />
     </section>}
 
     <section className="category-brands section-shell" id="brands" aria-labelledby="brands-title">

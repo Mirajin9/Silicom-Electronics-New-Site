@@ -2,7 +2,7 @@ import { Layout, useReducedMotion } from '../Layout';
 import { InlineModel, PackageBrowser } from '../InlineModel';
 import { components, instruments, type BrandCard, type Division } from '../content';
 import { categoriesOf } from '../content/categories';
-import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductCard } from '../catalogue';
+import { AdlerSpotlight, CategoryCards, PartnerLogo, ProductBrowser } from '../catalogue';
 import { Actions, Arrow, Chips, ContactBand, PageHero, Rich, Title, href } from '../ui';
 
 function CategoryIndex({ division }: { division: 'instruments' | 'components' }) {
@@ -52,6 +52,7 @@ export default function DivisionPage({ id }: { id: 'instruments' | 'components' 
       lede={d.hero.lede}
       actions={d.hero.actions}
       dark={id === 'components'}
+      mediaLabel="Explore in 3D"
       media={id === 'instruments'
         ? <div className="hero-product"><div className="product-orbit" aria-hidden="true" /><InlineModel model="scope" reduced={reduced} /></div>
         : <PackageBrowser reduced={reduced} />}
@@ -68,7 +69,7 @@ export default function DivisionPage({ id }: { id: 'instruments' | 'components' 
         </div>
         <div className="page-intro-side"><p>{featuredText}</p></div>
       </div>
-      <div className="feature-grid">{d.featured.products.map((p) => <ProductCard key={p.title} p={p} />)}</div>
+      <ProductBrowser products={d.featured.products} />
     </section>}
     <section className="brand-index section-shell" id="brands" aria-labelledby="brands-title">
       <div className="page-intro">

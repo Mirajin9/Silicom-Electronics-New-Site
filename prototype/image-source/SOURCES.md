@@ -32,7 +32,17 @@ Product photos extracted from the *UNI-T 2022 Instruments Catalog*.
 | `unit-ut8802e-bench-multimeter.png` | p45 | UT8802E bench digital multimeter |
 | `unit-upo-mso-oscilloscope.png` | p4 | UPO-series mixed-signal oscilloscope |
 
-## Instrument catalogue updates — 7 October 2026
+## Oscilloscope category cutout — 8 November 2026
+
+`instruments/tektronix-5-series-b-official.jpg` is the original product artwork extracted from the cover of the official [5 Series B MSO datasheet, 48W738510](https://download.tek.com/datasheet/5SeriesB-MSO_Datasheet_48W738510.pdf). It shows the eight-input MSO58B. It replaces the cropped lab photograph in the instrument category index, its menu thumbnail and category hero, and the homepage instrument card.
+
+`instruments/tektronix-5-series-b-cutout.png` is the transparent derivative prepared with the built-in image tool. `scripts/build-images.py` preserves that alpha and gives the whole instrument a consistent 4:3 frame at 1400, 720 and 192 px wide. The manufacturer original is retained separately. Screen lettering in the processed derivative is illustrative and is not a specification source.
+
+Image-tool prompt: “Remove only the white background, including white area inside the carry handle, and remove the blue marketing sentence above the instrument. Return the single complete oscilloscope with its existing screen, all eight input channels, all controls, the handle and both feet intact. Preserve the photograph, camera angle, body colour, proportions, markings, labels and waveform display exactly; do not redesign or invent any instrument details. Crop to the whole product with a small even transparent margin, centred on a transparent 4:3 canvas, without cutting any edge. Actual alpha transparency required.”
+
+Cleanup prompt: “Keep the entire photographed instrument unchanged. Clean the alpha mask only: remove all detached cyan speckles and white fragments outside the instrument silhouette, especially above the blue carry handle and in the empty handle opening. Keep the handle, fine ventilation slots, feet, connectors and original screen intact. No blue or white fringe should remain. Place the whole cleaned product on a transparent 4:3 canvas with an even 6% transparent margin on every side. Do not crop any instrument part. Do not regenerate or redraw its text or details. Do not add shadows or background colour. Actual transparency.”
+
+## Instrument catalogue update sources — 7 October 2026
 
 Official product photographs, downloaded by `scripts/fetch-instrument-updates.py`:
 

@@ -1,9 +1,11 @@
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Environment, Lightformer, useGLTF } from '@react-three/drei';
+import { Environment, Html, Lightformer, useGLTF } from '@react-three/drei';
 import { ACESFilmicToneMapping, AgXToneMapping, Box3, Group, OrthographicCamera, Vector3, type WebGLRenderer } from 'three';
 import { MODELS, type ModelId, type ModelSpec, type ViewerInput } from './models';
 import { url } from './base';
+import { scopeFeatures, type ScopeInteraction } from './scope';
+import { ScopeDisplay } from './ScopeDisplay';
 
 const wrap = (a: number) => Math.atan2(Math.sin(a), Math.cos(a));
 const ease = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -38,7 +40,11 @@ function Framing({ spec, radius }: { spec: ModelSpec; radius: number }) {
   return null;
 }
 
-function Product({ spec }: { spec: ModelSpec }) {
+const smoothstep = (a: number, b: number, x: number) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+
+function Product({ spec, scope, reduced }: { spec: ModelSpec; scope?: ScopeInteraction; reduced: boolean }) {
+  const body = useRef<Group>(null!);
+  const marks = useRef<(HTMLButtonElement | null)[]>([]);
   const { scene } = useGLTF(url(spec.url));
   const { object, offset, radius } = useMemo(() => {
     const object = scene.clone(true);
@@ -46,9 +52,37 @@ function Product({ spec }: { spec: ModelSpec }) {
     const centre = spec.frame.kind === 'poster' ? new Vector3(...spec.frame.target) : box.getCenter(new Vector3());
     return { object, offset: centre.negate(), radius: box.getSize(new Vector3()).length() / 2 };
   }, [scene, spec]);
+  const view = useMemo(() => new Vector3(), []), normal = useMemo(() => new Vector3(), []);
+  // Each point sits on the front or rear panel. It fades in as that panel turns towards
+  // the camera and is gone (and not clickable) once the panel faces away.
+  useFrame(({ camera }) => {
+    if (!scope) return;
+    camera.getWorldDirection(view);
+    scopeFeatures.forEach((f, i) => {
+      const el = marks.current[i];
+      if (!el) return;
+      normal.set(0, 0, f.side === 'front' ? 1 : -1).transformDirection(body.current.matrixWorld);
+      const shown = smoothstep(.18, .5, -normal.dot(view));
+      el.style.opacity = shown.toFixed(3);
+      el.style.visibility = shown < .04 ? 'hidden' : 'visible';
+    });
+  });
   return <>
     <Framing spec={spec} radius={radius} />
-    <primitive object={object} position={offset} dispose={null} />
+    <group ref={body} position={offset}>
+      <primitive object={object} dispose={null} />
+      {scope && <>
+        <ScopeDisplay object={object} settings={scope.settings} reduced={reduced} />
+        {scopeFeatures.map((f, i) => <Html key={f.id} position={[...f.position]} center zIndexRange={[8, 1]} style={{ pointerEvents: 'none' }}>
+          <button type="button" ref={el => { marks.current[i] = el; }} className="scope-hotspot" aria-label={`${f.label}: ${f.value}`} aria-pressed={scope.selected === f.id}
+            style={{ opacity: 0, visibility: 'hidden' }}
+            onPointerDown={e => e.stopPropagation()}
+            onPointerEnter={() => scope.onHover(f.id)} onPointerLeave={() => scope.onHover(null)}
+            onFocus={() => scope.onHover(f.id)} onBlur={() => scope.onHover(null)}
+            onClick={e => { e.stopPropagation(); scope.onSelect(f.id); }} />
+        </Html>)}
+      </>}
+    </group>
   </>;
 }
 
@@ -72,6 +106,7 @@ function Rig({ spec, input, animate, reduced, entrance, onReady, children }: {
     if (input.reset) {
       input.reset = false;
       input.posed = false;
+      input.keepPose = false;
       st.resetting = true;
       st.vel = 0;
       st.turn = 0;
@@ -106,8 +141,8 @@ function Rig({ spec, input, animate, reduced, entrance, onReady, children }: {
       moving = true;
     }
     const engaged = input.dragging || st.vel !== 0 || Math.abs(st.turn) > 1e-4;
-    // A pose the visitor chose is kept while they hover, and for three seconds after.
-    if (input.posed && !input.hovered && !engaged && now - input.lastInteraction > 3000) input.posed = false;
+    // A pose the visitor chose is kept while they hover, for three seconds after, and while a feature card is open.
+    if (input.posed && !input.keepPose && !input.hovered && !engaged && now - input.lastInteraction > 3000) input.posed = false;
     const auto = animate && !input.posed && !engaged;
     if (auto && !input.hovered) st.phase += dt * 0.5;
     if (!engaged && (auto || st.resetting)) {
@@ -149,9 +184,9 @@ function Rig({ spec, input, animate, reduced, entrance, onReady, children }: {
   </group>;
 }
 
-export default function ModelViewer({ model, input, reduced, paused, active, preload = [], onReady, onUnsupported }: {
+export default function ModelViewer({ model, input, reduced, paused, active, preload = [], scope, onReady, onUnsupported }: {
   model: ModelId; input: ViewerInput; reduced: boolean; paused: boolean; active: boolean;
-  preload?: ModelId[]; onReady: (id: ModelId) => void; onUnsupported: () => void;
+  preload?: ModelId[]; scope?: ScopeInteraction; onReady: (id: ModelId) => void; onUnsupported: () => void;
 }) {
   const spec = MODELS[model];
   const first = useRef(model);
@@ -161,7 +196,7 @@ export default function ModelViewer({ model, input, reduced, paused, active, pre
   return <Canvas
     className="viewer-canvas"
     orthographic
-    frameloop={!active ? 'never' : animate ? 'always' : 'demand'}
+    frameloop={!active ? 'never' : animate || scope?.settings.running && !reduced ? 'always' : 'demand'}
     dpr={[1, 1.75]}
     gl={{ alpha: true, antialias: true, powerPreference: 'low-power', toneMapping: spec.tone === 'agx' ? AgXToneMapping : ACESFilmicToneMapping }}
     style={{ pointerEvents: 'none' }}
@@ -170,9 +205,9 @@ export default function ModelViewer({ model, input, reduced, paused, active, pre
       input.invalidate = state.invalidate;
     }}
   >
-    <ambientLight intensity={0.9} />
-    <directionalLight position={[5, 8, 6]} intensity={2.8} />
-    <directionalLight position={[-4, 3, -4]} intensity={1.8} color="#d6e7ff" />
+    <ambientLight intensity={scope ? 0.45 : 0.9} />
+    <directionalLight position={[5, 8, 6]} intensity={scope ? 2.3 : 2.8} />
+    <directionalLight position={[-4, 3, -4]} intensity={scope ? 1.1 : 1.8} color="#d6e7ff" />
     {spec.rim && <directionalLight position={[-3, 4, -7]} intensity={3.2} color="#a9cdff" />}
     <Suspense fallback={null}>
       <Environment resolution={128} frames={1}>
@@ -182,7 +217,7 @@ export default function ModelViewer({ model, input, reduced, paused, active, pre
     </Suspense>
     <Suspense fallback={null}>
       <Rig key={model} spec={spec} input={input} animate={animate} reduced={reduced} entrance={model !== first.current} onReady={onReady}>
-        <Product spec={spec} />
+        <Product spec={spec} scope={scope} reduced={reduced} />
       </Rig>
     </Suspense>
   </Canvas>;

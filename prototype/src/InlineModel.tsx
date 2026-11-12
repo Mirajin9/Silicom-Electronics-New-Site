@@ -3,6 +3,7 @@ import { MODELS, createInput, type ModelId } from './models';
 import { LogoLoader } from './brand/Logo';
 import { introPlaying, onIntroDone } from './brand/BrandIntro';
 import { url } from './base';
+import { scopeFeatures, waveforms, type ScopeFeatureId, type Waveform } from './scope';
 const Viewer = lazy(() => import('./ModelViewer'));
 
 class Boundary extends Component<{ children: ReactNode; onError: () => void }, { failed: boolean }> {
@@ -26,20 +27,26 @@ export function InlineModel({ model, reduced = false, preload }: { model: ModelI
   const [readyId, setReadyId] = useState<ModelId | null>(null);
   const [paused, setPaused] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [waveform, setWaveform] = useState<Waveform>('sine');
+  const [spectrum, setSpectrum] = useState(false);
+  const [feature, setFeature] = useState<ScopeFeatureId | null>(null);
+  const [hoverFeature, setHoverFeature] = useState<ScopeFeatureId | null>(null);
+  const [interacted, setInteracted] = useState(false);
+  const isScope = model === 'scope';
   // Browser-only facts start neutral so server and client render the same markup.
   const [coarse, setCoarse] = useState(false);
   const [introDone, setIntroDone] = useState(true);
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setVisible(entry.isIntersecting);
+    const preloadObserver = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) setVisited(true);
     }, { rootMargin: '300px 0px' });
-    observer.observe(host.current!);
+    const visibleObserver = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    preloadObserver.observe(host.current!); visibleObserver.observe(host.current!);
     setCoarse(coarsePointer());
     const change = () => setHidden(document.hidden);
     change();
     document.addEventListener('visibilitychange', change);
-    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', change); };
+    return () => { preloadObserver.disconnect(); visibleObserver.disconnect(); document.removeEventListener('visibilitychange', change); };
   }, []);
   useEffect(() => {
     if (!introPlaying()) return;
@@ -51,7 +58,16 @@ export function InlineModel({ model, reduced = false, preload }: { model: ModelI
   const shown = readyId !== null && !failed;
   const ready = readyId === model && !failed;
   const touch = () => { input.lastInteraction = performance.now(); input.invalidate?.(); };
-  const turn = (angle: number) => { input.turn += angle; input.posed = true; touch(); };
+  // An open feature card holds the pose so its point stays put; otherwise the model
+  // floats and sways again a few seconds after the visitor lets go.
+  const closeFeature = () => { setFeature(null); setHoverFeature(null); input.keepPose = false; touch(); };
+  const turn = (angle: number) => { if (feature) closeFeature(); input.turn += angle; input.posed = true; setInteracted(true); touch(); };
+  const inspectFeature = (id: ScopeFeatureId) => {
+    if (feature === id) return closeFeature();
+    setFeature(id); input.posed = true; input.keepPose = true; setInteracted(true); touch();
+  };
+  const activeFeature = scopeFeatures.find(f => f.id === (hoverFeature || feature));
+  const reset = () => { input.reset = true; setFeature(null); setHoverFeature(null); touch(); };
   const release = (e: PointerEvent) => {
     if (e.pointerId !== input.pointerId) return;
     input.dragging = false;
@@ -60,7 +76,9 @@ export function InlineModel({ model, reduced = false, preload }: { model: ModelI
   };
   const handlers = {
     onPointerDown(e: PointerEvent<HTMLDivElement>) {
-      if (e.button !== 0 || !shown) return;
+      if (e.button !== 0 || !shown || (e.target as HTMLElement).closest('button,select,a,aside')) return;
+      if (feature) closeFeature();
+      if (isScope) setInteracted(true);
       Object.assign(input, { dragging: true, pointerId: e.pointerId, pointerType: e.pointerType, lastX: e.clientX, lastY: e.clientY, posed: true });
       e.currentTarget.setPointerCapture(e.pointerId);
       touch();
@@ -78,8 +96,10 @@ export function InlineModel({ model, reduced = false, preload }: { model: ModelI
     onPointerEnter(e: PointerEvent) { if (e.pointerType === 'mouse') { input.hovered = true; touch(); } },
     onPointerLeave(e: PointerEvent) { if (e.pointerType === 'mouse') { input.hovered = false; touch(); } },
     onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') { closeFeature(); return; }
+      if ((e.target as HTMLElement).closest('button,select')) return;
       if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') turn(e.key === 'ArrowLeft' ? -0.4 : 0.4);
-      else if (e.key === 'Home') { input.reset = true; touch(); }
+      else if (e.key === 'Home') reset();
       else return;
       e.preventDefault();
     },
@@ -97,20 +117,31 @@ export function InlineModel({ model, reduced = false, preload }: { model: ModelI
       {(spec.poster || failed) && <img className="inline-poster" src={url((failed ? spec.fallback : spec.poster)!)} alt="" draggable={false} />}
       {visited && introDone && !failed && <Boundary onError={() => setFailed(true)}>
         <Suspense fallback={null}>
-          <Viewer model={model} input={input} reduced={reduced} paused={paused} active={visible && !hidden} preload={preload} onReady={setReadyId} onUnsupported={() => setFailed(true)} />
+          <Viewer model={model} input={input} reduced={reduced} paused={paused} active={visible && !hidden} preload={preload}
+            scope={isScope ? { settings: { waveform, running: true, spectrum, timebase: .5 }, selected: feature, onHover: setHoverFeature, onSelect: inspectFeature } : undefined}
+            onReady={setReadyId} onUnsupported={() => setFailed(true)} />
         </Suspense>
       </Boundary>}
       {!ready && !spec.poster && !failed && <LogoLoader />}
+      {isScope && shown && <span className="scope-demo-label" data-hidden={interacted}>{coarse ? 'Swipe' : 'Drag'} to rotate · tap a point</span>}
+      {isScope && activeFeature && <aside className="scope-insight" aria-live="polite" aria-label="Model feature">
+        <strong>{activeFeature.label}</strong><span>{activeFeature.value}</span><p>{activeFeature.text}</p>
+        {activeFeature.id === 'display' && <div className="scope-waves" role="group" aria-label="Waveform on the screen">
+          {waveforms.map(w => <button type="button" key={w.id} aria-pressed={waveform === w.id} onClick={() => setWaveform(w.id)}>{w.label}</button>)}
+          <button type="button" aria-pressed={spectrum} aria-label="Spectrum View" onClick={() => setSpectrum(!spectrum)}>FFT</button>
+        </div>}
+        <button type="button" className="scope-insight-close" aria-label="Close feature specifications" onClick={closeFeature}>×</button>
+      </aside>}
     </div>
-    <div className="inline-controls">
+    {!isScope && <div className="inline-controls">
       <span>{failed ? 'Interactive view unavailable on this device' : coarse ? 'Swipe sideways to rotate' : 'Drag to rotate'}</span>
       {!failed && <div>
         <button type="button" aria-label="Rotate model left" onClick={() => turn(-0.4)}>↶</button>
-        <button type="button" aria-label="Reset model view" onClick={() => { input.reset = true; touch(); }}>Reset</button>
+        <button type="button" aria-label="Reset model view" onClick={reset}>Reset</button>
         {!reduced && <button type="button" aria-pressed={paused} aria-label={paused ? 'Resume model motion' : 'Pause model motion'} onClick={() => setPaused(!paused)}>{paused ? 'Play' : 'Pause'}</button>}
         <button type="button" aria-label="Rotate model right" onClick={() => turn(0.4)}>↷</button>
       </div>}
-    </div>
+    </div>}
   </div>;
 }
 

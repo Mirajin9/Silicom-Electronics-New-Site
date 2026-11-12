@@ -43,6 +43,15 @@ const UPDATED_TEXT = {
   'applications.html': new Set(['MSO 2 Series EDU oscilloscope', '5465 Transformer Analyzer']),
   'instruments.html': new Set(['2 or 4 + 16 digital', 'Embedded debug · power & automotive · field']),
 };
+// About's opening, old value grid and timeline were explicitly rewritten on
+// 8 November 2026. Preserve the remaining people, contact and offer content.
+const inRewrittenAbout = n => {
+  for (let p = n; p; p = p.parentNode) {
+    if (p.tagName === 'h1' || p.tagName === 'p' && (attr(p, 'class') || '').split(/\s+/).includes('lede')) return true;
+    if (p.tagName === 'section' && walk(p, x => ['timeline', 'segments-grid'].some(c => (attr(x, 'class') || '').split(/\s+/).includes(c))).length) return true;
+  }
+  return false;
+};
 const failures = [];
 let textCount = 0, linkCount = 0, idCount = 0, fieldCount = 0;
 for (const name of ['index.html', ...routes]) {
@@ -52,7 +61,7 @@ for (const name of ['index.html', ...routes]) {
   const destText = norm(text(dest));
   for (const n of walk(source, (n) => n.nodeName === '#text')) {
     const value = norm(n.value);
-    if (value.length < 3 || REWORDED[value] || UPDATED_TEXT[name]?.has(value) || name === 'instruments.html' && inApprovedCard(n)) continue;
+    if (value.length < 3 || REWORDED[value] || UPDATED_TEXT[name]?.has(value) || name === 'instruments.html' && inApprovedCard(n) || name === 'about.html' && inRewrittenAbout(n)) continue;
     textCount++;
     if (!destText.includes(value)) failures.push(`${name}: missing text: ${value.slice(0, 100)}`);
   }
@@ -82,12 +91,14 @@ const required = {
  'instruments-meters.html': ['DMM6500', 'DAQ6510', 'Up to 80 channels*'],
  'instruments-production.html': ['5265N Transformer Analyzer'],
  'applications.html': ['5265N Transformer Analyzer', '2 Series MSO oscilloscope — EDU bundle'],
+ 'about.html': ['college friends', '1994', 'global partners', 'Tektronix', 'respected institutes', 'Professional standards.', 'Dependable supply.'],
 };
 for (const [file, phrases] of Object.entries(required)) {
  const copy=norm(text(readPage(file)));
  for(const phrase of phrases) if(!copy.includes(phrase)) failures.push(`${file}: approved update missing: ${phrase}`);
  if(copy.includes('5465 Transformer Analyzer') || copy.includes('MSO 2 Series EDU Oscilloscope')) failures.push(`${file}: superseded product card still shown`);
 }
+if (walk(readPage('about.html'), n => (attr(n, 'class') || '').split(/\s+/).includes('timeline')).length) failures.push('about.html: removed timeline is still present');
 const powerPage=readPage('instruments-power.html');
 const oldPower=walk(parse(extract('instruments.html').html), n => n.tagName==='article' && walk(n,x=>x.tagName==='h3').some(h=>norm(text(h))==='2220 / 2230 Multi-Channel DC Power Supply'))[0];
 for(const n of walk(oldPower,n=>n.nodeName==='#text')) if(norm(n.value).length>2 && !norm(text(powerPage)).includes(norm(n.value))) failures.push(`instruments-power.html: relocated supply text missing: ${norm(n.value)}`);

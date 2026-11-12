@@ -6,6 +6,10 @@ This implements the approved Industrial Editorial direction. The original site r
 
 Catalogue update, 7 October 2026: Tektronix AFG31252 added; EDU consolidated into the 2 Series MSO card; EA/Anritsu lead their categories; Microtest 5265N and Keithley DMM6500/DAQ6510 featured. Category headings are now individual. Curated overrides live in `src/content/instrument-updates.ts` and survive `extract:content`. Sources and rationale are in `../design/research/instrument-updates-2026-10-07.md`.
 
+Layout audit, 8 November 2026: viewport-aware spacing and media frames live in `src/viewport.css`. The homepage's default sections fit the tested laptop and phone viewports. Division categories use compact rows; featured products use `ProductBrowser`; brand tiles use responsive paging (`CollectionPager.tsx`). On phones, division model heroes offer Overview / Explore in 3D views. Every component brand tile now uses its actual logo. About tells the 1994 college-friends origin story and removes the timeline. The oscilloscope category and homepage card use a transparent datasheet-derived MSO58B image. Review results are in `../design/reviews/viewport-audit-2026-11-08.md`.
+
+Scope upgrade, 8 November 2026: the user chose to retain the existing MSO58B study. `scripts/refine-scope.py` refines its geometry; `scripts/finish-scope.py` finalises normals, tangents, LCD material and posters. `src/ScopeDisplay.tsx` draws the LCD, `src/scope.ts` defines specifications and signal/FFT logic, and `src/scope.css` bounds the controls. The model has six hotspots, front/back inspection, four waveform presets, Run/Stop, timebase and computed Spectrum View. The original study remains unchanged. References: `model-source/scope-references/README.md`. Rebuild instructions: `../design/interactive-oscilloscope-plan.md`.
+
 ## Preview
 
 To start development from this folder:
@@ -55,7 +59,7 @@ All internal paths go through `url()` in `src/base.ts`, so the same code works a
 | `brands.html` | `src/pages/Brands.tsx` | Filterable brand tiles |
 | `brand-*.html` (20) | `src/pages/Brand.tsx` | One template for every brand page, except ADLER; `brand-pace.html` is new (content in `src/content/pace.ts`) |
 | `electronic-components/adler.html` (also `brand-adler.html`) | `src/pages/Adler.tsx` | ADLER: 3D models, stock range, solar and automotive ranges, credentials (see below) |
-| `about.html` | `src/pages/About.tsx` | Stats, journey, leadership, offer |
+| `about.html` | `src/pages/About.tsx` | Founders' story, standards, stats, leadership, offer |
 | `contact.html` | `src/pages/Contact.tsx` | Enquiry form (see below) |
 | `store.html` | `src/pages/Store.tsx` | The original `store.js` runs inside the new layout |
 
@@ -112,7 +116,7 @@ python scripts/build-logo.py
 
 - **Customer logos** (homepage): the supplied files carry very different amounts of empty canvas, so equal boxes made some logos tiny. Each is trimmed to its artwork and given a display size for equal visual weight (equal area, adjusted for how much dark ink it has once greyscaled, within height and width limits). Very light logos are darkened slightly in the greyscale state. Sizes are in `src/content/customers.json`.
 - **Partner logos** (brands page, brand rows and pages, category pages): the same sizing, in colour, with white backgrounds made transparent. Sizes are in `src/content/brand-logos.json`. CDIL now shows its logo.
-- **Category photos**: instrument categories show a real product whole on white, for example a UNI-T bench power supply, a handheld multimeter and a Keithley SMU. Component categories use the licensed Pexels stock photography (`../assets/IMAGE-SOURCES-stock.md`) or ADLER's range photography, cropped to 4:3. WebP at hero, card and menu-thumbnail sizes.
+- **Category photos**: instrument categories show a real product whole on white, for example a UNI-T bench power supply, a handheld multimeter and a Keithley SMU. The oscilloscope image uses a transparent MSO58B cutout from Tektronix's datasheet. Component categories use the licensed Pexels stock photography (`../assets/IMAGE-SOURCES-stock.md`) or ADLER's range photography, cropped to 4:3. WebP at hero, card and menu-thumbnail sizes.
 - **Product photos** (`public/images/products/`): 4:3 on white, for the category galleries, the ADLER stock cards and the instrument application blocks. These replace the original site's scenes: a competitor's oscilloscope, vintage analogue scopes, a pole transformer and battery cells.
 - **ADLER range photos** (`public/images/adler/`), from ADLER's catalogues.
 
@@ -122,9 +126,9 @@ Photos that are not in `../assets` are in `image-source/`, with their sources in
 
 The oscilloscope (Home, Instruments) and the package viewer (Home, Components) are live in the page (`src/InlineModel.tsx`, `src/ModelViewer.tsx`, configuration in `src/models.ts`):
 
-- **Motion:** a gentle sway around the front view with a slight float. Hovering turns the product to face the visitor. Dragging rotates it, with tilt on desktop. A pose the visitor chooses is held while they hover and for 3 s after, then the sway resumes.
+- **Motion:** a gentle sway around the front view with a slight float. Hovering turns the product to face the visitor. Dragging rotates it, with tilt on desktop. Oscilloscope inspection poses are retained until reset or another turn; package poses resume their sway after three seconds.
 - **Touch:** sideways swipes rotate the model. Vertical swipes keep scrolling the page (`touch-action: pan-y`).
-- **Controls:** keyboard arrows and Home, plus rotate, reset and pause buttons. Reduced-motion users get a still model that only moves when they turn it.
+- **Controls:** keyboard arrows and Home, plus rotate, reset and pause buttons. The oscilloscope adds six feature hotspots, a phone-friendly feature picker, Front/Back, four waveform presets, Run/Stop, timebase and an FFT computed from the displayed signal. Reduced-motion users get a still model that only moves when they turn it.
 - **Oscilloscope poster:** the camera replicates the Blender poster's orthographic camera, so the live model cross-fades in place. AgX tone mapping matches the poster's colour transform.
 - **Packages:** one persistent canvas swaps between models, preloading all four, with no blank frame between them. A rim light and a soft glow separate the black epoxy from the navy background.
 - **Fallbacks:** browsers on software WebGL, or without WebGL, get the still image instead.
@@ -135,7 +139,7 @@ Blender exports the uncompressed masters to `model-source/glb/`. `npm run optimi
 
 | Asset | Master GLB | Web GLB | Triangles | Source |
 |---|---:|---:|---:|---|
-| Tektronix 5 Series B study | 2,490,524 bytes | 422,728 bytes | 86,357 | `model-source/tektronix-5b-study.blend` |
+| Tektronix MSO58B refined study | 9,430,464 bytes | 1,663,768 bytes | 281,343 | `model-source/tektronix-5b-refined.blend` |
 | TO-220AB | 76,788 bytes | 18,192 bytes | 2,140 | `model-source/semiconductor-families.blend` |
 | TO-247AD | 80,664 bytes | 19,036 bytes | 2,212 | same scene |
 | QFN-32 | 69,584 bytes | 9,952 bytes | 400 | same scene |
@@ -160,12 +164,14 @@ The invented part markings are gone. The parts carry only moulding details: ejec
 
 **PACE** models were built with ChatGPT (`scripts/build-pace.py`; review page `pace-model-review.html` in the dev server). `node scripts/finish-pace.mjs` compresses them, with WebP textures that halve the station, checks that all 16 tips keep their own nodes, and copies the framing and tip names to `src/pace-models.json`. The page shows each tip's PACE part number and chart name from `paceTipParts` in `src/content/pace.ts`. PACE does not label the lineup photo the model follows, so the tips were matched to PACE's *TD-200 Blue Series Tip Chart* by shape and size; the eight marked `checked: false` are closest fits to confirm with PACE.
 
-**Oscilloscope** (`scripts/build-scope.py`): the rear shell is now Tektronix blue, with a cooling-slot grid, an I/O plate (mains inlet, auxiliary BNCs, USB, LAN, DisplayPort, DVI and a serial label), the handle's hinge brackets and rear feet that sit on the ground. The front view and poster camera are unchanged. It was constructed from the supplied photographs; the official STEP assembly could not be imported (1,002 empty meshes). **No manufacturer CAD geometry is used.** The controls, legends and screen waveforms are reference-based approximations.
+**Oscilloscope:** `scripts/refine-scope.py` opens the existing `tektronix-5b-study.blend`, keeps its enclosure, handle, feet and bezel, then refines the controls, connectors, rear cooling grid and I/O from Tektronix photographs and diagrams. `scripts/finish-scope.py` finalises normals, export tangents, the UV-mapped LCD and three posters. The original study is preserved. **No manufacturer CAD geometry is used.** References are in `model-source/scope-references/README.md`; complete rebuild steps and the interaction design are in `../design/interactive-oscilloscope-plan.md`.
 
 Regenerate with Blender 5.x:
 
 ```powershell
-blender --background --python scripts/build-scope.py
+node scripts/make-scope-textures.mjs
+blender --background --python scripts/refine-scope.py
+blender --background --python scripts/finish-scope.py
 blender --background --python scripts/build-packages.py
 npm run optimize:models
 python scripts/optimize-posters.py

@@ -54,7 +54,7 @@ export const categories: Category[] = [
     menu: 'Benchtop, mixed-signal and handheld scopes, and signal generators',
     headline: ['Oscilloscopes', 'from the teaching lab to GHz debug.'],
     lede: 'Two-, four- and eight-channel digital and mixed-signal oscilloscopes, handheld scopes and the function generators that go with them, from Tektronix, UNI-T and Scientific. Demo units and application support come from our New Delhi team.',
-    photoAlt: 'Tektronix TBS2000 digital oscilloscope on a lab bench',
+    photoAlt: 'Tektronix MSO58B mixed-signal oscilloscope, shown whole with eight FlexChannel inputs',
     types: [
       { name: 'Benchtop oscilloscopes', text: 'Two- and four-channel digital storage oscilloscopes for R&D benches, service and teaching labs.', brands: ['tektronix', 'uni-t', 'scientific'], image: img('unit-upo-mso') },
       { name: 'Mixed-signal & logic analysis', text: 'Analog and digital channels together, with serial-bus decode for embedded, FPGA and power-integrity debug.', brands: ['tektronix'], image: img('tektronix-2-series-mso') },

@@ -42,14 +42,14 @@ const pkg = (id: ModelId, label: string): ModelSpec => ({
 export const MODELS: Record<ModelId, ModelSpec> = {
   scope: {
     id: 'scope',
-    label: 'Tektronix 5 Series B oscilloscope',
-    url: '/models/scope.glb',
+    label: 'Tektronix MSO58B, 5 Series B oscilloscope, 2 GHz',
+    url: '/models/scope.glb?rev=5b-realism-2',
     // Blender camera for scope-hero (scripts/build-scope.py): ortho scale 6.25 at 1400 x 1100,
-    // from (6, -12, 5.5) towards (0, 0, 1.62), converted to glTF's Y-up axes.
-    view: [6, 3.88, 12],
-    frame: { kind: 'poster', width: 6.25, height: (6.25 * 1100) / 1400, target: [0, 1.62, 0] },
-    poster: '/images/scope-hero.webp',
-    fallback: '/images/scope-hero.webp',
+    // from (6, -12, 5.5) towards (0, 0, 1.76), converted to glTF's Y-up axes.
+    view: [6, 3.74, 12],
+    frame: { kind: 'poster', width: 6.25, height: (6.25 * 1100) / 1400, target: [0, 1.76, 0] },
+    poster: '/images/scope-hero.webp?rev=5b-realism-2',
+    fallback: '/images/scope-hero.webp?rev=5b-realism-2',
     sway: 0.4,
     tone: 'agx',
   },
@@ -97,6 +97,8 @@ export type ViewerInput = {
   lastInteraction: number;
   turn: number;
   reset: boolean;
+  /** Holds the visitor's pose (an open feature card) instead of drifting back to the idle sway. */
+  keepPose: boolean;
   invalidate?: () => void;
 };
 
@@ -113,4 +115,5 @@ export const createInput = (): ViewerInput => ({
   lastInteraction: 0,
   turn: 0,
   reset: false,
+  keepPose: false,
 });

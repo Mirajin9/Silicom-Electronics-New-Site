@@ -1,0 +1,614 @@
+{
+  "checks": [
+    {
+      "hero": 552,
+      "home": [
+        {
+          "height": 552,
+          "section": "hero section-shell"
+        },
+        {
+          "height": 113,
+          "section": "trust section-shell"
+        },
+        {
+          "height": 550,
+          "section": "divisions section-shell"
+        },
+        {
+          "height": 486,
+          "section": "applications section-shell"
+        },
+        {
+          "height": 497,
+          "section": "package-stage section-shell"
+        },
+        {
+          "height": 590,
+          "section": "company section-shell"
+        },
+        {
+          "height": 231,
+          "section": "resources section-shell"
+        },
+        {
+          "height": 292,
+          "section": "contact-band section-shell"
+        }
+      ],
+      "overflow": false,
+      "route": "/",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 510,
+      "overflow": false,
+      "route": "/instruments.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 564,
+      "overflow": false,
+      "route": "/components.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 518,
+      "overflow": false,
+      "route": "/about.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 482,
+      "overflow": false,
+      "route": "/brands.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 426,
+      "overflow": false,
+      "route": "/instruments-oscilloscopes.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 705,
+      "overflow": false,
+      "route": "/electronic-components/adler.html",
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    {
+      "hero": 516,
+      "home": [
+        {
+          "height": 516,
+          "section": "hero section-shell"
+        },
+        {
+          "height": 113,
+          "section": "trust section-shell"
+        },
+        {
+          "height": 477,
+          "section": "divisions section-shell"
+        },
+        {
+          "height": 446,
+          "section": "applications section-shell"
+        },
+        {
+          "height": 461,
+          "section": "package-stage section-shell"
+        },
+        {
+          "height": 510,
+          "section": "company section-shell"
+        },
+        {
+          "height": 231,
+          "section": "resources section-shell"
+        },
+        {
+          "height": 291,
+          "section": "contact-band section-shell"
+        }
+      ],
+      "overflow": false,
+      "route": "/",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 472,
+      "overflow": false,
+      "route": "/instruments.html",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 527,
+      "overflow": false,
+      "route": "/components.html",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 478,
+      "overflow": false,
+      "route": "/about.html",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 444,
+      "overflow": false,
+      "route": "/brands.html",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 417,
+      "overflow": false,
+      "route": "/instruments-oscilloscopes.html",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 672,
+      "overflow": false,
+      "route": "/electronic-components/adler.html",
+      "viewport": [
+        1280,
+        600
+      ]
+    },
+    {
+      "hero": 528,
+      "home": [
+        {
+          "height": 528,
+          "section": "hero section-shell"
+        },
+        {
+          "height": 161,
+          "section": "trust section-shell"
+        },
+        {
+          "height": 515,
+          "section": "divisions section-shell"
+        },
+        {
+          "height": 566,
+          "section": "applications section-shell"
+        },
+        {
+          "height": 603,
+          "section": "package-stage section-shell"
+        },
+        {
+          "height": 565,
+          "section": "company section-shell"
+        },
+        {
+          "height": 213,
+          "section": "resources section-shell"
+        },
+        {
+          "height": 264,
+          "section": "contact-band section-shell"
+        }
+      ],
+      "overflow": false,
+      "route": "/",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 457,
+      "overflow": false,
+      "route": "/instruments.html",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 600,
+      "overflow": false,
+      "route": "/components.html",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 554,
+      "overflow": false,
+      "route": "/about.html",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 486,
+      "overflow": false,
+      "route": "/brands.html",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 396,
+      "overflow": false,
+      "route": "/instruments-oscilloscopes.html",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 877,
+      "overflow": false,
+      "route": "/electronic-components/adler.html",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "hero": 674,
+      "home": [
+        {
+          "height": 674,
+          "section": "hero section-shell"
+        },
+        {
+          "height": 221,
+          "section": "trust section-shell"
+        },
+        {
+          "height": 611,
+          "section": "divisions section-shell"
+        },
+        {
+          "height": 767,
+          "section": "applications section-shell"
+        },
+        {
+          "height": 724,
+          "section": "package-stage section-shell"
+        },
+        {
+          "height": 756,
+          "section": "company section-shell"
+        },
+        {
+          "height": 309,
+          "section": "resources section-shell"
+        },
+        {
+          "height": 311,
+          "section": "contact-band section-shell"
+        }
+      ],
+      "overflow": false,
+      "route": "/",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "hero": 491,
+      "overflow": false,
+      "route": "/instruments.html",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "hero": 575,
+      "overflow": false,
+      "route": "/components.html",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "hero": 625,
+      "overflow": false,
+      "route": "/about.html",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "hero": 674,
+      "overflow": false,
+      "route": "/brands.html",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "hero": 649,
+      "overflow": false,
+      "route": "/instruments-oscilloscopes.html",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "hero": 656,
+      "overflow": false,
+      "route": "/electronic-components/adler.html",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "available": 672,
+      "hero": 628,
+      "home": [
+        {
+          "height": 628,
+          "section": "hero section-shell"
+        },
+        {
+          "height": 221,
+          "section": "trust section-shell"
+        },
+        {
+          "height": 607,
+          "section": "divisions section-shell"
+        },
+        {
+          "height": 644,
+          "section": "applications section-shell"
+        },
+        {
+          "height": 663,
+          "section": "package-stage section-shell"
+        },
+        {
+          "height": 638,
+          "section": "company section-shell"
+        },
+        {
+          "height": 343,
+          "section": "resources section-shell"
+        },
+        {
+          "height": 311,
+          "section": "contact-band section-shell"
+        }
+      ],
+      "overflow": false,
+      "route": "/",
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "hero": 501,
+      "overflow": false,
+      "route": "/instruments.html",
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "hero": 584,
+      "overflow": false,
+      "route": "/components.html",
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "hero": 606,
+      "overflow": false,
+      "route": "/about.html",
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "hero": 699,
+      "overflow": false,
+      "route": "/brands.html",
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "hero": 636,
+      "overflow": false,
+      "route": "/instruments-oscilloscopes.html",
+      "viewport": [
+        320,
+        740
+      ]
+    },
+    {
+      "hero": 810,
+      "overflow": false,
+      "route": "/electronic-components/adler.html",
+      "viewport": [
+        320,
+        740
+      ]
+    }
+  ],
+  "applicationTabs": [
+    {
+      "height": 486,
+      "media": 317,
+      "name": "EV & charging"
+    },
+    {
+      "height": 486,
+      "media": 317,
+      "name": "Solar & energy"
+    },
+    {
+      "height": 486,
+      "media": 317,
+      "name": "Lighting"
+    },
+    {
+      "height": 486,
+      "media": 317,
+      "name": "Industrial & BLDC"
+    },
+    {
+      "height": 486,
+      "media": 317,
+      "name": "Research & education"
+    }
+  ],
+  "phoneModels": [
+    {
+      "route": "components.html",
+      "overview": 575,
+      "model": 549
+    },
+    {
+      "route": "instruments.html",
+      "overview": 491,
+      "model": 412
+    },
+    {
+      "route": "electronic-components/adler.html",
+      "overview": 656,
+      "model": 749
+    }
+  ],
+  "componentBrands": [
+    {
+      "logos": [
+        "/images/brands/asemi.webp",
+        "/images/brands/donghai-wxdh.webp",
+        "/images/brands/jilin-sino.webp"
+      ],
+      "names": [
+        "ASEMI (ASM)",
+        "Donghai / WXDH",
+        "Jilin Sino"
+      ]
+    },
+    {
+      "logos": [
+        "/images/brands/shikues.webp",
+        "/images/brands/mot-inmark.webp",
+        "/images/brands/reasunos.webp"
+      ],
+      "names": [
+        "Shikues",
+        "MOT Inmark",
+        "Reasunos"
+      ]
+    },
+    {
+      "logos": [
+        "/images/brands/surging.webp",
+        "/images/brands/adler.webp",
+        "/images/brands/mlcc-base.webp"
+      ],
+      "names": [
+        "Surging",
+        "Adler EV",
+        "MLCC Base"
+      ]
+    },
+    {
+      "logos": [
+        "/images/brands/cdil.webp"
+      ],
+      "names": [
+        "CDIL"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "quote": "/contact.html?demo=tek-2series-mso",
+      "title": "2 Series MSO Oscilloscope"
+    },
+    {
+      "quote": "/contact.html?division=instruments&brand=tektronix&demo=afg31252",
+      "title": "AFG31252 Arbitrary Function Generator"
+    },
+    {
+      "quote": "/contact.html?division=instruments&brand=elektro-automatik&demo=psi9000-dt",
+      "title": "PSI 9000 DT Programmable DC Power Supply"
+    },
+    {
+      "quote": "/contact.html?division=instruments&brand=microtest&demo=microtest-5265n",
+      "title": "5265N Transformer Analyzer"
+    },
+    {
+      "quote": "/contact.html?division=instruments&brand=keithley&demo=dmm6500",
+      "title": "DMM6500 Bench Digital Multimeter"
+    },
+    {
+      "quote": "/contact.html?division=instruments&brand=keithley&demo=daq6510",
+      "title": "DAQ6510 Data Acquisition & Logging System"
+    }
+  ],
+  "keyboardSelectionAfterArrowRight": "Solar & energy",
+  "staticChecks": {
+    "pages": 42,
+    "imageReferences": 988,
+    "missingImages": 0,
+    "duplicateIds": 0,
+    "brokenLinks": 0
+  }
+}

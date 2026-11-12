@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { url } from './base';
 import { ADLER_PATH } from './content/adler';
 
@@ -38,21 +38,33 @@ export const Title = ({ parts }: { parts: TitlePart[] }) => <>
 
 /** Opening section of an inner page, in the homepage's language: a kicker rule,
  *  a heavy headline, supporting copy, actions and a media column. */
-export function PageHero({ kicker, aside, title, lede, actions, media, children, dark = false, id = 'main' }: {
-  kicker: ReactNode; aside?: ReactNode; title: ReactNode; lede?: string; actions?: Link[]; media?: ReactNode; children?: ReactNode; dark?: boolean; id?: string;
+export function PageHero({ kicker, aside, title, lede, actions, media, mediaLabel, children, dark = false, id = 'main' }: {
+  kicker: ReactNode; aside?: ReactNode; title: ReactNode; lede?: string; actions?: Link[]; media?: ReactNode; mediaLabel?: string; children?: ReactNode; dark?: boolean; id?: string;
 }) {
-  return <section className={`page-hero section-shell${dark ? ' page-hero-dark' : ''}${media ? '' : ' page-hero-solo'}`} id={id} tabIndex={-1}>
+  const [view, setView] = useState('overview');
+  return <section className={`page-hero section-shell${dark ? ' page-hero-dark' : ''}${media ? '' : ' page-hero-solo'}`} id={id} tabIndex={-1} data-hero-view={mediaLabel ? view : undefined}>
     <div className="hero-kicker"><span>{kicker}</span>{aside && <span className="hero-location">{aside}</span>}</div>
+    {mediaLabel && <HeroViewPicker view={view} onChange={setView} mediaLabel={mediaLabel} copyId={`${id}-copy`} mediaId={`${id}-media`} />}
     <div className="page-hero-body">
-      <div className="page-hero-copy">
+      <div className="page-hero-copy" id={`${id}-copy`}>
         <h1>{title}</h1>
         {lede && <p className="page-lede">{lede}</p>}
         {actions && <Actions links={actions} />}
         {children}
       </div>
-      {media && <div className="page-hero-media">{media}</div>}
+      {media && <div className="page-hero-media" id={`${id}-media`}>{media}</div>}
     </div>
   </section>;
+}
+
+/** Short screens can read the overview or explore the model within the same section. */
+export function HeroViewPicker({ view, onChange, mediaLabel = 'Explore in 3D', copyId, mediaId }: {
+  view: string; onChange: (view: string) => void; mediaLabel?: string; copyId: string; mediaId: string;
+}) {
+  return <div className="hero-view-picker" role="group" aria-label="Section view">
+    <button type="button" aria-pressed={view === 'overview'} aria-controls={copyId} onClick={() => onChange('overview')}>Overview</button>
+    <button type="button" aria-pressed={view === 'model'} aria-controls={mediaId} onClick={() => onChange('model')}>{mediaLabel}</button>
+  </div>;
 }
 
 /** The homepage's closing blue band, reused as every page's call to action. */

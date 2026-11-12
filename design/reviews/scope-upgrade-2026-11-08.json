@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-08",
+  "model": "Tektronix MSO58B / 5 Series B, 2 GHz configuration",
+  "retainedSource": "prototype/model-source/tektronix-5b-study.blend",
+  "refinedSource": "prototype/model-source/tektronix-5b-refined.blend",
+  "primaryReferences": [
+    "https://download.tek.com/datasheet/5SeriesB-MSO_Datasheet_48W738510.pdf",
+    "https://download.tek.com/manual/5SeriesB-MSO_QuickStart_077172300_RevB.pdf"
+  ],
+  "modelMetrics": {
+    "masterBytes": 9430464,
+    "webBytes": 1663768,
+    "triangles": 281343,
+    "drawCalls": 26,
+    "gltfErrors": 0,
+    "gltfWarnings": 0
+  },
+  "checks": {
+    "productionBuild": "42 pages prerendered",
+    "legacyRoutes": 27,
+    "contentFailures": [],
+    "brokenLinks": [],
+    "signalMath": "fundamental, square and PWM harmonics, noisy-signal spectrum passed"
+  },
+  "browser": {
+    "features": 6,
+    "waveforms": [
+      "sine",
+      "square",
+      "pulse",
+      "noise"
+    ],
+    "controls": [
+      "Front/Back",
+      "feature picker",
+      "marker pin/close",
+      "Escape",
+      "Run/Stop",
+      "Spectrum View",
+      "timebase"
+    ],
+    "consoleErrors": 0
+  },
+  "viewport": [
+    {
+      "route": "/",
+      "width": 1280,
+      "height": 720,
+      "heroHeight": 572,
+      "headerHeight": 80,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "height": 600,
+      "heroHeight": 516,
+      "headerHeight": 80,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "height": 844,
+      "heroHeight": 676,
+      "headerHeight": 64,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "height": 740,
+      "heroHeight": 630,
+      "headerHeight": 64,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/instruments.html",
+      "view": "model",
+      "width": 320,
+      "height": 740,
+      "heroHeight": 388,
+      "headerHeight": 64,
+      "horizontalOverflow": false
+    }
+  ],
+  "limitations": [
+    "Photo-guided visualisation, not manufacturer CAD.",
+    "Simulated waveforms, not physical acquisition.",
+    "UI reference examples from the user can guide a later matching pass."
+  ],
+  "published": false
+}

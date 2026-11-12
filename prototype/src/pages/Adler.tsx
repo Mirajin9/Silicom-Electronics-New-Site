@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { Layout } from '../Layout';
 import { brandBySlug } from '../content';
 import { brandPath } from '../content/categories';
 import { credentials, moreFaq, pairWith, ranges, seoCopy, stock } from '../content/adler';
 import { AdlerBrowser } from '../AdlerBrowser';
 import { PartnerLogo } from '../catalogue';
-import { Actions, Arrow, Chips, ContactBand, Title } from '../ui';
+import { Actions, Arrow, Chips, ContactBand, HeroViewPicker, Title } from '../ui';
 import { url } from '../base';
 
 /** ADLER, at the URL the current silicomindia.com page ranks on (/electronic-components/adler.html).
@@ -13,9 +14,10 @@ import { url } from '../base';
  *  ranges, ADLER's credentials and the 3D models. */
 export default function AdlerPage() {
   const b = brandBySlug('adler');
+  const [heroView, setHeroView] = useState('overview');
   const enquire = (part?: string) => `/contact.html?brand=adler${part ? `&model=${encodeURIComponent(part)}` : ''}`;
   return <Layout page="components">
-    <section className="page-hero brand-hero adler-hero section-shell" id="main" tabIndex={-1}>
+    <section className="page-hero brand-hero adler-hero section-shell" id="main" tabIndex={-1} data-hero-view={heroView}>
       <div className="hero-kicker">
         <nav className="breadcrumb" aria-label="Breadcrumb">
           <a href={url('/')}>Home</a><span aria-hidden="true"> / </span>
@@ -25,8 +27,9 @@ export default function AdlerPage() {
         </nav>
         <span className="hero-location">{b.hero.badge} · {b.hero.tag}</span>
       </div>
+      <HeroViewPicker view={heroView} onChange={setHeroView} copyId="adler-hero-copy" mediaId="adler-hero-media" />
       <div className="page-hero-body">
-        <div className="page-hero-copy">
+        <div className="page-hero-copy" id="adler-hero-copy">
           <span className="adler-badges"><span>Authorised distributor</span><span>IATF 16949</span><span>In stock</span></span>
           <h1>Adler Electronics Components</h1>
           <p className="category-strap">Automotive and solar fuses from Germany’s ADLER, in stock in India.</p>
@@ -34,7 +37,7 @@ export default function AdlerPage() {
           <Actions links={b.hero.actions} />
           <Chips items={b.hero.chips} />
         </div>
-        <div className="page-hero-media brand-hero-media">
+        <div className="page-hero-media brand-hero-media" id="adler-hero-media">
           <AdlerBrowser />
           <div className="brand-glance">
             <div className="brand-glance-logo"><PartnerLogo slug="adler" name={b.name} alt={b.logo?.alt ?? b.name} /></div>

@@ -1,0 +1,71 @@
+/* The scope has no control bars: the stage takes their height, and the only UI is a
+   fading hint, translucent feature points that follow the model, and one feature card. */
+.hero-product .inline-scope .inline-stage { height: calc(var(--media-height) + 44px); }
+.page-hero-media .product-orbit { top: 40%; }
+
+.scope-hotspot {
+  position: relative; pointer-events: auto; touch-action: manipulation;
+  width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; background: none;
+  display: grid; place-items: center; cursor: pointer;
+}
+/* A soft, frosted bead: mostly blur and light, with a faint blue core. */
+.scope-hotspot::before {
+  content: ""; width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #ffffffb8, #e6f0fc66 48%, #b9d4f22e 78%);
+  border: 1px solid #ffffff8c;
+  box-shadow: 0 0 0 5px #ffffff1f, 0 0 16px 2px #cfe3ff66, 0 3px 10px #0a2a5514;
+  -webkit-backdrop-filter: blur(5px) saturate(1.2); backdrop-filter: blur(5px) saturate(1.2);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  animation: scope-breathe 3.2s ease-in-out infinite;
+}
+.scope-hotspot::after {
+  content: ""; position: absolute; width: 5px; height: 5px; border-radius: 50%;
+  background: #2f7fd0a6; box-shadow: 0 0 6px #2f7fd080;
+}
+.scope-hotspot:hover::before, .scope-hotspot[aria-pressed=true]::before {
+  transform: scale(1.18);
+  background: radial-gradient(circle at 38% 32%, #ffffffd9, #e6f0fc99 48%, #b9d4f247 78%);
+  box-shadow: 0 0 0 7px #ffffff2e, 0 0 22px 4px #cfe3ff8c, 0 3px 12px #0a2a551f;
+}
+.scope-hotspot:focus-visible { outline: 2px solid #e08a1e; outline-offset: 2px; }
+@keyframes scope-breathe { 50% { box-shadow: 0 0 0 8px #ffffff10, 0 0 20px 3px #cfe3ff52, 0 3px 10px #0a2a5514; } }
+
+.scope-demo-label {
+  position: absolute; bottom: 4px; left: 8px; z-index: 2; pointer-events: none;
+  font-size: 9px; font-weight: 650; letter-spacing: .04em; color: #68788b;
+  transition: opacity .6s ease;
+}
+.scope-demo-label[data-hidden=true] { opacity: 0; }
+
+.scope-insight {
+  position: absolute; top: 10px; left: 8px; z-index: 12; width: min(250px, calc(100% - 16px));
+  padding: 12px 34px 12px 14px; border-radius: 12px; cursor: default;
+  background: #ffffff9e; border: 1px solid #ffffffb3;
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow: 0 10px 30px #0a2a5514;
+  animation: scope-card-in .22s ease-out;
+}
+.scope-insight strong { display: block; font-size: 12px; line-height: 1.35; color: #0d2440; }
+.scope-insight > span { display: block; font-size: 11px; font-weight: 750; color: #0767bd; margin-top: 4px; }
+.scope-insight p { font-size: 10px; line-height: 1.55; color: #46566a; margin-top: 5px; }
+.scope-insight-close { position: absolute; right: 3px; top: 3px; width: 28px; height: 28px; padding: 0; font-size: 18px; color: #46566a; border-radius: 50%; }
+.scope-insight-close:hover { background: #ffffff80; }
+.scope-waves { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 9px; }
+.scope-waves button {
+  padding: 5px 9px; min-height: 28px; border-radius: 999px; font-size: 10px; font-weight: 650;
+  color: #24435f; background: #ffffff8c; border: 1px solid #d4e2f1b3;
+}
+.scope-waves button:hover { background: #ffffffd0; }
+.scope-waves button[aria-pressed=true] { background: #0d2440d9; border-color: transparent; color: #fff; }
+@keyframes scope-card-in { from { opacity: 0; transform: translateY(-4px); } }
+
+@media (max-width: 580px) {
+  .hero-product .inline-scope .inline-stage { height: clamp(190px, calc(25svh + 40px), 270px); }
+  .page-hero-media .product-orbit { display: none; }
+  .scope-insight { top: 6px; padding: 9px 32px 9px 11px; }
+}
+@media (pointer: coarse) { .scope-hotspot { width: 36px; height: 36px; } }
+@media (prefers-reduced-motion: reduce) {
+  .scope-hotspot::before, .scope-insight { animation: none; transition: none; }
+  .scope-demo-label { transition: none; }
+}
