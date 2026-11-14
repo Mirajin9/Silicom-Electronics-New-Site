@@ -1,4 +1,41 @@
-# Caching for Hostinger (Apache). GitHub Pages ignores this file.
+# Apache settings for the live host (cPanel). GitHub Pages ignores this file.
+
+# Old silicomindia.com URLs (from its sitemap) -> their pages on the new site, permanently (301),
+# so search rankings and saved links carry over. /electronic-components/adler.html is unchanged
+# and is not redirected. NE keeps the #section in the target from being escaped.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Optional, once the SSL certificate is active: always use https://www. (remove the # signs).
+  # RewriteCond %{HTTPS} off [OR]
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^ https://www.silicomindia.com%{REQUEST_URI} [R=301,L]
+  RewriteRule ^electronic-components/?(index\.html)?$ /components.html [R=301,L]
+  RewriteRule ^scientific-measuring-equipments/?(index\.html)?$ /instruments.html [R=301,L]
+  RewriteRule ^(electronic-components|scientific-measuring-equipments)/about-us\.html$ /about.html [R=301,L]
+  RewriteRule ^(electronic-components|scientific-measuring-equipments)/(contact-us|enquiry)\.html$ /contact.html [R=301,L]
+  RewriteRule ^scientific-measuring-equipments/products\.html$ /instruments.html [R=301,L]
+  RewriteRule ^(gallery|scientific-measuring-equipments/sitemap)\.html$ /about.html [R=301,L]
+  RewriteRule ^electronic-components/lighting\.html$ /applications.html#app-led-driver [R=301,NE,L]
+  RewriteRule ^electronic-components/smps\.html$ /applications.html#app-smps [R=301,NE,L]
+  RewriteRule ^electronic-components/solar\.html$ /applications.html#app-solar [R=301,NE,L]
+  RewriteRule ^electronic-components/bldc\.html$ /applications.html#app-bldc [R=301,NE,L]
+  RewriteRule ^electronic-components/ev-chargers\.html$ /applications.html#app-ev-ac-charger [R=301,NE,L]
+  RewriteRule ^electronic-components/mobile-chargers\.html$ /applications.html#app-gan-charger [R=301,NE,L]
+  RewriteRule ^electronic-components/automotive\.html$ /applications.html#app-ev-2w [R=301,NE,L]
+  RewriteRule ^electronic-components/internet-of-things\.html$ /applications.html#app-smart-meter [R=301,NE,L]
+  RewriteRule ^electronic-components/asmi\.html$ /brand-asemi.html [R=301,L]
+  RewriteRule ^electronic-components/wxdh\.html$ /brand-donghai-wxdh.html [R=301,L]
+  RewriteRule ^electronic-components/(shikues|cdil|jilin-sino|surging)\.html$ /brand-$1.html [R=301,L]
+  RewriteRule ^electronic-components/semihow\.html$ /components.html [R=301,L]
+  RewriteRule ^scientific-measuring-equipments/(scientech|nvis|tektronix|keithley|anritsu|holmarc)\.html$ /brand-$1.html [R=301,L]
+  RewriteRule ^scientific-measuring-equipments/exfo\.html$ /instruments-rf.html [R=301,L]
+  RewriteRule ^scientific-measuring-equipments/fluke\.html$ /instruments-meters.html [R=301,L]
+</IfModule>
+
+# Missing pages show the site's own not-found page (written by scripts/prerender.mjs).
+ErrorDocument 404 /404.html
+
+# Caching.
 # Hashed build files never change (a new build gets new names): cache for a year.
 # Images and models: 7 days (some keep their name when updated). HTML: always revalidate, so new builds show at once.
 <IfModule mod_headers.c>
